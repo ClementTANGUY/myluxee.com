@@ -1,0 +1,21 @@
+// Your footer style
+
+#footer{
+	background-color: $gray-dark;
+
+	color: $silverChalice;
+
+	padding-top: 1em;
+
+	padding-bottom:1em;
+
+	line-height: 30px;
+
+	a {
+		color: $silverChalice;
+		&:hover {
+		color: $alto;
+		text-decoration:none;
+		}
+	}
+} 

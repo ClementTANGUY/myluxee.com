@@ -1,0 +1,10 @@
+- name: Styl.smart
+  picture: http://placehold.it/150x150
+  summary: The <strong>smartest</strong> Stylus.<br>Write no more typos..
+  price: 199€
+  color: primary
+- name: Styl.speed
+  picture: http://placehold.it/150x150
+  summary: The <strong>quickest</strong> Stylus.<br>Write texts before you do..
+  price: 299€
+  color: warning
