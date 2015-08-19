@@ -9418,12 +9418,11 @@ button.close {
   height: 5em; }
 
 /* line 41, /Users/clementtanguy/Desktop/Projets/Code/myluxee.com/source/stylesheets/layout/_utilities.css.scss */
-.chevron {
+.blinking {
   font-size: 90px;
-  position: relative;
-  top: 75px; }
-  /* line 45, /Users/clementtanguy/Desktop/Projets/Code/myluxee.com/source/stylesheets/layout/_utilities.css.scss */
-  .chevron a {
+  position: relative; }
+  /* line 44, /Users/clementtanguy/Desktop/Projets/Code/myluxee.com/source/stylesheets/layout/_utilities.css.scss */
+  .blinking a {
     color: #00BDF0; }
 
 /* line 6, /Users/clementtanguy/Desktop/Projets/Code/myluxee.com/source/stylesheets/components/_button.css.scss */
@@ -9471,7 +9470,7 @@ body {
 #banner {
   background: #00BDF0;
   height: 280px;
-  padding-top: 80px;
+  padding-top: 90px;
   padding-bottom: 50px;
   font-weight: 400;
   font-size: 24px;
