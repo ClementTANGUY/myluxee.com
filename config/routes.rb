@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :sales_associates
   get 'welcome/locate'
 
   get 'welcome/index'
