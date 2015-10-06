@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   devise_for :sales_associates
-  resources :sales_associates
+  resources :sales_associates do
+    post 'wizard_create', on: :new
+  end
+
+
   get 'welcome/locate'
 
   get 'welcome/index'

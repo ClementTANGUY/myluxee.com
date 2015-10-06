@@ -1,0 +1,37 @@
+<div class="modal fade" id="wizard-new-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">SIGN UP</h4>
+        <small>(it's Free)</small>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class=" col-md-6 ">
+            FACEBOOK <br/>
+            LINKEDIN <br/>
+        </div>
+        <div class="col-md-6 ">
+            <%= form_for SalesAssociate.new, url: wizard_create_new_sales_associate_path do |f|%>
+                   Sign up with e-mail
+                <p>
+                  <%= f.text_field :first_name, placeholder: "First Name"  %>
+                </p>
+                <p>
+                  <%= f.text_field :last_name, placeholder: "Last Name"  %>
+                </p>
+                <p>
+                  <%= f.text_field :email, placeholder: "E-mail"  %>
+                </p>
+                <p>
+                  <%= f.password_field :password, placeholder: "Password"  %>
+                </p>
+                <%= f.submit "Sign Up With E-mail"%>
+            <% end %>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

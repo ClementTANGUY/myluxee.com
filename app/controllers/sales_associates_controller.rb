@@ -1,6 +1,9 @@
 class SalesAssociatesController < ApplicationController
   before_action :set_sales_associate, only: [:show, :edit, :update, :destroy]
 
+  def wizard_create
+    @sales_associates = SalesAssociate.new(sales_associate_params)
+  end
   # GET /sales_associates
   # GET /sales_associates.json
   def index
