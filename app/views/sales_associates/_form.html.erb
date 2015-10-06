@@ -1,0 +1,37 @@
+<%= form_for(@sales_associate) do |f| %>
+  <% if @sales_associate.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sales_associate.errors.count, "error") %> prohibited this sales_associate from being saved:</h2>
+
+      <ul>
+      <% @sales_associate.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :first_name %><br>
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br>
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :be_contacted %><br>
+    <%= f.check_box :be_contacted %>
+  </div>
+  <div class="field">
+    <%= f.label :be_rated %><br>
+    <%= f.check_box :be_rated %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

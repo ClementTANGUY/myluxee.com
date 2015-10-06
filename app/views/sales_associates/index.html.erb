@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Sales Associates</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Email</th>
+      <th>Be contacted</th>
+      <th>Be rated</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sales_associates.each do |sales_associate| %>
+      <tr>
+        <td><%= sales_associate.first_name %></td>
+        <td><%= sales_associate.last_name %></td>
+        <td><%= sales_associate.email %></td>
+        <td><%= sales_associate.be_contacted %></td>
+        <td><%= sales_associate.be_rated %></td>
+        <td><%= link_to 'Show', sales_associate %></td>
+        <td><%= link_to 'Edit', edit_sales_associate_path(sales_associate) %></td>
+        <td><%= link_to 'Destroy', sales_associate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sales associate', new_sales_associate_path %>

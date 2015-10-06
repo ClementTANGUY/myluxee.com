@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :sales_associates
   resources :sales_associates
   get 'welcome/locate'
 
