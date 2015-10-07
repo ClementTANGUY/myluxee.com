@@ -22,6 +22,7 @@ two:
 #  last_name              :string(255)
 #  be_contacted           :boolean(1)
 #  be_rated               :boolean(1)
+#  contact_email          :string(255)
 #  created_at             :datetime        not null
 #  updated_at             :datetime        not null
 #  email                  :string(255)     default(""), not null

@@ -1,4 +1,4 @@
-<%= form_for(@sales_associate) do |f| %>
+<%= form_for(@sales_associate, html: {class: "form-control"}) do |f| %>
   <% if @sales_associate.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@sales_associate.errors.count, "error") %> prohibited this sales_associate from being saved:</h2>

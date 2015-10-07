@@ -5,10 +5,20 @@ class SalesAssociatesControllerTest < ActionController::TestCase
     @sales_associate = sales_associates(:one)
   end
 
+  def valid_params
+    {first_name: "test", last_name: "test", email: "test@test.com.br", password: "test", password_confirmation: "test"}
+  end
+
   test "should get index" do
     get :index
     assert_response :success
     assert_not_nil assigns(:sales_associates)
+  end
+
+  test "should post wizard create" do
+    post :wizard_create, sales_associate: {first_name: "test"}
+    assert_response :success
+    assert_not_nil assigns(:sales_associate)
   end
 
   test "should get new" do

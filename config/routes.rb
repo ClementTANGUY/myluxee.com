@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :sales_associates
+  devise_for :sales_associates,skip: [:registrations]
   resources :sales_associates do
     post 'wizard_create', on: :new
+    get 'wizard_create', on: :new
   end
 
 

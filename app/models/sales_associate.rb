@@ -3,6 +3,16 @@ class SalesAssociate < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  validates :first_name, :last_name, :email, presence: true, email:true
+  validates :email, uniqueness: true
+  validates :contact_email, presence: true, if: :be_contacted_true, email:true
+
+
+  private
+  def be_contacted_true
+    be_contacted
+  end
 end
 # == Schema Information
 #
@@ -13,6 +23,7 @@ end
 #  last_name              :string(255)
 #  be_contacted           :boolean(1)
 #  be_rated               :boolean(1)
+#  contact_email          :string(255)
 #  created_at             :datetime        not null
 #  updated_at             :datetime        not null
 #  email                  :string(255)     default(""), not null

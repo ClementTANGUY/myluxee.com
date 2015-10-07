@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20151006085155) do
     t.string   "last_name",              limit: 255
     t.boolean  "be_contacted"
     t.boolean  "be_rated"
+    t.string   "contact_email",          limit: 255
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
     t.string   "email",                  limit: 255, default: "", null: false
