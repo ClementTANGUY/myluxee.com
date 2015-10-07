@@ -4,9 +4,9 @@ class SalesAssociate < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  validates :first_name, :last_name, :email, presence: true, email:true
-  validates :email, uniqueness: true
-  validates :contact_email, presence: true, if: :be_contacted_true, email:true
+  validates :first_name, :last_name, :email, presence: true
+  validates :email, uniqueness: true, email_format:true
+  validates :contact_email, presence: true, if: :be_contacted_true, email_format:true
 
 
   private

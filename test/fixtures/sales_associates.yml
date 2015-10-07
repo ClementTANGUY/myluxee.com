@@ -6,6 +6,7 @@ one:
   email: john@gmail.com
   be_contacted: false
   be_rated: false
+  encrypted_password: <%= Devise.bcrypt(SalesAssociate, 'password') %>
 
 two:
   first_name: Marie
@@ -13,6 +14,7 @@ two:
   email: marie@gmail.com
   be_contacted: false
   be_rated: false
+  encrypted_password: <%= Devise.bcrypt(SalesAssociate, 'password') %>
 # == Schema Information
 #
 # Table name: sales_associates

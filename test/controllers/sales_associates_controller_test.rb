@@ -6,7 +6,7 @@ class SalesAssociatesControllerTest < ActionController::TestCase
   end
 
   def valid_params
-    {first_name: "test", last_name: "test", email: "test@test.com.br", password: "test", password_confirmation: "test"}
+    {first_name: "bigtestpass", last_name: "bigtestpass", email: "test@test.com.br", password: "bigtestpass", password_confirmation: "bigtestpass"}
   end
 
   test "should get index" do
@@ -16,7 +16,7 @@ class SalesAssociatesControllerTest < ActionController::TestCase
   end
 
   test "should post wizard create" do
-    post :wizard_create, sales_associate: {first_name: "test"}
+    post :wizard_create, sales_associate: {first_name: "bigtestpass"}
     assert_response :success
     assert_not_nil assigns(:sales_associate)
   end
@@ -28,7 +28,9 @@ class SalesAssociatesControllerTest < ActionController::TestCase
 
   test "should create sales_associate" do
     assert_difference('SalesAssociate.count') do
-      post :create, sales_associate: { be_contacted: @sales_associate.be_contacted, be_rated: @sales_associate.be_rated, email: @sales_associate.email, first_name: @sales_associate.first_name, last_name: @sales_associate.last_name }
+      post :create, sales_associate: { be_contacted: @sales_associate.be_contacted, be_rated: @sales_associate.be_rated,
+                                       email: "1_#{@sales_associate.email}", first_name: @sales_associate.first_name,
+                                       last_name: @sales_associate.last_name, password: "bigtestpass", password_confirmation: "bigtestpass" }
     end
 
     assert_redirected_to sales_associate_path(assigns(:sales_associate))
