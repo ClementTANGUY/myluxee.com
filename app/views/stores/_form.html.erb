@@ -1,0 +1,121 @@
+<%= form_for(@store) do |f| %>
+  <% if @store.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@store.errors.count, "error") %> prohibited this store from being saved:</h2>
+
+      <ul>
+      <% @store.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :string %><br>
+    <%= f.text_field :string %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :zip_code %><br>
+    <%= f.number_field :zip_code %>
+  </div>
+  <div class="field">
+    <%= f.label :country %><br>
+    <%= f.text_field :country %>
+  </div>
+  <div class="field">
+    <%= f.label :monday %><br>
+    <%= f.check_box :monday %>
+  </div>
+  <div class="field">
+    <%= f.label :tuesday %><br>
+    <%= f.check_box :tuesday %>
+  </div>
+  <div class="field">
+    <%= f.label :wednesday %><br>
+    <%= f.check_box :wednesday %>
+  </div>
+  <div class="field">
+    <%= f.label :thursday %><br>
+    <%= f.check_box :thursday %>
+  </div>
+  <div class="field">
+    <%= f.label :friday %><br>
+    <%= f.check_box :friday %>
+  </div>
+  <div class="field">
+    <%= f.label :saturday %><br>
+    <%= f.check_box :saturday %>
+  </div>
+  <div class="field">
+    <%= f.label :sunday %><br>
+    <%= f.check_box :sunday %>
+  </div>
+  <div class="field">
+    <%= f.label :monday_start %><br>
+    <%= f.time_select :monday_start %>
+  </div>
+  <div class="field">
+    <%= f.label :monday_end %><br>
+    <%= f.time_select :monday_end %>
+  </div>
+  <div class="field">
+    <%= f.label :tuesday_start %><br>
+    <%= f.time_select :tuesday_start %>
+  </div>
+  <div class="field">
+    <%= f.label :tuesday_end %><br>
+    <%= f.time_select :tuesday_end %>
+  </div>
+  <div class="field">
+    <%= f.label :wednesday_start %><br>
+    <%= f.time_select :wednesday_start %>
+  </div>
+  <div class="field">
+    <%= f.label :wednesday_end %><br>
+    <%= f.time_select :wednesday_end %>
+  </div>
+  <div class="field">
+    <%= f.label :thursday_start %><br>
+    <%= f.time_select :thursday_start %>
+  </div>
+  <div class="field">
+    <%= f.label :thursday_end %><br>
+    <%= f.time_select :thursday_end %>
+  </div>
+  <div class="field">
+    <%= f.label :friday_start %><br>
+    <%= f.time_select :friday_start %>
+  </div>
+  <div class="field">
+    <%= f.label :friday_end %><br>
+    <%= f.time_select :friday_end %>
+  </div>
+  <div class="field">
+    <%= f.label :saturday_start %><br>
+    <%= f.time_select :saturday_start %>
+  </div>
+  <div class="field">
+    <%= f.label :saturday_end %><br>
+    <%= f.time_select :saturday_end %>
+  </div>
+  <div class="field">
+    <%= f.label :sunday_start %><br>
+    <%= f.time_select :sunday_start %>
+  </div>
+  <div class="field">
+    <%= f.label :sunday_end %><br>
+    <%= f.time_select :sunday_end %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

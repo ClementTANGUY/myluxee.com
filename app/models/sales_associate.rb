@@ -16,6 +16,11 @@ class SalesAssociate < ActiveRecord::Base
   has_many :sales_associate_languages, dependent: :destroy
   has_many :languages, through: :sales_associate_languages
 
+  has_many :old_positions, -> {where('end_date is not null')}, dependent: :destroy, class_name: :position
+
+  has_many :positions, -> {where('end_date is null')}, dependent: :destroy
+  has_many :stores, through: :positions
+
   private
   def be_contacted_true
     be_contacted

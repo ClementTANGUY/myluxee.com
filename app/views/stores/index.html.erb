@@ -1,0 +1,77 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Stores</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Address</th>
+      <th>String</th>
+      <th>City</th>
+      <th>Zip code</th>
+      <th>Country</th>
+      <th>Monday</th>
+      <th>Tuesday</th>
+      <th>Wednesday</th>
+      <th>Thursday</th>
+      <th>Friday</th>
+      <th>Saturday</th>
+      <th>Sunday</th>
+      <th>Monday start</th>
+      <th>Monday end</th>
+      <th>Tuesday start</th>
+      <th>Tuesday end</th>
+      <th>Wednesday start</th>
+      <th>Wednesday end</th>
+      <th>Thursday start</th>
+      <th>Thursday end</th>
+      <th>Friday start</th>
+      <th>Friday end</th>
+      <th>Saturday start</th>
+      <th>Saturday end</th>
+      <th>Sunday start</th>
+      <th>Sunday end</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @stores.each do |store| %>
+      <tr>
+        <td><%= store.address %></td>
+        <td><%= store.string %></td>
+        <td><%= store.city %></td>
+        <td><%= store.zip_code %></td>
+        <td><%= store.country %></td>
+        <td><%= store.monday %></td>
+        <td><%= store.tuesday %></td>
+        <td><%= store.wednesday %></td>
+        <td><%= store.thursday %></td>
+        <td><%= store.friday %></td>
+        <td><%= store.saturday %></td>
+        <td><%= store.sunday %></td>
+        <td><%= store.monday_start %></td>
+        <td><%= store.monday_end %></td>
+        <td><%= store.tuesday_start %></td>
+        <td><%= store.tuesday_end %></td>
+        <td><%= store.wednesday_start %></td>
+        <td><%= store.wednesday_end %></td>
+        <td><%= store.thursday_start %></td>
+        <td><%= store.thursday_end %></td>
+        <td><%= store.friday_start %></td>
+        <td><%= store.friday_end %></td>
+        <td><%= store.saturday_start %></td>
+        <td><%= store.saturday_end %></td>
+        <td><%= store.sunday_start %></td>
+        <td><%= store.sunday_end %></td>
+        <td><%= link_to 'Show', store %></td>
+        <td><%= link_to 'Edit', edit_store_path(store) %></td>
+        <td><%= link_to 'Destroy', store, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Store', new_store_path %>

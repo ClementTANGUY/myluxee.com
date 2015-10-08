@@ -1,0 +1,57 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  address: MyString
+  string: MyString
+  city: MyString
+  zip_code: 1
+  country: MyString
+  monday: false
+  tuesday: false
+  wednesday: false
+  thursday: false
+  friday: false
+  saturday: false
+  sunday: false
+  monday_start: 2015-10-08 13:41:27
+  monday_end: 2015-10-08 13:41:27
+  tuesday_start: 2015-10-08 13:41:27
+  tuesday_end: 2015-10-08 13:41:27
+  wednesday_start: 2015-10-08 13:41:27
+  wednesday_end: 2015-10-08 13:41:27
+  thursday_start: 2015-10-08 13:41:27
+  thursday_end: 2015-10-08 13:41:27
+  friday_start: 2015-10-08 13:41:27
+  friday_end: 2015-10-08 13:41:27
+  saturday_start: 2015-10-08 13:41:27
+  saturday_end: 2015-10-08 13:41:27
+  sunday_start: 2015-10-08 13:41:27
+  sunday_end: 2015-10-08 13:41:27
+
+two:
+  address: MyString
+  string: MyString
+  city: MyString
+  zip_code: 1
+  country: MyString
+  monday: false
+  tuesday: false
+  wednesday: false
+  thursday: false
+  friday: false
+  saturday: false
+  sunday: false
+  monday_start: 2015-10-08 13:41:27
+  monday_end: 2015-10-08 13:41:27
+  tuesday_start: 2015-10-08 13:41:27
+  tuesday_end: 2015-10-08 13:41:27
+  wednesday_start: 2015-10-08 13:41:27
+  wednesday_end: 2015-10-08 13:41:27
+  thursday_start: 2015-10-08 13:41:27
+  thursday_end: 2015-10-08 13:41:27
+  friday_start: 2015-10-08 13:41:27
+  friday_end: 2015-10-08 13:41:27
+  saturday_start: 2015-10-08 13:41:27
+  saturday_end: 2015-10-08 13:41:27
+  sunday_start: 2015-10-08 13:41:27
+  sunday_end: 2015-10-08 13:41:27
