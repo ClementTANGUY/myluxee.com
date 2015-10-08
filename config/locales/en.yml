@@ -8,4 +8,6 @@ en:
       be_contacted: "Do you agree to be contacted by your costumers?"
       yes: "Yes"
       news: "Latest news about you"
+      languages: "Spoken Languages"
+      select_language: "Select the languages you speek"
     news_initial_content: "I am now part of My Luxee!"

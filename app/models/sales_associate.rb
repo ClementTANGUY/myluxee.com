@@ -13,6 +13,9 @@ class SalesAssociate < ActiveRecord::Base
   accepts_nested_attributes_for :sales_associate_news,
                                 reject_if: lambda {|attributes| attributes['content'].blank?}
 
+  has_many :sales_associate_languages, dependent: :destroy
+  has_many :languages, through: :sales_associate_languages
+
   private
   def be_contacted_true
     be_contacted

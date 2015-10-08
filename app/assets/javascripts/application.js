@@ -14,4 +14,12 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require chosen_v1.4.2/chosen.jquery.js
+//= require_self
 
+(function(){
+   $(document).ready(function(){
+       $(".chzn").chosen();
+
+   });
+})();

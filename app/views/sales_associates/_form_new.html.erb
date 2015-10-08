@@ -46,6 +46,11 @@
           <%= news.text_area :content, class: "form-control", rows: "5" %>
       <% end %>
     </div>
+    <div>
+      <%= f.label :languages, t('.languages') %>
+      <%= f.select :languages, Language.all.collect {|x| [x.name, x.id]}, {}, :placeholder => t(".select_language"), :multiple => true, class: "chzn" %>
+
+    </div>
   <div class="actions">
     <%= f.submit %>
   </div>

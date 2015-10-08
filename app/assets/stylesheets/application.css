@@ -11,5 +11,6 @@
  * file per style scope.
  *
  *= require_tree .
+ *= require chosen_v1.4.2/chosen.css
  *= require_self
  */
