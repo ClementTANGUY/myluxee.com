@@ -9,6 +9,10 @@ class SalesAssociate < ActiveRecord::Base
   validates :contact_email, presence: true, if: :be_contacted_true, email_format:true
 
 
+  has_many :sales_associate_news, dependent: :destroy, class_name: SalesAssociateNews
+  accepts_nested_attributes_for :sales_associate_news,
+                                reject_if: lambda {|attributes| attributes['content'].blank?}
+
   private
   def be_contacted_true
     be_contacted

@@ -11,7 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151006085155) do
+ActiveRecord::Schema.define(version: 20151007230346) do
+
+  create_table "brands", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "sales_associate_news", force: :cascade do |t|
+    t.integer  "sales_associate_id", limit: 4
+    t.text     "content",            limit: 65535
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+  end
+
+  add_index "sales_associate_news", ["sales_associate_id"], name: "fk_rails_9deb747e12", using: :btree
 
   create_table "sales_associates", force: :cascade do |t|
     t.string   "first_name",             limit: 255
@@ -36,4 +51,5 @@ ActiveRecord::Schema.define(version: 20151006085155) do
   add_index "sales_associates", ["email"], name: "index_sales_associates_on_email", unique: true, using: :btree
   add_index "sales_associates", ["reset_password_token"], name: "index_sales_associates_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "sales_associate_news", "sales_associates"
 end

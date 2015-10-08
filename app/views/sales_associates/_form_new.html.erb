@@ -1,4 +1,4 @@
-<%= form_for(@sales_associate, html: {class: "form-control"}) do |f| %>
+<%= form_for(@sales_associate) do |f| %>
   <% if @sales_associate.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@sales_associate.errors.count, "error") %> prohibited this sales_associate from being saved:</h2>
@@ -40,6 +40,12 @@
     <%= f.label :be_rated, t(".be_rated") %><br>
     <%= f.check_box :be_rated %> <span><%= t(".yes")%></span>
   </div>
+    <div class="form-group">
+      <%= f.fields_for :sales_associate_news do |news| %><br>
+          <%= news.label :content, t(".news") %>
+          <%= news.text_area :content, class: "form-control", rows: "5" %>
+      <% end %>
+    </div>
   <div class="actions">
     <%= f.submit %>
   </div>
