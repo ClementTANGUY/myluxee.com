@@ -1,0 +1,43 @@
+<div class="modal fade" id="wizard-new-session-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">EMAIL LOGIN</h4>
+        <small>Login with E-mail</small>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class=" col-md-6 ">
+            FACEBOOK <br/>
+            LINKEDIN <br/>
+          </div>
+          <div class="col-md-6 ">
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                <p class="field">
+                  <%= f.label :email %><br />
+                  <%= f.email_field :email, autofocus: true %>
+                </p>
+
+                <div class="field">
+                  <%= f.label :password %><br />
+                  <%= f.password_field :password, autocomplete: "off" %>
+                </div>
+
+                <% if devise_mapping.rememberable? -%>
+                    <div class="field">
+                      <%= f.check_box :remember_me %>
+                      <%= f.label :remember_me %>
+                    </div>
+                <% end -%>
+
+                <p class="actions">
+                  <%= f.submit "Log in" %>
+                </p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

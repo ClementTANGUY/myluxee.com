@@ -3,6 +3,6 @@ class WelcomeController < ApplicationController
   end
 
   def index
-
+    @sales_associate = SalesAssociate.new
   end
 end

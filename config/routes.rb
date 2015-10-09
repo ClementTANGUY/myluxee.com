@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'dashboard/index'
+
   resources :stores
   devise_for :sales_associates,skip: [:registrations]
   resources :sales_associates do

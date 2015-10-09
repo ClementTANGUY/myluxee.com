@@ -21,11 +21,11 @@
     <%= f.text_field :email %>
   </div>
   <div class="form-group">
-    <%= f.label :password %>
+    <%= f.label :password %> <br/>
     <%= f.password_field :password , autocomplete: "off"%>
   </div>
   <div class="form-group">
-    <%= f.label :password_confirmation %>
+    <%= f.label :password_confirmation %><br/>
     <%= f.password_field :password_confirmation , autocomplete: "off"%>
   </div>
   <div class="form-group">
@@ -40,6 +40,10 @@
     <%= f.label :be_rated, t(".be_rated") %><br>
     <%= f.check_box :be_rated %> <span><%= t(".yes")%></span>
   </div>
+    <%= f.fields_for :stores do |store| %><br>
+        <h3><%= t(".store")%></h3>
+        <%= render partial: 'stores/fields', object: store %>
+    <% end %>
     <div class="form-group">
       <%= f.fields_for :sales_associate_news do |news| %><br>
           <%= news.label :content, t(".news") %>
