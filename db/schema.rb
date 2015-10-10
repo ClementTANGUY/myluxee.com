@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151009115001) do
+ActiveRecord::Schema.define(version: 20151010072007) do
 
   create_table "brands", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -76,10 +76,14 @@ ActiveRecord::Schema.define(version: 20151009115001) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip",     limit: 255
     t.string   "last_sign_in_ip",        limit: 255
+    t.string   "provider",               limit: 255
+    t.string   "uid",                    limit: 255
   end
 
   add_index "sales_associates", ["email"], name: "index_sales_associates_on_email", unique: true, using: :btree
+  add_index "sales_associates", ["provider"], name: "index_sales_associates_on_provider", using: :btree
   add_index "sales_associates", ["reset_password_token"], name: "index_sales_associates_on_reset_password_token", unique: true, using: :btree
+  add_index "sales_associates", ["uid"], name: "index_sales_associates_on_uid", using: :btree
 
   create_table "store_brands", force: :cascade do |t|
     t.integer  "brand_id",   limit: 4

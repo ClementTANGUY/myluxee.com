@@ -32,6 +32,18 @@
 
   <body>
   <!-- TODO <body class="<%= "page_classes" %>">-->
+  <%unless flash[:notice].nil? %>
+      <div class="alert alert-sucess alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <%= flash[:notice] %>
+      </div>
+  <% end %>
+  <%unless flash[:alert].nil? %>
+      <div class="alert alert-danger alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <%= flash[:alert] %>
+      </div>
+  <% end %>
     <nav class="navbar navbar-default navbar-fixed-top navbar-wagon" role="navigation">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -86,6 +98,7 @@
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
+
     <%= render "sales_associates/wizard_new" %>
     <%= render "devise/sessions/wizard_new" %>
     <%= yield %>

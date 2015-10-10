@@ -9,11 +9,16 @@
       <div class="modal-body">
         <div class="row">
           <div class=" col-md-6 ">
-            FACEBOOK <br/>
-            LINKEDIN <br/>
+            <%= link_to omniauth_authorize_path(resource_name, :facebook), class: "btn btn-block btn-social btn-facebook" do %>
+              <i class="fa fa-facebook"></i> <%= t(".sigin_fb")%>
+            <% end %> <br/>
+            <%= link_to "#", class: "btn btn-block btn-social btn-linkedin" do %>
+              <i class="fa fa-linkedin"></i> <%= t(".sigin_lk")%>
+            <% end %> <br/>
+
         </div>
         <div class="col-md-6 ">
-            <%= form_for SalesAssociate.new, url: wizard_create_new_sales_associate_path do |f|%>
+            <%= form_for SalesAssociate.new, url: new_sales_associate_registration_path, :html => { method: :get } do |f|%>
                    Sign up with e-mail
                 <p>
                   <%= f.text_field :first_name, placeholder: "First Name"  %>

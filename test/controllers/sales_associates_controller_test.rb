@@ -27,6 +27,13 @@ class SalesAssociatesControllerTest < ActionController::TestCase
     assert_equal 1, assigns(:sales_associate).sales_associate_news.size
   end
 
+  test "should get new with params" do
+    get :new, sales_associate: {first_name: "john"}
+    assert_response :success
+    assert_equal 1, assigns(:sales_associate).sales_associate_news.size
+    assert_equal "john", assigns(:sales_associate).first_name
+  end
+
   test "should create sales_associate" do
     assert_difference('SalesAssociate.count') do
       post :create, sales_associate: { be_contacted: @sales_associate.be_contacted, be_rated: @sales_associate.be_rated,

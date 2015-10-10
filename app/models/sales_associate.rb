@@ -1,7 +1,7 @@
 class SalesAssociate < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable, :omniauthable,
          :recoverable, :rememberable, :trackable, :validatable
 
   validates :first_name, :last_name, :email, presence: true
@@ -21,6 +21,16 @@ class SalesAssociate < ActiveRecord::Base
   has_many :positions, -> {where('end_date is null')}, dependent: :destroy
   has_many :stores, through: :positions
 
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user.first_name = auth.info.first_name
+      user.last_name =  auth.info.last_name
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0,20]
+    end
+  end
   private
   def be_contacted_true
     be_contacted
@@ -48,5 +58,7 @@ end
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :string(255)
 #  last_sign_in_ip        :string(255)
+#  provider               :string(255)
+#  uid                    :string(255)
 #
 

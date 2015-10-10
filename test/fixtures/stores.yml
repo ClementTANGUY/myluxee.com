@@ -2,7 +2,7 @@
 
 one:
   address: MyString
-  string: MyString
+  state: MyString
   city: MyString
   zip_code: 1
   country: MyString
@@ -30,7 +30,7 @@ one:
 
 two:
   address: MyString
-  string: MyString
+  state: MyString
   city: MyString
   zip_code: 1
   country: MyString

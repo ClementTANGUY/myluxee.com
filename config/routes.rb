@@ -2,12 +2,8 @@ Rails.application.routes.draw do
   get 'dashboard/index'
 
   resources :stores
-  devise_for :sales_associates,skip: [:registrations]
-  resources :sales_associates do
-    post 'wizard_create', on: :new
-    get 'wizard_create', on: :new
-  end
-
+  devise_for :sales_associates, controllers: {omniauth_callbacks: "omniauth_callbacks", registrations: "sales_associates"}
+  resources :sales_associates
 
   get 'welcome/locate'
 

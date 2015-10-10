@@ -14,3 +14,12 @@
 @import "components/*";
 @import "pages/*";
 @import "vendor/*";
+
+@import "bootstrap-social/bootstrap-social";
+
+.alert{
+  position: absolute;
+  right: 40%;
+  z-index: 9999;
+  opacity: 0.8;
+}
