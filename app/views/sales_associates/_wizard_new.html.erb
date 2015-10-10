@@ -12,7 +12,7 @@
             <%= link_to omniauth_authorize_path(resource_name, :facebook), class: "btn btn-block btn-social btn-facebook" do %>
               <i class="fa fa-facebook"></i> <%= t(".sigin_fb")%>
             <% end %> <br/>
-            <%= link_to "#", class: "btn btn-block btn-social btn-linkedin" do %>
+            <%= link_to omniauth_authorize_path(resource_name, :linkedin), class: "btn btn-block btn-social btn-linkedin" do %>
               <i class="fa fa-linkedin"></i> <%= t(".sigin_lk")%>
             <% end %> <br/>
 

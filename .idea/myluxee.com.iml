@@ -47,7 +47,8 @@
       <envs>
         <env name="FACEBOOK_KEY" value="733513956780038" />
         <env name="FACEBOOK_SECRET" value="640a7dc20f9c47b9bbe3cb518dfaff93" />
-        <env name="" value="" />
+        <env name="LINKEDIN_ID" value="77okcmrlbbvv11" />
+        <env name="LINKEDIN_SECRET" value="Rzi64KwwbWOubQSE" />
       </envs>
       <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
       <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
