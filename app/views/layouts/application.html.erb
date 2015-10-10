@@ -9,8 +9,16 @@
 </head>
 <body>
 <div class="container">
-        <header class="page-header">
+        <header class="navbar navbar-static-top bs-docs-nav">
           <h2><%= t(".title")%></h2>
+
+            <% if sales_associate_signed_in? %>
+                 <%= link_to t(".logout"), destroy_sales_associate_session_path, method: :delete%>
+            <% else %>
+                <%= render "devise/sessions/new_inline"%>
+
+            <% end %>
+
         </header>
     <%= yield %>
 </div>
