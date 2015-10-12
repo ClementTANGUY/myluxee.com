@@ -3,14 +3,15 @@
 en:
   hello: "Hello world"
   sales_associates:
-    form_new:
+    form:
       be_rated: "Do you agree to be rated by your costumers?"
       be_contacted: "Do you agree to be contacted by your costumers?"
       yes: "Yes"
       news: "Latest news about you"
       languages: "Spoken Languages"
-      select_language: "Select the languages you speek"
+      select_language: "Select the languages you speak"
       store: "Store"
+      select_store: "Select the store you work!"
     news_initial_content: "I am now part of My Luxee!"
     wizard_new:
       sigin_fb: "Sign in with Facebook"

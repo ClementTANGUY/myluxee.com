@@ -14,12 +14,20 @@ class SalesAssociate < ActiveRecord::Base
                                 reject_if: lambda {|attributes| attributes['content'].blank?}
 
   has_many :sales_associate_languages, dependent: :destroy
-  has_many :languages, through: :sales_associate_languages
+  accepts_nested_attributes_for :sales_associate_languages
 
-  has_many :old_positions, -> {where('end_date is not null')}, dependent: :destroy, class_name: :position
+  has_many :languages, through: :sales_associate_languages
+  accepts_nested_attributes_for :languages,
+                                reject_if: lambda {|attributes| attributes['id'].blank?}
+
+  has_many :old_positions, -> {where('end_date is not null')}, dependent: :destroy, class_name: Position
 
   has_many :positions, -> {where('end_date is null')}, dependent: :destroy
+  accepts_nested_attributes_for :positions,
+                                reject_if: lambda {|attributes| attributes['role'].blank?}
+
   has_many :stores, through: :positions
+  accepts_nested_attributes_for :stores
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

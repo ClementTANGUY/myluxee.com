@@ -15,14 +15,9 @@ class SalesAssociatesControllerTest < ActionController::TestCase
     assert_not_nil assigns(:sales_associates)
   end
 
-  test "should post wizard create" do
-    post :wizard_create, sales_associate: {first_name: "bigtestpass"}
-    assert_response :success
-    assert_not_nil assigns(:sales_associate)
-  end
 
   test "should get new" do
-    get :new
+    get :new, sales_associate: {first_name: "john"}
     assert_response :success
     assert_equal 1, assigns(:sales_associate).sales_associate_news.size
   end
@@ -55,6 +50,20 @@ class SalesAssociatesControllerTest < ActionController::TestCase
     end
 
   end
+
+
+  test "should create sales_associate with languages" do
+    assert_difference('SalesAssociate.count') do
+      assert_difference('SalesAssociateLanguage.count') do
+        post :create, sales_associate: { be_contacted: @sales_associate.be_contacted, be_rated: @sales_associate.be_rated,
+                                         email: "1_#{@sales_associate.email}", first_name: @sales_associate.first_name,
+                                         last_name: @sales_associate.last_name, password: "bigtestpass", password_confirmation: "bigtestpass",
+                                         "language_ids"=>[languages(:english).id]}
+      end
+    end
+
+  end
+
 
   test "should show sales_associate" do
     get :show, id: @sales_associate

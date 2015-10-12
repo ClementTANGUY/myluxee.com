@@ -42,22 +42,17 @@
     <%= f.label :be_rated, t(".be_rated") %><br>
     <%= f.check_box :be_rated %> <span><%= t(".yes")%></span>
   </div>
-    <%= f.fields_for :stores do |store| %><br>
-        <h3><%= t(".store")%></h3>
-        <%= render partial: 'stores/fields', object: store %>
-    <% end %>
     <div class="form-group">
       <%= f.fields_for :sales_associate_news do |news| %><br>
-          <%= news.label :content, t(".news") %>
+          <%= news.label :content, t("sales_associates.form.news") %>
           <%= news.text_area :content, class: "form-control", rows: "5" %>
       <% end %>
     </div>
-    <div>
-      <%= f.label :languages, t('.languages') %>
-      <%= f.select :languages, Language.all.collect {|x| [x.name, x.id]}, {}, :placeholder => t("sales_associates.form_new.select_language"), :multiple => true, class: "chzn" %>
-
+    <div class="form-group">
+      <%= f.label :languages, t('sales_associates.form.languages') %>
+      <%= f.select :language_ids, Language.all.collect {|x| [x.name, x.id]},{}, :placeholder => t("sales_associates.form.select_language"), :multiple => true, class: "chzn" %>
     </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit t(".select_store") %>
   </div>
 <% end %>
