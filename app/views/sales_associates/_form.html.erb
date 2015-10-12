@@ -20,14 +20,16 @@
     <%= f.label :email %><br>
     <%= f.text_field :email %>
   </div>
-  <div class="form-group">
-    <%= f.label :password %> <br/>
-    <%= f.password_field :password , autocomplete: "off"%>
-  </div>
-  <div class="form-group">
-    <%= f.label :password_confirmation %><br/>
-    <%= f.password_field :password_confirmation , autocomplete: "off"%>
-  </div>
+  <%unless f.object.oauth_user? %>
+      <div class="form-group">
+        <%= f.label :password %> <br/>
+        <%= f.password_field :password , autocomplete: "off"%>
+      </div>
+      <div class="form-group">
+        <%= f.label :password_confirmation %><br/>
+        <%= f.password_field :password_confirmation , autocomplete: "off"%>
+      </div>
+  <% end %>
   <div class="form-group">
     <%= f.label :be_contacted, t(".be_contacted") %><br>
     <%= f.check_box :be_contacted %>    <%= t(".yes")%>
@@ -52,7 +54,7 @@
     </div>
     <div>
       <%= f.label :languages, t('.languages') %>
-      <%= f.select :languages, Language.all.collect {|x| [x.name, x.id]}, {}, :placeholder => t(".select_language"), :multiple => true, class: "chzn" %>
+      <%= f.select :languages, Language.all.collect {|x| [x.name, x.id]}, {}, :placeholder => t("sales_associates.form_new.select_language"), :multiple => true, class: "chzn" %>
 
     </div>
   <div class="actions">

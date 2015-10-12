@@ -9,18 +9,64 @@
 </head>
 <body>
 <div class="container">
-        <header class="navbar navbar-static-top bs-docs-nav">
-          <h2><%= t(".title")%></h2>
+        <!--<header class="">-->
 
-            <% if sales_associate_signed_in? %>
-                 <%= link_to t(".logout"), destroy_sales_associate_session_path, method: :delete%>
-            <% else %>
+            <!--<div class="col-md-4">-->
+                <!--<h2><%= t(".title")%></h2>-->
+            <!--</div>-->
+
+              <!--<ul class="nav nav-pills"></ul>-->
+                <!--<% if sales_associate_signed_in? %>-->
+                  <!--<li>-->
+                     <!--<%= link_to t(".logout"), destroy_sales_associate_session_path, method: :delete%>-->
+                  <!--</li>-->
+                <!--<% else %>-->
+                  <!--<li>-->
+                    <!--<%= render "devise/sessions/new_inline"%>-->
+                  <!--</li>-->
+                <!--<% end %>-->
+              <!--</ul>-->
+
+        <!--</header>-->
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <a class="navbar-brand" href="#">
+        <%= image_tag "logo.png", class: "col-xs-3 col-md-3"%>
+      </a>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <% if sales_associate_signed_in? %>
+              <li>
+                <%= link_to t(".logout"), destroy_sales_associate_session_path, method: :delete%>
+              </li>
+          <% else %>
+              <li>
                 <%= render "devise/sessions/new_inline"%>
+              </li>
+          <% end %>
 
-            <% end %>
-
-        </header>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+  <%= render 'alert_area' %>
     <%= yield %>
+</div>
+
+<div id="footer">
+  <div class="container text-center">
+    <p>©<%= Time.now.year %> MyLuxee</p>
+    <ul class="list-inline">
+      <li><%= link_to raw('<i class="fa fa-facebook fa-2x"></i>'), "http://facebook.com/MyLuxee", target: "blank" %></li>
+      <li></li>
+      <li><%= link_to raw('<i class="fa fa-twitter fa-2x"></i>'), "http://twitter.com/MyLuxee", target: "blank" %></li>
+      <li></li>
+      <li><%= link_to raw('<i class="fa fa-envelope fa-2x"></i>'), "mailto:contact@myluxee.com" %></li>
+    </ul>
+  </div>
 </div>
 </body>
 </html>

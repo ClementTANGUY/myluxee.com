@@ -19,3 +19,10 @@ en:
     application:
       title: "My Luxee"
       logout: "Logout"
+  devise:
+    sessions:
+      new:
+        login: "Log in"
+      new_inline:
+        email: "E-mail"
+        password: "Password"

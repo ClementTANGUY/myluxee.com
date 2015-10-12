@@ -1,0 +1,39 @@
+
+
+// General Style Variables
+@import "config/variables";
+@import "config/bootstrap_variables";
+
+// External Frameworks
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "chosen_v1.4.2/chosen.css";
+@import "bootstrap-social/bootstrap-social";
+
+// Our CSS
+@import "layout/*";
+@import "components/*";
+@import "pages/*";
+@import "vendor/*";
+
+label.small{
+    font-size: 0.8em;
+    color: grey;
+}
+
+.login-area {
+  width: 400px;
+}
+
+.navbar-form{
+  input{
+    height: 30px;
+    font-size: 12px;
+  }
+  label{
+    font-size: 12px;
+  }
+}
+

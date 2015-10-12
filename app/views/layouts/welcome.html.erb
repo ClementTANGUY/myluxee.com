@@ -32,18 +32,7 @@
 
   <body>
   <!-- TODO <body class="<%= "page_classes" %>">-->
-  <%unless flash[:notice].nil? %>
-      <div class="alert alert-sucess alert-dismissible">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <%= flash[:notice] %>
-      </div>
-  <% end %>
-  <%unless flash[:alert].nil? %>
-      <div class="alert alert-danger alert-dismissible">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <%= flash[:alert] %>
-      </div>
-  <% end %>
+  <%= render partial: 'alert_area' %>
     <nav class="navbar navbar-default navbar-fixed-top navbar-wagon" role="navigation">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -105,7 +94,7 @@
 
     <div id="footer">
       <div class="container text-center">
-        <p>©2015 MyLuxee</p>
+        <p>©<%= Time.now.year %> MyLuxee</p>
           <ul class="list-inline">
             <li><%= link_to raw('<i class="fa fa-facebook fa-2x"></i>'), "http://facebook.com/MyLuxee", target: "blank" %></li>
             <li></li>
