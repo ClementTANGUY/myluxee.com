@@ -5,6 +5,7 @@ class Position < ActiveRecord::Base
   belongs_to :store
 
   validates :start_date, :role , presence: true
+  validates :sales_associate_id, uniqueness: { scope: :store_id }
 end
 # == Schema Information
 #

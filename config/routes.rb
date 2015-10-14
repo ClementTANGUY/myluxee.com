@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :stores, controller: "sales_associates/stores" do
       member do
         post 'create_position'
+        delete 'destroy_position'
         get 'new_position'
       end
     end

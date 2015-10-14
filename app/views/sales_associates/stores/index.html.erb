@@ -15,9 +15,7 @@
   <thead>
   <tr>
     <th>Address</th>
-    <th>State</th>
-    <th>City</th>
-    <th>Zip code</th>
+
 
   </tr>
   </thead>
@@ -25,13 +23,16 @@
   <tbody>
   <% @stores.each do |store| %>
       <tr>
-        <td><%= store.address %></td>
-        <td><%= store.state %></td>
-        <td><%= store.city %></td>
-        <td><%= store.zip_code %></td>
+        <td><%= raw address_format(store) %></td>
+
         <td>
-          <%= link_to t(".select"), new_position_sales_associate_store_path(id: store, sales_associate_id: current_sales_associate),
-                      class: "btn btn-primary", remote: true, data: {target: "modal", toogle: "my-modal"}  %>
+          <% unless current_sales_associate.stores.exists?(id: store.id)%>
+              <%= link_to t(".select"), new_position_sales_associate_store_path(id: store, sales_associate_id: current_sales_associate),
+                          class: "btn btn-primary", remote: true, data: {target: "modal", toogle: "my-modal"}  %>
+          <% else %>
+              <%= link_to t(".deselect"), new_position_sales_associate_store_path(id: store, sales_associate_id: current_sales_associate),
+                          class: "btn btn-primary btn-danger", remote: true, data: {target: "modal", toogle: "my-modal"}  %>
+          <% end%>
         </td>
 
       </tr>

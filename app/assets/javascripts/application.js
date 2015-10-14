@@ -15,11 +15,11 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require chosen_v1.4.2/chosen.jquery.js
+//= require bootstrap-datepicker
 //= require_self
 
 (function(){
-   $(document).ready(function(){
+   $(document).on("page:change", function(){
        $(".chzn").chosen();
-
    });
 })();
