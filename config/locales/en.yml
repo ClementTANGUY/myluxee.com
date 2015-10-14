@@ -17,6 +17,7 @@ en:
     wizard_new:
       sigin_fb: "Sign in with Facebook"
       sigin_lk: "Sign in with LinkedIn"
+      signup_description: "Sign up with Social to follow your friends and see the startups they're working on <b>(recommended)</b>"
     stores:
       index:
         select: "I work at this store!"

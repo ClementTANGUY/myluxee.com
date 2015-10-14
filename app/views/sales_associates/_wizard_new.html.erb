@@ -3,12 +3,15 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">SIGN UP</h4>
-        <small>(it's Free)</small>
+        <h4 class="modal-title" id="myModalLabel">SIGN UP
+          <small>(it's Free)</small></h4>
+
       </div>
       <div class="modal-body">
+
         <div class="row">
           <div class=" col-md-6 ">
+            <small><%= raw t(".signup_description")%></small>
             <%= link_to omniauth_authorize_path(resource_name, :facebook), class: "btn btn-block btn-social btn-facebook" do %>
               <i class="fa fa-facebook"></i> <%= t(".sigin_fb")%>
             <% end %> <br/>
@@ -19,15 +22,15 @@
         </div>
         <div class="col-md-6 ">
             <%= form_for SalesAssociate.new, url: new_sales_associate_registration_path, :html => { method: :get } do |f|%>
-                   Sign up with e-mail
+                <label>Sign up with e-mail</label>
                 <p>
-                  <%= f.text_field :first_name, placeholder: "First Name"  %>
+                  <%= f.text_field :first_name, placeholder: "First Name" , class: "form-control" %>
                 </p>
                 <p>
-                  <%= f.text_field :last_name, placeholder: "Last Name"  %>
+                  <%= f.text_field :last_name, placeholder: "Last Name" , class: "form-control" %>
                 </p>
                 <p>
-                  <%= f.text_field :email, placeholder: "E-mail"  %>
+                  <%= f.text_field :email, placeholder: "E-mail" , class: "form-control" %>
                 </p>
                 <%= f.submit "Sign Up With E-mail"%>
             <% end %>

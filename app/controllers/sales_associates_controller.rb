@@ -20,7 +20,12 @@ class SalesAssociatesController < ApplicationController
 
   # GET /sales_associates/new
   def new
-    @sales_associate = SalesAssociate.new(sales_associate_params)
+    if params[:sales_associate].nil?
+      @sales_associate = SalesAssociate.new
+    else
+      @sales_associate = SalesAssociate.new(sales_associate_params)
+    end
+
     @sales_associate.sales_associate_news.build(content: I18n.t('sales_associates.news_initial_content'))
   end
 
