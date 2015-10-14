@@ -53,6 +53,6 @@
       <%= f.select :language_ids, Language.all.collect {|x| [x.name, x.id]},{}, :placeholder => t("sales_associates.form.select_language"), :multiple => true, class: "chzn" %>
     </div>
   <div class="actions">
-    <%= f.submit t(".select_store") %>
+    <%= f.submit sales_associate.stores.empty? ? t(".select_store") : t(".submit"), class: "btn btn-primary btn-lg" %>
   </div>
 <% end %>

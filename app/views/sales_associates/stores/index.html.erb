@@ -1,0 +1,52 @@
+<h1>Listing Stores</h1>
+
+<div class="row">
+  <div class="col-lg-6">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Search address...">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button">Search Store!</button>
+      </span>
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+</div><!-- /.row -->
+
+<table class="table ">
+  <thead>
+  <tr>
+    <th>Address</th>
+    <th>State</th>
+    <th>City</th>
+    <th>Zip code</th>
+
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @stores.each do |store| %>
+      <tr>
+        <td><%= store.address %></td>
+        <td><%= store.state %></td>
+        <td><%= store.city %></td>
+        <td><%= store.zip_code %></td>
+        <td>
+          <%= link_to t(".select"), new_position_sales_associate_store_path(id: store, sales_associate_id: current_sales_associate),
+                      class: "btn btn-primary", remote: true, data: {target: "modal", toogle: "my-modal"}  %>
+        </td>
+
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<div class="modal fade" role="dialog" id="my-modal" title="<%= t(".modal")%>">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <div class="modal-body a-unique-class">
+
+      </div>
+
+    </div>
+  </div>
+</div>

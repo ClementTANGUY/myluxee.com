@@ -1,4 +1,6 @@
 class Position < ActiveRecord::Base
+  ROLE_LIST = ["Sales Associate", "First Salesman", "Floor Manager", "Department Head"]
+
   belongs_to :sales_associate
   belongs_to :store
 

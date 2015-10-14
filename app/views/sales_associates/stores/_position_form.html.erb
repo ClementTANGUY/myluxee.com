@@ -1,0 +1,9 @@
+
+<%= raw address_format(@store) %>
+<h4><%=  t(".work_as")%></h4>
+<% Position::ROLE_LIST.each do |role| %>
+
+    <%= link_to role, create_position_sales_associate_store_path(id: @store, sales_associate_id: current_sales_associate, role: role),
+                method: :post, class: "btn btn-primary btn-lg btn-block"%>
+
+<% end %>

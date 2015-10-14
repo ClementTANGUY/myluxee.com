@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151010072007) do
+ActiveRecord::Schema.define(version: 20151013182733) do
 
   create_table "brands", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.string   "speciality", limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.string   "website",    limit: 255
   end
 
   create_table "languages", force: :cascade do |t|
@@ -108,20 +109,20 @@ ActiveRecord::Schema.define(version: 20151010072007) do
     t.boolean  "friday"
     t.boolean  "saturday"
     t.boolean  "sunday"
-    t.time     "monday_start"
-    t.time     "monday_end"
-    t.time     "tuesday_start"
-    t.time     "tuesday_end"
-    t.time     "wednesday_start"
-    t.time     "wednesday_end"
-    t.time     "thursday_start"
-    t.time     "thursday_end"
-    t.time     "friday_start"
-    t.time     "friday_end"
-    t.time     "saturday_start"
-    t.time     "saturday_end"
-    t.time     "sunday_start"
-    t.time     "sunday_end"
+    t.string   "monday_start",    limit: 255
+    t.string   "monday_end",      limit: 255
+    t.string   "tuesday_start",   limit: 255
+    t.string   "tuesday_end",     limit: 255
+    t.string   "wednesday_start", limit: 255
+    t.string   "wednesday_end",   limit: 255
+    t.string   "thursday_start",  limit: 255
+    t.string   "thursday_end",    limit: 255
+    t.string   "friday_start",    limit: 255
+    t.string   "friday_end",      limit: 255
+    t.string   "saturday_start",  limit: 255
+    t.string   "saturday_end",    limit: 255
+    t.string   "sunday_start",    limit: 255
+    t.string   "sunday_end",      limit: 255
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
   end

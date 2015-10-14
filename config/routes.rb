@@ -1,9 +1,21 @@
 Rails.application.routes.draw do
+  get 'welcome/terms_and_conditions'
+
+  get 'welcome/privacy_policy'
+
   get 'dashboard/index'
 
-  resources :stores
   devise_for :sales_associates, controllers: {omniauth_callbacks: "omniauth_callbacks", registrations: "sales_associates"}
-  resources :sales_associates
+  resources :sales_associates do
+    resources :stores, controller: "sales_associates/stores" do
+      member do
+        post 'create_position'
+        get 'new_position'
+      end
+    end
+  end
+
+  #resources :stores
 
   get 'welcome/locate'
 

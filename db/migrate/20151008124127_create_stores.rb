@@ -13,20 +13,20 @@ class CreateStores < ActiveRecord::Migration
       t.boolean :friday
       t.boolean :saturday
       t.boolean :sunday
-      t.time :monday_start
-      t.time :monday_end
-      t.time :tuesday_start
-      t.time :tuesday_end
-      t.time :wednesday_start
-      t.time :wednesday_end
-      t.time :thursday_start
-      t.time :thursday_end
-      t.time :friday_start
-      t.time :friday_end
-      t.time :saturday_start
-      t.time :saturday_end
-      t.time :sunday_start
-      t.time :sunday_end
+      t.string :monday_start
+      t.string :monday_end
+      t.string :tuesday_start
+      t.string :tuesday_end
+      t.string :wednesday_start
+      t.string :wednesday_end
+      t.string :thursday_start
+      t.string :thursday_end
+      t.string :friday_start
+      t.string :friday_end
+      t.string :saturday_start
+      t.string :saturday_end
+      t.string :sunday_start
+      t.string :sunday_end
 
       t.timestamps null: false
     end

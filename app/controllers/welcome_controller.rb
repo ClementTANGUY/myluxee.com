@@ -7,6 +7,14 @@ class WelcomeController < ApplicationController
     @sales_associate = SalesAssociate.new
   end
 
+  def terms_and_conditions
+
+  end
+
+  def privacy_policy
+
+  end
+
   private
 
   def require_no_user

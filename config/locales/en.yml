@@ -12,10 +12,19 @@ en:
       select_language: "Select the languages you speak"
       store: "Store"
       select_store: "Select the store you work!"
+      submit: "Save"
     news_initial_content: "I am now part of My Luxee!"
     wizard_new:
       sigin_fb: "Sign in with Facebook"
       sigin_lk: "Sign in with LinkedIn"
+    stores:
+      index:
+        select: "I work at this store!"
+        modal: "My Position"
+        my_position: "My Position"
+        my_position_description: "Choose my position from selected store"
+      position_form:
+        work_as: "I work as a:"
   layouts:
     application:
       title: "My Luxee"
