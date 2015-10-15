@@ -16,7 +16,8 @@ Rails.application.routes.draw do
     end
   end
 
-  #resources :stores
+
+  resources :stores
 
   get 'welcome/locate'
 

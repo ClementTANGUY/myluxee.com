@@ -1,42 +1,57 @@
 <div class="modal fade" id="wizard-new-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">SIGN UP
-          <small>(it's Free)</small></h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">SIGN UP<br/>
+          <small>(it's Free)</small>
+        </h4>
 
       </div>
       <div class="modal-body">
 
         <div class="row">
           <div class=" col-md-6 ">
-            <small><%= raw t(".signup_description")%></small>
+            <small><%= raw t(".signup_description") %></small>
             <%= link_to omniauth_authorize_path(resource_name, :facebook), class: "btn btn-block btn-social btn-facebook" do %>
-              <i class="fa fa-facebook"></i> <%= t(".sigin_fb")%>
+                <i class="fa fa-facebook"></i> <%= t(".sigin_fb") %>
             <% end %> <br/>
             <%= link_to omniauth_authorize_path(resource_name, :linkedin), class: "btn btn-block btn-social btn-linkedin" do %>
-              <i class="fa fa-linkedin"></i> <%= t(".sigin_lk")%>
+                <i class="fa fa-linkedin"></i> <%= t(".sigin_lk") %>
             <% end %> <br/>
 
-        </div>
-        <div class="col-md-6 ">
-            <%= form_for SalesAssociate.new, url: new_sales_associate_registration_path, :html => { method: :get } do |f|%>
-                <label>Sign up with e-mail</label>
+          </div>
+          <div class="col-md-6 ">
+            <%= form_for SalesAssociate.new, url: new_sales_associate_registration_path, :html => {method: :get} do |f| %>
+                <div class="row">
+                  <h5><span class="col-md-6">Sign up with e-mail</span>
+                    <small class="col-md-6 text-right"><a href="javascript:" id="signin-link">or log in to your account</a></small>
+                  </h5>
+                  <br/>
+                </div>
                 <p>
-                  <%= f.text_field :first_name, placeholder: "First Name" , class: "form-control" %>
+                  <%= f.text_field :first_name, placeholder: "First Name", class: "form-control" %>
                 </p>
                 <p>
-                  <%= f.text_field :last_name, placeholder: "Last Name" , class: "form-control" %>
+                  <%= f.text_field :last_name, placeholder: "Last Name", class: "form-control" %>
                 </p>
                 <p>
-                  <%= f.text_field :email, placeholder: "E-mail" , class: "form-control" %>
+                  <%= f.text_field :email, placeholder: "E-mail", class: "form-control" %>
                 </p>
-                <%= f.submit "Sign Up With E-mail"%>
+                <%= f.submit "Sign Up With E-mail" %>
             <% end %>
-        </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<script type="text/javascript" charset="utf-8">
+    $("#signin-link").click(function () {
+        $('#wizard-new-modal').modal('hide');
+        $('#wizard-new-session-modal').modal('show');
+
+    });
+</script>
