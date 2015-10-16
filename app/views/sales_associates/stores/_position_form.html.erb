@@ -5,7 +5,7 @@
     <div class="field form-horizontal">
       <%= label_tag :start_date, t(".start_date") %>
       <div class="input-group">
-        <%= text_field_tag :start_date,nil, data: {provide: 'datepicker'}, class: "form-control"%>
+        <%= text_field_tag :start_date,nil, data: {provide: 'datepicker'}, class: "form-control", required: true%>
         <div class="input-group-addon"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></div>
       </div>
     </div>

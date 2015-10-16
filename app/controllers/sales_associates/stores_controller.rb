@@ -1,5 +1,5 @@
 class SalesAssociates::StoresController < ApplicationController
-  before_action :set_store, only: [:show, :create_position, :new_position]
+  before_action :set_store, only: [:show, :create_position, :new_position,:finish_position]
   before_action :authenticate_sales_associate!
 
   def index
@@ -26,7 +26,21 @@ class SalesAssociates::StoresController < ApplicationController
   def new_position
   end
 
+  def finish_position
+  end
+
+  def undo_position
+    if position = current_sales_associate.old_positions.where(store_id: params[:id]).first
+      position.update_attribute(:end_date, nil)
+    end
+    redirect_to sales_associate_stores_path(sales_associate_id: current_sales_associate)
+  end
+
   def destroy_position
+    if position = current_sales_associate.positions.where(store_id: params[:id]).first
+      position.update_attribute(:end_date, params[:end_date])
+    end
+    redirect_to sales_associate_stores_path(sales_associate_id: current_sales_associate)
   end
 
   private

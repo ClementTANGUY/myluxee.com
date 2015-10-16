@@ -25,9 +25,14 @@ en:
         my_position: "My Position"
         my_position_description: "Choose my position from selected store"
         deselect: "I don't work here anymore"
+        undo: "I don't work here anymore (undo)"
       position_form:
         work_as: "I work as a:"
         start_date: "Start Date"
+      finish_position:
+        finish: "Finish my work at this store."
+      finish_position_form:
+        finish: "I don't work here anymore"
     create_position:
       exists_position: "You already work for this store"
       failed_position: "Could not execute action."

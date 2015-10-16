@@ -29,6 +29,9 @@ class SalesAssociate < ActiveRecord::Base
   has_many :stores, through: :positions
   accepts_nested_attributes_for :stores
 
+  has_many :old_stores, through: :old_positions, source: :store
+  accepts_nested_attributes_for :old_stores
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.provider = auth.provider
