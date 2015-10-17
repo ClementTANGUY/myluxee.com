@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   devise_for :sales_associates, controllers: {omniauth_callbacks: "omniauth_callbacks", registrations: "sales_associates"}
   resources :sales_associates do
-    resources :stores, controller: "sales_associates/stores", only: [:index] do
+    resources :stores, controller: "sales_associates/stores" do
       member do
         post 'create_position'
         delete 'destroy_position'

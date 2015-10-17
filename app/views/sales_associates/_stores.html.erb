@@ -1,0 +1,9 @@
+<% if sales_associate.stores.empty? %>
+    You are not working for any store right now.<br/>
+    <%=link_to t(".find_store"), sales_associate_stores_path(sales_associate_id: sales_associate)%>
+<% end %>
+<% @sales_associate.all_positions.each do |position| %>
+    <p>
+        <%= store_position_format position %>
+    </p>
+<% end %>

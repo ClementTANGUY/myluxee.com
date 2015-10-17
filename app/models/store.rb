@@ -4,7 +4,7 @@ class Store < ActiveRecord::Base
   has_one :store_brand, dependent: :destroy
   has_one :brand, through: :store_brand
 
-  has_many :positions, ->{where('end_date is null')}
+  has_many :positions, ->{where('end_date is null')}, dependent: :destroy
   has_many :sales_associates, through: :positions
 end
 # == Schema Information

@@ -20,17 +20,20 @@ class SalesAssociate < ActiveRecord::Base
   accepts_nested_attributes_for :languages,
                                 reject_if: lambda {|attributes| attributes['id'].blank?}
 
+  has_many :all_positions, dependent: :destroy, class_name: Position
+
   has_many :old_positions, -> {where('end_date is not null')}, dependent: :destroy, class_name: Position
 
   has_many :positions, -> {where('end_date is null')}, dependent: :destroy
   accepts_nested_attributes_for :positions,
                                 reject_if: lambda {|attributes| attributes['role'].blank?}
 
-  has_many :stores, through: :positions
+  has_many :stores, ->{order("start_date desc")}, through: :positions, source: :store
   accepts_nested_attributes_for :stores
 
-  has_many :old_stores, through: :old_positions, source: :store
-  accepts_nested_attributes_for :old_stores
+  has_many :old_stores, ->{order("start_date desc")}, through: :old_positions, source: :store
+
+  has_many :all_stores, ->{order("start_date desc")}, through: :all_positions, source: :store
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

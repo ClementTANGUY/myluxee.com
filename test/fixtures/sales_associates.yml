@@ -1,6 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+john:
   first_name: John
   last_name: Wayne
   email: john@gmail.com
@@ -8,7 +8,7 @@ one:
   be_rated: false
   encrypted_password: <%= Devise.bcrypt(SalesAssociate, 'password') %>
 
-two:
+marie:
   first_name: Marie
   last_name: S.
   email: marie@gmail.com

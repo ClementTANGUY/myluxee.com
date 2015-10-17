@@ -7,7 +7,7 @@ class SalesAssociateTest < ActiveSupport::TestCase
 
   test "add_language" do
     assert_difference('SalesAssociateLanguage.count') do
-      sales_associate = sales_associates(:one)
+      sales_associate = sales_associates(:john)
       sales_associate.languages << languages(:english)
       sales_associate.save
     end

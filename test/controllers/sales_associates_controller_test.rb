@@ -2,7 +2,9 @@ require 'test_helper'
 
 class SalesAssociatesControllerTest < ActionController::TestCase
   setup do
-    @sales_associate = sales_associates(:one)
+    @request.env["devise.mapping"] = Devise.mappings[:sales_associate]
+    @sales_associate = sales_associates(:john)
+    sign_in @sales_associate
   end
 
   def valid_params
@@ -36,7 +38,7 @@ class SalesAssociatesControllerTest < ActionController::TestCase
                                        last_name: @sales_associate.last_name, password: "bigtestpass", password_confirmation: "bigtestpass" }
     end
 
-    assert_redirected_to sales_associate_path(assigns(:sales_associate))
+    assert_redirected_to sales_associate_stores_path(sales_associate_id: assigns(:sales_associate))
   end
 
   test "should create sales_associate with news" do
@@ -75,7 +77,13 @@ class SalesAssociatesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should update sales_associate" do
+  test "should update sales_associate no stores" do
+    patch :update, id: @sales_associate, sales_associate: { be_contacted: @sales_associate.be_contacted, be_rated: @sales_associate.be_rated, email: @sales_associate.email, first_name: @sales_associate.first_name, last_name: @sales_associate.last_name }
+    assert_redirected_to sales_associate_stores_path(sales_associate_id: @sales_associate)
+  end
+
+  test "should update sales_associate " do
+    @sales_associate.positions.create! store: stores(:one), start_date: 1.year.ago, role: Position::ROLE_LIST.first
     patch :update, id: @sales_associate, sales_associate: { be_contacted: @sales_associate.be_contacted, be_rated: @sales_associate.be_rated, email: @sales_associate.email, first_name: @sales_associate.first_name, last_name: @sales_associate.last_name }
     assert_redirected_to sales_associate_path(assigns(:sales_associate))
   end
