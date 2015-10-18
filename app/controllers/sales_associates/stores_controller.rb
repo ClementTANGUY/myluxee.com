@@ -65,7 +65,7 @@ class SalesAssociates::StoresController < ApplicationController
   # POST /stores
   # POST /stores.json
   def create
-    @store = Store.new(store_params)
+    @store = current_sales_associate.stores.build(store_params)
 
     respond_to do |format|
       if @store.save
@@ -105,7 +105,7 @@ class SalesAssociates::StoresController < ApplicationController
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_store
-    @store = Store.find(params[:id])
+    @store = current_sales_associate.stores.find(params[:id])
   end
 
   def store_params
