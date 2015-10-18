@@ -97,7 +97,7 @@ class SalesAssociates::StoresController < ApplicationController
   def destroy
     @store.destroy
     respond_to do |format|
-      format.html { redirect_to sales_associate_store_path(sales_associate_id: current_sales_associate), notice: I18n.t("sales_associates.stores.destroy") }
+      format.html { redirect_to sales_associate_stores_path(sales_associate_id: current_sales_associate), notice: I18n.t("sales_associates.stores.destroy") }
       format.json { head :no_content }
     end
   end
@@ -109,7 +109,7 @@ class SalesAssociates::StoresController < ApplicationController
   end
 
   def store_params
-    params.require(:store).permit(:address, :string, :city, :zip_code, :country, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :sunday, :monday_start, :monday_end, :tuesday_start, :tuesday_end, :wednesday_start, :wednesday_end, :thursday_start, :thursday_end, :friday_start, :friday_end, :saturday_start, :saturday_end, :sunday_start, :sunday_end)
+    params.require(:store).permit(:address, :state, :city, :zip_code, :country, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :sunday, :monday_start, :monday_end, :tuesday_start, :tuesday_end, :wednesday_start, :wednesday_end, :thursday_start, :thursday_end, :friday_start, :friday_end, :saturday_start, :saturday_end, :sunday_start, :sunday_end)
   end
 
 end

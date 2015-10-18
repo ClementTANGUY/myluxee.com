@@ -3,7 +3,7 @@ require 'test_helper'
 class SalesAssociatesControllerTest < ActionController::TestCase
   setup do
     @request.env["devise.mapping"] = Devise.mappings[:sales_associate]
-    @sales_associate = sales_associates(:john)
+    @sales_associate = FactoryGirl.create(:john)
     sign_in @sales_associate
   end
 
@@ -60,7 +60,7 @@ class SalesAssociatesControllerTest < ActionController::TestCase
         post :create, sales_associate: { be_contacted: @sales_associate.be_contacted, be_rated: @sales_associate.be_rated,
                                          email: "1_#{@sales_associate.email}", first_name: @sales_associate.first_name,
                                          last_name: @sales_associate.last_name, password: "bigtestpass", password_confirmation: "bigtestpass",
-                                         "language_ids"=>[languages(:english).id]}
+                                         "language_ids"=>[create(:english).id]}
       end
     end
 
@@ -83,7 +83,7 @@ class SalesAssociatesControllerTest < ActionController::TestCase
   end
 
   test "should update sales_associate " do
-    @sales_associate.positions.create! store: stores(:one), start_date: 1.year.ago, role: Position::ROLE_LIST.first
+    @sales_associate.positions.create! store: create(:agnes_store), start_date: 1.year.ago, role: Position::ROLE_LIST.first
     patch :update, id: @sales_associate, sales_associate: { be_contacted: @sales_associate.be_contacted, be_rated: @sales_associate.be_rated, email: @sales_associate.email, first_name: @sales_associate.first_name, last_name: @sales_associate.last_name }
     assert_redirected_to sales_associate_path(assigns(:sales_associate))
   end
