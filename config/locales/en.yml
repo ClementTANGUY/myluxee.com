@@ -35,6 +35,7 @@ en:
       position_form:
         work_as: "I work as a:"
         start_date: "Start Date"
+        role: "Position"
       finish_position:
         finish: "Finish my work at this store."
       finish_position_form:

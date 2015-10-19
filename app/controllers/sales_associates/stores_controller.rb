@@ -72,11 +72,14 @@ class SalesAssociates::StoresController < ApplicationController
   # POST /stores
   # POST /stores.json
   def create
-    @store = current_sales_associate.stores.build(store_params)
+    @store = Store.new(store_params)
+    @start_date = params[:start_date]
+    @role = params[:role]
+    @store.positions.build(role: @role, start_date: @start_date, sales_associate: current_sales_associate)
 
     respond_to do |format|
       if @store.save
-        format.html { redirect_to sales_associate_stores_path(sales_associate_id: current_sales_associate, id: @store),
+        format.html { redirect_to [current_sales_associate,  @store],
                                   notice: 'Store was successfully created.' }
         format.json { render :show, status: :created, location: @store }
       else
