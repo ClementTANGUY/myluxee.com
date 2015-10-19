@@ -45,8 +45,10 @@ class SalesAssociates::StoresControllerTest < ActionController::TestCase
   end
 
   test "should destroy store" do
-    assert_difference('Store.count', -1) do
-      delete :destroy, id: @store, sales_associate_id: @sales_associate
+    assert_difference('Position.count', -1) do
+      assert_difference('Store.count', 0) do
+        delete :destroy, id: @store, sales_associate_id: @sales_associate
+      end
     end
 
     assert_redirected_to sales_associate_stores_path(sales_associate_id: @sales_associate)

@@ -41,6 +41,7 @@ en:
         finish: "I don't work here anymore"
       find_store: "Find the store you work for here!"
       destroy: "Store removed from your profile."
+      stores: "Manage Stores"
     create_position:
       exists_position: "You already work for this store"
       failed_position: "Could not execute action."

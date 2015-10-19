@@ -1,12 +1,12 @@
 class SalesAssociates::StoresController < ApplicationController
-  before_action :set_store, only: [:show, :create_position, :new_position,:finish_position, :edit, :update, :destroy]
+  before_action :set_store, only: [:show,:edit_position,:finish_position,:destroy_position, :edit, :update, :destroy]
   before_action :authenticate_sales_associate!
 
   def index
-
+    @address = params[:address]
     @stores = Store.order("address")
     if params[:address]
-      @stores = @stores.where(["address like '%?%'", params[:address] ])
+      @stores = @stores.where(["address like ?", "%#{@address}%" ])
     end
     @stores = @stores.all
 
@@ -17,6 +17,7 @@ class SalesAssociates::StoresController < ApplicationController
   end
 
   def create_position
+    @store = Store.find(params[:id])
     unless Position.exists?(sales_associate: current_sales_associate, store: @store)
       @position = Position.new(sales_associate: current_sales_associate, store: @store, role: params[:role], start_date: params[:start_date])
         unless @position.save
@@ -29,22 +30,28 @@ class SalesAssociates::StoresController < ApplicationController
   end
 
   def new_position
+    @store = Store.find(params[:id])
   end
 
-  def finish_position
+  def edit_position
   end
 
   def undo_position
-    if position = current_sales_associate.old_positions.where(store_id: params[:id]).first
+    if position = current_sales_associate.all_positions.where(store_id: params[:id]).first
       position.update_attribute(:end_date, nil)
     end
     redirect_to sales_associate_stores_path(sales_associate_id: current_sales_associate)
   end
 
-  def destroy_position
+  def finish_position
     if position = current_sales_associate.positions.where(store_id: params[:id]).first
-      position.update_attribute(:end_date, params[:end_date])
+      position.update({end_date: params[:end_date]})
     end
+    redirect_to sales_associate_stores_path(sales_associate_id: current_sales_associate)
+  end
+
+  def destroy_position
+    current_sales_associate.all_stores.destroy(@store)
     redirect_to sales_associate_stores_path(sales_associate_id: current_sales_associate)
   end
 

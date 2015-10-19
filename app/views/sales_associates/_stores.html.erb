@@ -4,6 +4,7 @@
 <% end %>
 <% @sales_associate.all_positions.each do |position| %>
     <p>
-        <%= store_position_format position %>
+        <%= raw  store_position_format position %>
     </p>
 <% end %>
+<%= link_to t(".stores"), sales_associate_stores_path(sales_associate_id: sales_associate)%>

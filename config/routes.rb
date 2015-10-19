@@ -10,10 +10,11 @@ Rails.application.routes.draw do
     resources :stores, controller: "sales_associates/stores" do
       member do
         post 'create_position'
+        delete 'finish_position'
         delete 'destroy_position'
         post 'undo_position'
         get 'new_position'
-        get 'finish_position'
+        get 'edit_position'
       end
     end
   end

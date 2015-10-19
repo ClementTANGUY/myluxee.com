@@ -25,6 +25,6 @@
   <%= @sales_associate.be_rated %>
 </p>
 
-<% render partial: "stores", locals:{ sales_associate: @sales_associate } %>
+<%= render partial: "stores", locals:{ sales_associate: @sales_associate } %>
 
 <%= link_to 'Edit', edit_sales_associate_path(@sales_associate), class: "btn btn-default" %>

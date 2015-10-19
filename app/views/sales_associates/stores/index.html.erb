@@ -3,8 +3,8 @@
 <div class="row">
   <div class="col-lg-6">
     <div class="input-group">
-      <%= form_tag sales_associate_stores_path(sales_associate_id: current_sales_associate) do %>
-          <%= text_field_tag :address, class: "form-control", placeholder: t(".search_address")%>
+      <%= form_tag sales_associate_stores_path(sales_associate_id: current_sales_associate), method: :get do %>
+          <%= text_field_tag :address, nil, class: "form-control", placeholder: t(".search_address")%>
           <span class="input-group-btn">
             <%= submit_tag t(".search_input"), class: "btn btn-default"%>
           </span>
@@ -33,10 +33,10 @@
                               class: "btn btn-danger", method: :delete, confirm: t(".confirm") %>
 
             <% elsif current_sales_associate.stores.exists?(id: store.id)%>
-                  <%= link_to t(".deselect"), finish_position_sales_associate_store_path(id: store, sales_associate_id: current_sales_associate),
+                  <%= link_to t(".deselect"), edit_position_sales_associate_store_path(id: store, sales_associate_id: current_sales_associate),
                               class: "btn btn-primary btn-danger", remote: true, data: {target: "modal", toogle: "my-modal"}  %>
                   <%= link_to t(".destroy"), destroy_position_sales_associate_store_path(id: store, sales_associate_id: current_sales_associate),
-                              class: "btn btn-danger", method: :delete, confirm: t(".confirm") %>
+                              class: "btn btn-danger", method: :delete, data:{ confirm: t(".confirm")} %>
               <% else %>
                   <%= link_to t(".select"), new_position_sales_associate_store_path(id: store, sales_associate_id: current_sales_associate),
                               class: "btn btn-primary", remote: true, data: {target: "modal", toogle: "my-modal"}  %>
