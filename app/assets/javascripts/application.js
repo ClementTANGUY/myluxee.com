@@ -16,11 +16,14 @@
 //= require bootstrap-sprockets
 //= require chosen_v1.4.2/chosen.jquery.js
 //= require bootstrap-datepicker
+//= require jQuery-Mask-Plugin-1.13.4/dist/jquery.mask.js
 //= require_self
 
 (function(){
    $(document).on("page:change", function(){
        $(".chzn").chosen();
+
+       $('input.time').mask('00:00');
 
        $("input.checkbox-week").click(function(){
                if ($(this).is(":checked")){

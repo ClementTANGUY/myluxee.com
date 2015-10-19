@@ -24,6 +24,18 @@ class Store < ActiveRecord::Base
 
   has_many :positions, ->{where('end_date is null')}, dependent: :destroy
   has_many :sales_associates, through: :positions
+
+  def brand_id
+    store_brand.brand_id if store_brand
+  end
+
+  def brand_id=(id)
+    if store_brand.nil?
+      build_store_brand(brand_id: id)
+    else
+      store_brand.brand_id = id
+    end
+  end
 end
 # == Schema Information
 #

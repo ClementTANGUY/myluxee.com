@@ -1,4 +1,6 @@
 class Brand < ActiveRecord::Base
+  default_scope { order('name') }
+
   validates :name, :speciality, presence: true
   validates :name, uniqueness: true
   has_many :store_brands
