@@ -21,5 +21,13 @@
 (function(){
    $(document).on("page:change", function(){
        $(".chzn").chosen();
+
+       $("input.checkbox-week").click(function(){
+               if ($(this).is(":checked")){
+                   $(this).next("div.checkbox-week").show(800);
+               } else {
+                   $(this).next("div.checkbox-week").hide(800);
+               }
+       });
    });
 })();

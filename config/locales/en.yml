@@ -56,3 +56,6 @@ en:
       new_inline:
         email: "E-mail"
         password: "Password"
+  store:
+    error:
+      time_format: "not a valid time"
