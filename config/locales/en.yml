@@ -50,6 +50,7 @@ en:
     application:
       title: "My Luxee"
       logout: "Logout"
+      my_profile: "My Profile"
   devise:
     sessions:
       new:

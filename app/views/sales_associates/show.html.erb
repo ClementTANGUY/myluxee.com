@@ -1,30 +1,36 @@
-<p id="notice"><%= notice %></p>
+<div class="media">
+  <div class="media-left">
+    <a href="#" class="thumbnail">
+      <img class="media-object" src="..." alt="...">
+    </a>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading"><%= @sales_associate.first_name %> <%= @sales_associate.last_name %></h4>
 
-<p>
-  <strong>First name:</strong>
-  <%= @sales_associate.first_name %>
-</p>
+    <p>
+      <strong>Email:</strong>
+      <%= @sales_associate.email %>
+    </p>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @sales_associate.last_name %>
-</p>
+    <p>
+      <strong>Be contacted:</strong>
+      <%= @sales_associate.be_contacted %>
+    </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @sales_associate.email %>
-</p>
+    <p>
+      <strong>Be rated:</strong>
+      <%= @sales_associate.be_rated %>
+    </p>
+    <p>
+      <strong>Languages:</strong>
+      <%= @sales_associate.languages.map{|language| language.name}.join(", ") %>
+    </p>
+  </div>
+</div>
 
-<p>
-  <strong>Be contacted:</strong>
-  <%= @sales_associate.be_contacted %>
-</p>
-
-<p>
-  <strong>Be rated:</strong>
-  <%= @sales_associate.be_rated %>
-</p>
 
 <%= render partial: "stores", locals:{ sales_associate: @sales_associate } %>
+
+<%= render partial: "news", locals:{ sales_associate: @sales_associate } %>
 
 <%= link_to 'Edit', edit_sales_associate_path(@sales_associate), class: "btn btn-default" %>
