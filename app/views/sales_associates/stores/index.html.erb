@@ -3,11 +3,13 @@
 <div class="row">
   <div class="col-lg-6">
     <div class="input-group">
-      <%= form_tag sales_associate_stores_path(sales_associate_id: current_sales_associate), method: :get do %>
-          <%= text_field_tag :address, nil, class: "form-control", placeholder: t(".search_address")%>
-          <span class="input-group-btn">
-            <%= submit_tag t(".search_input"), class: "btn btn-default"%>
-          </span>
+      <%= form_tag sales_associate_stores_path(sales_associate_id: current_sales_associate), method: :get, class: "form-inline" do %>
+          <div class="form-group">
+            <%= label_tag :address, nil, class: "sr-only"%>
+            <%= text_field_tag :address, nil, class: "form-control", placeholder: t(".search_address")%>
+          </div>
+          <%= submit_tag t(".search_input"), class: "btn btn-default"%>
+
       <% end %>
     </div><!-- /input-group -->
   </div><!-- /.col-lg-6 -->

@@ -46,6 +46,9 @@ en:
     create_position:
       exists_position: "You already work for this store"
       failed_position: "Could not execute action."
+    edit:
+      destroy: "Remove my profile from MyLuxee"
+      destroy_confirm: "Are you sure you want to remove your profile from MyLuxee? This action can not be undone."
   layouts:
     application:
       title: "My Luxee"

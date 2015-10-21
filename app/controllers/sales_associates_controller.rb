@@ -1,6 +1,6 @@
 class SalesAssociatesController < ApplicationController
   before_action :authenticate_sales_associate!, except: [:new, :create]
-  before_action :set_sales_associate, only: [:show, :edit, :update, :destroy]
+  before_action :set_sales_associate, only: [:show, :edit, :update]
   #before_action :set_sales_associate, only: [:show]
 
   def wizard_create
@@ -69,9 +69,10 @@ class SalesAssociatesController < ApplicationController
   # DELETE /sales_associates/1
   # DELETE /sales_associates/1.json
   def destroy
-    @sales_associate.destroy
+    current_sales_associate.destroy
+    sign_out current_sales_associate
     respond_to do |format|
-      format.html { redirect_to sales_associates_url, notice: 'Sales associate was successfully destroyed.' }
+      format.html { redirect_to root_path }
       format.json { head :no_content }
     end
   end

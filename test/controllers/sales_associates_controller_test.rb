@@ -93,6 +93,6 @@ class SalesAssociatesControllerTest < ActionController::TestCase
       delete :destroy, id: @sales_associate
     end
 
-    assert_redirected_to sales_associates_path
+    assert_redirected_to root_path
   end
 end
