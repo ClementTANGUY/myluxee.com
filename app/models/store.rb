@@ -25,6 +25,8 @@ class Store < ActiveRecord::Base
   has_many :positions, ->{where('end_date is null')}, dependent: :destroy
   has_many :sales_associates, through: :positions
 
+  before_save :populate_geolocation
+
   def brand_id
     store_brand.brand_id if store_brand
   end
@@ -35,6 +37,27 @@ class Store < ActiveRecord::Base
     else
       store_brand.brand_id = id
     end
+  end
+
+  private
+  def populate_geolocation
+    if address_changed? or state_changed? or city_changed? or
+        zip_code_changed? or country_changed?
+      location = google_get_lat_lng(URI.escape("#{address}+#{zip_code}+#{state}+#{city}+#{country}"))
+      unless location["results"].empty?
+
+        geo = location["results"].first
+
+        self.latitude = geo["geometry"]["location"]["lat"]
+        self.longitude = geo["geometry"]["location"]["lng"]
+      end
+    end
+  end
+
+  def google_get_lat_lng(address)
+    uri = URI("http://maps.google.com/maps/api/geocode/json?address=#{address}+Rio+de+Janeiro&sensor=false")
+    response = Net::HTTP.get(uri) # => String
+    JSON.parse response
   end
 end
 # == Schema Information

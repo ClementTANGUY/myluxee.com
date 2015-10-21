@@ -21,7 +21,7 @@
 
 (function(){
    $(document).on("page:change", function(){
-       $(".chzn").chosen();
+       $("select").chosen();
 
        $('input.time').mask('00:00');
 
