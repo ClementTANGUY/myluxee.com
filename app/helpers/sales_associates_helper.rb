@@ -4,7 +4,7 @@ module SalesAssociatesHelper
   end
 
   def store_position_format(position)
-    format = "<strong>#{ position.store.brand.name }</strong><br>
+    format = "<strong>#{ position.store.brand.name }</strong> - #{position.store.brand.speciality}<br>
         <small>#{ position.store.address } #{position.store.city }, #{position.store.state } #{position.store.zip_code }</small<br>"
     format << "since #{position.start_date} "
     format << "to #{position.end_date} " if position.end_date
@@ -14,7 +14,7 @@ module SalesAssociatesHelper
   end
 
   def format_position(position)
-    format = "<strong>#{link_to( position.store.brand.name, position.store)}</strong> "
+    format = "<strong>#{link_to( position.store.brand.name, position.store)}</strong>  - #{position.store.brand.speciality} "
     format << "(since #{position.start_date})<br/>"
     format << "<small>#{ position.store.address } #{position.store.city }, #{position.store.state } #{position.store.zip_code }</small><br>"
     format

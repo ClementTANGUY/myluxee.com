@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     end
   end
 
+  post 'sales_associates_news' => 'sales_associates/news#create'
 
   resources :stores
 

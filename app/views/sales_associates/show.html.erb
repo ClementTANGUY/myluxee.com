@@ -1,3 +1,4 @@
+<%= link_to 'Edit your profile', edit_sales_associate_path(@sales_associate), class: "btn btn-default" if current_sales_associate?(@sales_associate)%>
 <div class="media">
   <div class="media-left">
     <%= image_tag @sales_associate.avatar.url(:medium), class: "media-object thumbnail", width: 171, height: 180 %>
@@ -32,7 +33,6 @@
 
 
 <%= render partial: "stores", locals:{ sales_associate: @sales_associate } %>
-
+        <hr/>
 <%= render partial: "news", locals:{ sales_associate: @sales_associate } %>
 
-<%= link_to 'Edit', edit_sales_associate_path(@sales_associate), class: "btn btn-default" if current_sales_associate?(@sales_associate)%>
