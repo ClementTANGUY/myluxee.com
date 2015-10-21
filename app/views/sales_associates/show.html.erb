@@ -1,8 +1,6 @@
 <div class="media">
   <div class="media-left">
-    <a href="#" class="thumbnail">
-      <img class="media-object" src="..." alt="...">
-    </a>
+    <%= image_tag @sales_associate.avatar.url(:medium), class: "media-object thumbnail", width: 171, height: 180 %>
   </div>
   <div class="media-body">
     <h4 class="media-heading"><%= @sales_associate.first_name %> <%= @sales_associate.last_name %></h4>
@@ -25,6 +23,10 @@
       <strong>Languages:</strong>
       <%= @sales_associate.languages.map{|language| language.name}.join(", ") %>
     </p>
+    <p>
+      <strong>Position</strong>
+      <%= raw format_position(@sales_associate.positions.first)%>
+    </p>
   </div>
 </div>
 
@@ -33,4 +35,4 @@
 
 <%= render partial: "news", locals:{ sales_associate: @sales_associate } %>
 
-<%= link_to 'Edit', edit_sales_associate_path(@sales_associate), class: "btn btn-default" %>
+<%= link_to 'Edit', edit_sales_associate_path(@sales_associate), class: "btn btn-default" if current_sales_associate?(@sales_associate)%>

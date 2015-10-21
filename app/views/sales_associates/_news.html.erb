@@ -1,3 +1,5 @@
+<h5>Former Positions<br/>
+  <small><%= link_to t(".stores"), sales_associate_stores_path(sales_associate_id: sales_associate)%></small></h5>
 <% sales_associate.sales_associate_news.each do |new| %>
     <%= new.content.html_safe %>
 <% end %>

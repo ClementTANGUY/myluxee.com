@@ -19,4 +19,8 @@ module ApplicationHelper
         <!--TODO <abbr title=\"Phone\">P:</abbr> (123) 456-7890-->
     </address>"
   end
+
+  def current_sales_associate?(sales_associate)
+    !current_sales_associate.nil? and current_sales_associate.eql?(sales_associate)
+  end
 end

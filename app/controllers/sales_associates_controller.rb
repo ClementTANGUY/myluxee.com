@@ -14,6 +14,12 @@ class SalesAssociatesController < ApplicationController
     @sales_associates = SalesAssociate.all
   end
 
+  def edit
+    if @sales_associate.sales_associate_news.empty?
+      @sales_associate.sales_associate_news.build
+    end
+  end
+
   # GET /sales_associates/1
   # GET /sales_associates/1.json
   def show
@@ -79,7 +85,7 @@ class SalesAssociatesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sales_associate_params
-      params.require(:sales_associate).permit(:first_name, :provider, :uid, :contact_email, :last_name, :email, :be_contacted, :be_rated, :password,
+      params.require(:sales_associate).permit(:avatar, :first_name, :provider, :uid, :contact_email, :last_name, :email, :be_contacted, :be_rated, :password,
            :password_confirmation,sales_associate_news_attributes: [:id,:content], language_ids: [])
     end
 end

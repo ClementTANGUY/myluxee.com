@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151013182733) do
+ActiveRecord::Schema.define(version: 20151020094041) do
 
   create_table "brands", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -79,6 +79,10 @@ ActiveRecord::Schema.define(version: 20151013182733) do
     t.string   "last_sign_in_ip",        limit: 255
     t.string   "provider",               limit: 255
     t.string   "uid",                    limit: 255
+    t.string   "avatar_file_name",       limit: 255
+    t.string   "avatar_content_type",    limit: 255
+    t.integer  "avatar_file_size",       limit: 4
+    t.datetime "avatar_updated_at"
   end
 
   add_index "sales_associates", ["email"], name: "index_sales_associates_on_email", unique: true, using: :btree
