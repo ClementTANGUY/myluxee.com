@@ -1,6 +1,7 @@
 class WelcomeController < ApplicationController
   before_action :require_no_user
   def locate
+    @stores = Store.includes(:brand).order("brands.name").all
   end
 
   def index

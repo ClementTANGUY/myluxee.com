@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151020094041) do
+ActiveRecord::Schema.define(version: 20151021181255) do
 
   create_table "brands", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -101,11 +101,11 @@ ActiveRecord::Schema.define(version: 20151020094041) do
   add_index "store_brands", ["store_id"], name: "fk_rails_632e340a75", using: :btree
 
   create_table "stores", force: :cascade do |t|
-    t.string   "address",         limit: 255
-    t.string   "state",           limit: 255
-    t.string   "city",            limit: 255
-    t.integer  "zip_code",        limit: 4
-    t.string   "country",         limit: 255
+    t.string   "address",           limit: 255
+    t.string   "state",             limit: 255
+    t.string   "city",              limit: 255
+    t.integer  "zip_code",          limit: 4
+    t.string   "country",           limit: 255
     t.boolean  "monday"
     t.boolean  "tuesday"
     t.boolean  "wednesday"
@@ -113,22 +113,28 @@ ActiveRecord::Schema.define(version: 20151020094041) do
     t.boolean  "friday"
     t.boolean  "saturday"
     t.boolean  "sunday"
-    t.string   "monday_start",    limit: 255
-    t.string   "monday_end",      limit: 255
-    t.string   "tuesday_start",   limit: 255
-    t.string   "tuesday_end",     limit: 255
-    t.string   "wednesday_start", limit: 255
-    t.string   "wednesday_end",   limit: 255
-    t.string   "thursday_start",  limit: 255
-    t.string   "thursday_end",    limit: 255
-    t.string   "friday_start",    limit: 255
-    t.string   "friday_end",      limit: 255
-    t.string   "saturday_start",  limit: 255
-    t.string   "saturday_end",    limit: 255
-    t.string   "sunday_start",    limit: 255
-    t.string   "sunday_end",      limit: 255
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.string   "monday_start",      limit: 255
+    t.string   "monday_end",        limit: 255
+    t.string   "tuesday_start",     limit: 255
+    t.string   "tuesday_end",       limit: 255
+    t.string   "wednesday_start",   limit: 255
+    t.string   "wednesday_end",     limit: 255
+    t.string   "thursday_start",    limit: 255
+    t.string   "thursday_end",      limit: 255
+    t.string   "friday_start",      limit: 255
+    t.string   "friday_end",        limit: 255
+    t.string   "saturday_start",    limit: 255
+    t.string   "saturday_end",      limit: 255
+    t.string   "sunday_start",      limit: 255
+    t.string   "sunday_end",        limit: 255
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.float    "latitude",          limit: 24
+    t.float    "longitude",         limit: 24
+    t.string   "logo_file_name",    limit: 255
+    t.string   "logo_content_type", limit: 255
+    t.integer  "logo_file_size",    limit: 4
+    t.datetime "logo_updated_at"
   end
 
   add_foreign_key "positions", "sales_associates"

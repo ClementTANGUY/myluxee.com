@@ -19,6 +19,9 @@ class Store < ActiveRecord::Base
 
   validates :sunday_start,:sunday_end, if: :sunday?, presence: true
 
+  has_attached_file :logo, styles: { medium: "171x180#" }, default_url: "/images/:style/missing.png"
+  validates_attachment_content_type :logo, content_type: /\Aimage\/.*\Z/
+
   has_one :store_brand, dependent: :destroy
   has_one :brand, through: :store_brand
 
@@ -55,7 +58,7 @@ class Store < ActiveRecord::Base
   end
 
   def google_get_lat_lng(address)
-    uri = URI("http://maps.google.com/maps/api/geocode/json?address=#{address}+Rio+de+Janeiro&sensor=false")
+    uri = URI("http://maps.google.com/maps/api/geocode/json?address=#{address}&sensor=false")
     response = Net::HTTP.get(uri) # => String
     JSON.parse response
   end

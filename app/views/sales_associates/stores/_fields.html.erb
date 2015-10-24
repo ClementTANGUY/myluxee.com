@@ -1,12 +1,12 @@
 <div class="field ">
-  <%= fields.label :brand  %>
-  <%= fields.select :brand_id, Brand.all.collect{|b| [b.name, b.id] }, {}, class: "form-control" %>
+  <%= fields.label :brand %>
+  <%= fields.select :brand_id, Brand.all.collect { |b| [b.name, b.id] }, {}, class: "form-control" %>
 </div>
 <% if fields.object.new_record? %>
     <div class="field form-horizontal">
       <%= label_tag :start_date, t("sales_associates.stores.position_form.start_date") %>
       <div class="input-group">
-        <%= text_field_tag :start_date, @start_date, data: {provide: 'datepicker'}, class: "form-control", required: true%>
+        <%= text_field_tag :start_date, @start_date, data: {provide: 'datepicker'}, class: "form-control", required: true %>
         <div class="input-group-addon"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></div>
       </div>
     </div>
@@ -23,37 +23,40 @@
 </div>
 <div class="row">
 
-<div class="field col-md-6">
-  <%= fields.text_field :city, class: "form-control" %>
-  <%= fields.label :city, class: "small", required: true %>
-</div>
+  <div class="field col-md-6">
+    <%= fields.text_field :city, class: "form-control" %>
+    <%= fields.label :city, class: "small", required: true %>
+  </div>
   <div class="field col-md-6">
     <%= fields.text_field :state, class: "form-control" %>
     <%= fields.label :state, class: "small", required: true %>
   </div>
+</div>
+<div class="row">
+  <div class="field col-md-6">
+    <%= fields.number_field :zip_code, class: "form-control" %>
+    <%= fields.label :zip_code, class: "small", required: true %>
   </div>
-  <div class="row">
-<div class="field col-md-6">
-  <%= fields.number_field :zip_code, class: "form-control" %>
-  <%= fields.label :zip_code, class: "small", required: true %>
+  <div class="field col-md-6">
+    <%= fields.text_field :country, class: "form-control" %>
+    <%= fields.label :country, class: "small", required: true %>
+  </div>
 </div>
-<div class="field col-md-6">
-
-  <%= fields.text_field :country, class: "form-control" %>
-  <%= fields.label :country, class: "small", required: true %>
+<div class="field form-horizontal">
+  <%= fields.label :logo %>
+  <%= fields.file_field :logo %>
 </div>
-    </div>
 <div class="field form-horizontal">
   <%= fields.label :monday %>
   <%= fields.check_box :monday, class: "checkbox-week" %>
 
-    <div class="field form-horizontal checkbox-week" <%= raw 'style="display:none;"' unless fields.object.monday? %>>
-          <%= fields.label :monday_start, class: "sr-only" %>
-          <%= fields.text_field :monday_start, class: "time" %>
+  <div class="field form-horizontal checkbox-week" <%= raw 'style="display:none;"' unless fields.object.monday? %>>
+    <%= fields.label :monday_start, class: "sr-only" %>
+    <%= fields.text_field :monday_start, class: "time" %>
 
-          <%= fields.label :monday_end, class: "sr-only" %>
-          <%= fields.text_field :monday_end, class: "time" %>
-    </div>
+    <%= fields.label :monday_end, class: "sr-only" %>
+    <%= fields.text_field :monday_end, class: "time" %>
+  </div>
 </div>
 
 <div class="field form-horizontal">
