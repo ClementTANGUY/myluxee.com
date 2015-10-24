@@ -19,7 +19,7 @@ class Store < ActiveRecord::Base
 
   validates :sunday_start,:sunday_end, if: :sunday?, presence: true
 
-  has_attached_file :logo, styles: { medium: "171x180#" }, default_url: "/images/:style/missing.png"
+  has_attached_file :logo, styles: { medium: "171x180#" }, default_url: "store.svg"
   validates_attachment_content_type :logo, content_type: /\Aimage\/.*\Z/
 
   has_one :store_brand, dependent: :destroy
