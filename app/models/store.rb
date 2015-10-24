@@ -67,34 +67,40 @@ end
 #
 # Table name: stores
 #
-#  id              :integer(4)      not null, primary key
-#  address         :string(255)
-#  state           :string(255)
-#  city            :string(255)
-#  zip_code        :integer(4)
-#  country         :string(255)
-#  monday          :boolean(1)
-#  tuesday         :boolean(1)
-#  wednesday       :boolean(1)
-#  thursday        :boolean(1)
-#  friday          :boolean(1)
-#  saturday        :boolean(1)
-#  sunday          :boolean(1)
-#  monday_start    :time
-#  monday_end      :time
-#  tuesday_start   :time
-#  tuesday_end     :time
-#  wednesday_start :time
-#  wednesday_end   :time
-#  thursday_start  :time
-#  thursday_end    :time
-#  friday_start    :time
-#  friday_end      :time
-#  saturday_start  :time
-#  saturday_end    :time
-#  sunday_start    :time
-#  sunday_end      :time
-#  created_at      :datetime        not null
-#  updated_at      :datetime        not null
+#  id                :integer(4)      not null, primary key
+#  address           :string(255)
+#  state             :string(255)
+#  city              :string(255)
+#  zip_code          :integer(4)
+#  country           :string(255)
+#  monday            :boolean(1)
+#  tuesday           :boolean(1)
+#  wednesday         :boolean(1)
+#  thursday          :boolean(1)
+#  friday            :boolean(1)
+#  saturday          :boolean(1)
+#  sunday            :boolean(1)
+#  monday_start      :string(255)
+#  monday_end        :string(255)
+#  tuesday_start     :string(255)
+#  tuesday_end       :string(255)
+#  wednesday_start   :string(255)
+#  wednesday_end     :string(255)
+#  thursday_start    :string(255)
+#  thursday_end      :string(255)
+#  friday_start      :string(255)
+#  friday_end        :string(255)
+#  saturday_start    :string(255)
+#  saturday_end      :string(255)
+#  sunday_start      :string(255)
+#  sunday_end        :string(255)
+#  created_at        :datetime        not null
+#  updated_at        :datetime        not null
+#  latitude          :float(24)
+#  longitude         :float(24)
+#  logo_file_name    :string(255)
+#  logo_content_type :string(255)
+#  logo_file_size    :integer(4)
+#  logo_updated_at   :datetime
 #
 

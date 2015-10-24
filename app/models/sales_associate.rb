@@ -81,5 +81,9 @@ end
 #  last_sign_in_ip        :string(255)
 #  provider               :string(255)
 #  uid                    :string(255)
+#  avatar_file_name       :string(255)
+#  avatar_content_type    :string(255)
+#  avatar_file_size       :integer(4)
+#  avatar_updated_at      :datetime
 #
 
