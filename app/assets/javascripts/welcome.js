@@ -15,10 +15,12 @@ var storeMap = {};
 var map;
 
 function setStoresToMap(stores) {
+    console.log('setStoresToMap');
     storeList = stores;
 }
 
 function loadMarkers(){
+    console.log('loadMarkers');
     var bounds = new google.maps.LatLngBounds();
     for(var i=0; i < storeList.length; i++){
         var store = storeList[i];
@@ -27,13 +29,24 @@ function loadMarkers(){
             map: map,
             title: store.brand.name
         });
+        storeMap[store.id].setIcon('http://maps.google.com/mapfiles/ms/icons/red-dot.png');
         bounds.extend(new google.maps.LatLng(store.latitude, store.longitude));
     }
 
     map.fitBounds(bounds);
 }
 
+function associateListToMap() {
+    $(".store-area").mouseover(function(){
+        console.log(storeMap[$(this).attr("data-id")].getIcon());
+        storeMap[$(this).attr("data-id")].setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
+    });
+    $(".store-area").mouseout(function(){
+        storeMap[$(this).attr("data-id")].setIcon('http://maps.google.com/mapfiles/ms/icons/red-dot.png');
+    });
+}
 function loadLocateMap() {
+    console.log('loadLocateMap');
     var myLatlng = new google.maps.LatLng(48.8536450,2.3325860);
     var myOptions = {
         zoom: 14,
@@ -67,6 +80,7 @@ function loadLocateMap() {
     };
     map = new google.maps.Map(document.getElementById('map'), myOptions);
 
-    loadMarkers();
+    loadMarkers()
+    associateListToMap();
 }
 

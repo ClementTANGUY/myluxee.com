@@ -1,16 +1,16 @@
 <div class="text-center" id="banner">
   <p>
-    SALES ASSOCIATES ? 
-    <br>COME GROW THE COMMUNITY, TELL AND RETAIN YOUR CLIENTS !  
-    <br><button type="button" class="btn-rounded">SIGN UP</button>
+    SALES ASSOCIATES ?
+    <br>COME GROW THE COMMUNITY, TELL AND RETAIN YOUR CLIENTS !
+    <br>
+    <button type="button" class="btn-rounded btn-sm">SIGN UP</button>
   </p>
-</div> 
+</div>
 
 <div class="row">
-  
-  <div class= "col-sm-4">
-    <% @stores.each do |store|  %>
-        <div class="row">
+  <div class="col-sm-4 store-list">
+    <% @stores.each do |store| %>
+        <div class="row store-area" data-id="<%= store.id %>">
           <div class="col-xs-12 bg-white">
 
             <div class="media">
@@ -23,10 +23,12 @@
                 </a>
               </div>
               <div class="media-body">
-                <h4 class="media-heading"><%=link_to store.brand.name, "#" %></h4>
+                <h4 class="media-heading"><%= link_to store.brand.name, "#" %></h4>
                 <%= link_to store.brand.website, "http://#{store.brand.website}", target: "_blank" %> <br/>
-                <%= raw address_format store, false%>
-
+                <%= raw address_format store, false %>
+                <p>
+                  <%= link_to "#{store.sales_associates.size} sales associated", store %>
+                </p>
               </div>
             </div>
 
@@ -37,36 +39,22 @@
     <% end %>
   </div>
 
-  <div class= "col-sm-8">
+  <div class="col-sm-8">
     <div id="map" style="width: 100%; height: 550px;"></div>
-
-    <script type="application/javascript">
-      setStoresToMap(<%= raw @stores.to_json include: [:brand]%>);
-    </script>
-    <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBC9IaTnQh2ds8DAcLWL4zvU-dYBgrdQss&callback=loadLocateMap"/>
-
-
-    </div>
   </div>
 </div>
+<script type="application/javascript">
+    setStoresToMap(<%= raw @stores.to_json include: [:brand]%>);
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBC9IaTnQh2ds8DAcLWL4zvU-dYBgrdQss&callback=loadLocateMap"/>
 
-  <div class="container text-center padded">
-    <h3>Get news from MyLuxee</h3>
-    <p>Leave us your mail, we won't be sending sacks of emails. Promise.</p>
-        <form class="form-inline" role="form" action="//myluxee.us11.list-manage.com/subscribe/post?u=b7959a16cabf22b1008be1d01&amp;id=faf2916d4c" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form">
-        <input type="email" name="EMAIL" class="form-control" id="mce-EMAIL" placeholder="email address" required>
-        <input type="submit" value="Grow together" name="subscribe" id="mc-embedded-subscribe" class="btn btn-primary">
-        </form>
-      </div>
-  </div>
-
-<script>
-      $(document).ready(function(){
-    $(".img-popover").popover({
-      html: true,
-      trigger: "hover",
-      placement: "bottom"
+<script type="application/javascript">
+    $(document).ready(function () {
+        $(".img-popover").popover({
+            html: true,
+            trigger: "hover",
+            placement: "bottom"
+        });
     });
-  })
 </script>

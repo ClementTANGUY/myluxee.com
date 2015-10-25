@@ -23,3 +23,9 @@
   z-index: 9999;
   opacity: 0.8;
 }
+
+.store-list{
+  max-height: 550px;
+  overflow-y:auto;
+  overflow-x:hidden;
+}
