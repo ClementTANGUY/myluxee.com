@@ -125,7 +125,7 @@ Brand.create! name: "Barbara Bui", speciality: "Fashion & Accessories", website:
 Brand.create! name: "Baume et Mercier", speciality: "Watchmaker", website: "www.baume-et-mercier.fr"
 Brand.create! name: "Berluti", speciality: "Fashion & Accessories", website: "www.berluti.com"
 Brand.create! name: "Dirk Bikkembergs", speciality: "Fashion & Accessories", website: "www.bikkembergs.com"
-Brand.create! name: "Blanchet", speciality: "Watchmaker	"
+Brand.create! name: "Blanchet", speciality: "Watchmaker"
 Brand.create! name: "Blancpain", speciality: "Watchmaker", website: "www.blancpain.com"
 Brand.create! name: "BMW", speciality: "Cars dealer", website: "www.bmw.com"
 Brand.create! name: "Borsalino", speciality: "Fashion & Accessories", website: "www.borsalino.com"
@@ -206,7 +206,7 @@ Brand.create! name: "Donna Karan", speciality: "Fashion & Accessories", website:
 Brand.create! name: "Stéphane Kélian", speciality: "Fashion & Accessories", website: "www.stephanekelian.com"
 Brand.create! name: "Kenzo", speciality: "Fashion & Accessories", website: "www.kenzo.com"
 Brand.create! name: "Michael Kors", speciality: "Fashion & Accessories", website: "www.michaelkors.com"
-Brand.create! name: "Christian Lacroix", speciality: "Fashion & Accessories	christian-lacroix.com"
+Brand.create! name: "Christian Lacroix", speciality: "Fashion & Accessories", website: "christian-lacroix.com"
 Brand.create! name: "Karl Lagarfeld", speciality: "Fashion & Accessories", website: "www.karl.com"
 Brand.create! name: "La Martina", speciality: "Fashion & Accessories", website: "www.lamartina.com"
 Brand.create! name: "Lamborghini", speciality: "Cars dealer", website: "www.lamborghini.com"
@@ -293,6 +293,7 @@ Brand.create! name: "Yohji Yamamoto", speciality: "Fashion & Accessories", websi
 Brand.create! name: "Giuseppe Zanotti", speciality: "Fashion & Accessories", website: "www.giuseppezanottidesign.com"
 Brand.create! name: "Ermenegildo Zegna", speciality: "Fashion & Accessories", website: "www.zegna.com"
 Brand.create! name: "Zenith", speciality: "Watchmaker", website: "www.zenith-watches.com"
+Brand.create! name: "Elie Saab", speciality: "Fashion & Accessories", website: "www.eliesaab.com"
 
 
 #www.armani.com/fr/emporioarmani

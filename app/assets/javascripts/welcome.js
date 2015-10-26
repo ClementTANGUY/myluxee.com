@@ -7,6 +7,7 @@
 //= require bootstrap-sprockets
 //= require javascript:navbar_scroll
 //= require javascript:smoothscroll
+//= require chosen_v1.4.2/chosen.jquery.js
 //= require scrollReveal
 //= require_self
 
@@ -38,7 +39,6 @@ function loadMarkers(){
 
 function associateListToMap() {
     $(".store-area").mouseover(function(){
-        console.log(storeMap[$(this).attr("data-id")].getIcon());
         storeMap[$(this).attr("data-id")].setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
     });
     $(".store-area").mouseout(function(){
@@ -83,4 +83,8 @@ function loadLocateMap() {
     loadMarkers()
     associateListToMap();
 }
+
+$(document).on("page:change",function(){
+    $("select").chosen({allow_single_deselect: true});
+});
 

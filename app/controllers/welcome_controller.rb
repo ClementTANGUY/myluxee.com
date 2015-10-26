@@ -1,7 +1,17 @@
 class WelcomeController < ApplicationController
   before_action :require_no_user
   def locate
-    @stores = Store.includes(:brand).order("brands.name").all
+    @stores = Store.includes(:brand).order("brands.name")
+    if @brand = params[:brand] and !@brand.blank?
+      @stores = @stores.where("brands.id = ?", @brand)
+    end
+    if @speciality = params[:speciality] and !@speciality.blank?
+      @stores = @stores.where("brands.speciality = ?", @speciality)
+    end
+    if @address = params[:address] and !@address.blank?
+      @stores = @stores.where(["address like ?", "%#{@address}%" ])
+    end
+    @stores = @stores.paginate(:page => params[:page]).all
   end
 
   def index
