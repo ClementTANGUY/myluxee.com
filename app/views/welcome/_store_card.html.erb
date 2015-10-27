@@ -1,0 +1,22 @@
+<div class="row store-area" data-id="<%= store.id %>">
+  <div class="col-xs-12 bg-white">
+    <div class="media">
+      <div class="media-left">
+        <a href="#">
+          <%= image_tag store.logo.url(:medium),
+                        alt: store.brand.name,
+                        class: "img-thumbnail media-object",
+                        "data-content" => image_icon_data_content(store.logo.url(:medium), store.brand.name) %>
+        </a>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading"><%= link_to store.brand.name, "#" %></h4>
+        <%= link_to store.brand.website, "http://#{store.brand.website}", target: "_blank" %> <br/>
+        <%= raw address_format store, false %>
+        <p>
+          <%= link_to "#{store.sales_associates.size} sales associated", store %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

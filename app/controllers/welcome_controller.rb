@@ -11,7 +11,7 @@ class WelcomeController < ApplicationController
     if @address = params[:address] and !@address.blank?
       @stores = @stores.where(["address like ?", "%#{@address}%" ])
     end
-    @stores = @stores.paginate(:page => params[:page]).all
+    @stores = @stores.page(params[:page]).per(15).all
   end
 
   def index

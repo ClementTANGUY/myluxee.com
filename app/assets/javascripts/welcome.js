@@ -16,8 +16,19 @@ var storeMap = {};
 var map;
 
 function setStoresToMap(stores) {
-    console.log('setStoresToMap');
     storeList = stores;
+}
+
+function removeOldMarkers(){
+    try {
+        var keys = Object.keys(storeMap);
+        for (var i = 0; i < keys.length; i++) {
+            storeMap[keys[i]].setMap(null);
+        }
+        storeMap = {};
+    } catch(err) {
+        console.error(err);
+    }
 }
 
 function loadMarkers(){
@@ -50,6 +61,7 @@ function loadLocateMap() {
     var myLatlng = new google.maps.LatLng(48.8536450,2.3325860);
     var myOptions = {
         zoom: 14,
+        maxZoom: 16,
         center: myLatlng,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         styles: [{

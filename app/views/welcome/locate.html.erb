@@ -13,42 +13,15 @@
       </div>
     </div>
     <div class="row ">
-      <div class="col-xs-12 text-right">
-        <nav>
-          <%= will_paginate @stores, previous_label: "<<", next_label: ">>", class: "pagination-sm",
-                            params: {address: @address, brand: @brand, speciality: @speciality},
-                            renderer: BootstrapPagination::Rails %>
-        </nav>
+      <div class="col-xs-12 text-right" id="pagination-area">
+          <%= paginate @stores, remote: true, params: {address: @address, brand: @brand, speciality: @speciality}%>
       </div>
     </div>
-    <% @stores.each do |store| %>
-        <div class="row store-area" data-id="<%= store.id %>">
-          <div class="col-xs-12 bg-white">
-
-            <div class="media">
-              <div class="media-left">
-                <a href="#">
-                  <%= image_tag store.logo.url(:medium),
-                                alt: store.brand.name,
-                                class: "img-thumbnail media-object",
-                                "data-content" => image_icon_data_content(store.logo.url(:medium), store.brand.name) %>
-                </a>
-              </div>
-              <div class="media-body">
-                <h4 class="media-heading"><%= link_to store.brand.name, "#" %></h4>
-                <%= link_to store.brand.website, "http://#{store.brand.website}", target: "_blank" %> <br/>
-                <%= raw address_format store, false %>
-                <p>
-                  <%= link_to "#{store.sales_associates.size} sales associated", store %>
-                </p>
-              </div>
-            </div>
-
-
-          </div>
-
-        </div>
-    <% end %>
+    <div id="stores-area">
+        <% @stores.each do |store| %>
+            <%= render partial: "store_card", locals: {store: store} %>
+        <% end %>
+    </div>
   </div>
 
   <div class="col-sm-8">
