@@ -86,5 +86,8 @@ function loadLocateMap() {
 
 $(document).on("page:change",function(){
     $("select").chosen({allow_single_deselect: true});
+    $('.toggle-text').click(function() {
+        $(this).find('span').each(function() { $(this).toggle(); });
+    });
 });
 

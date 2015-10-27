@@ -68,3 +68,6 @@ en:
     locate:
       filter: "Filter"
       hide: "Hide"
+    filter:
+      show: "Change Filter"
+      hide: "Hide Filter"

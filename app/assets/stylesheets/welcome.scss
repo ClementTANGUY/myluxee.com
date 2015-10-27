@@ -25,8 +25,14 @@
   opacity: 0.8;
 }
 
-.store-list{
+.store-list {
   height: 550px;
-  overflow-y:auto;
-  overflow-x:hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
+#search-form{
+  .chosen-container{
+    width: 100% !important;
+  }
+}
+
