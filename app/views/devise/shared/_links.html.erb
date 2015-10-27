@@ -19,7 +19,7 @@
 <% end -%>
 
 
-<%= link_to omniauth_authorize_path(resource_name, :facebook), class: "btn btn-block btn-social btn-facebook" do %>
+<%= button_to omniauth_authorize_path(resource_name, :facebook), class: "btn btn-block btn-social btn-facebook" do %>
     <i class="fa fa-facebook"></i> <%= t("sales_associates.wizard_new.sigin_fb")%>
 <% end %> <br/>
 <%= link_to omniauth_authorize_path(resource_name, :linkedin), class: "btn btn-block btn-social btn-linkedin" do %>

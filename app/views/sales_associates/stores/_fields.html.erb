@@ -3,16 +3,16 @@
   <%= fields.select :brand_id, Brand.all.collect { |b| [b.name, b.id] }, {}, class: "form-control" %>
 </div>
 <% if fields.object.new_record? %>
-    <div class="field form-horizontal">
+    <div class="field ">
       <%= label_tag :start_date, t("sales_associates.stores.position_form.start_date") %>
       <div class="input-group">
         <%= text_field_tag :start_date, @start_date, data: {provide: 'datepicker'}, class: "form-control", required: true %>
         <div class="input-group-addon"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></div>
       </div>
     </div>
-    <div class="field form-horizontal">
+    <div class="field">
       <%= label_tag :role, t("sales_associates.stores.position_form.role") %>
-      <%= select_tag :role, options_for_select(Position::ROLE_LIST, @role) %>
+      <%= select_tag :role, options_for_select(Position::ROLE_LIST, @role), class: "form-control" %>
     </div>
 <% end %>
 

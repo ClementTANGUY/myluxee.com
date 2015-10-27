@@ -1,19 +1,7 @@
 <h1>Listing Stores</h1>
 
-<div class="row">
-  <div class="col-lg-6">
-    <div class="input-group">
-      <%= form_tag sales_associate_stores_path(sales_associate_id: current_sales_associate), method: :get, class: "form-inline" do %>
-          <div class="form-group">
-            <%= label_tag :address, nil, class: "sr-only"%>
-            <%= text_field_tag :address, nil, class: "form-control", placeholder: t(".search_address")%>
-          </div>
-          <%= submit_tag t(".search_input"), class: "btn btn-default"%>
+<%= render partial: "filter"%>
 
-      <% end %>
-    </div><!-- /input-group -->
-  </div><!-- /.col-lg-6 -->
-</div><!-- /.row -->
 <small><%= link_to t(".new_store"), new_sales_associate_store_path(sales_associate_id: current_sales_associate)%></small>
 <% unless @stores.empty? %>
     <table class="table ">
@@ -62,7 +50,10 @@
       </div>
     </div>
 <% else %>
-    <div>
-        No stores were found. May you should <%= link_to t(".new"), new_position_sales_associate_store_path(sales_associate_id: current_sales_associate)%>
+    <div class="jumbotron">
+      <div class="container text-center">
+        <h4>No stores were found.</h4> <br/>May you should <%= link_to t(".new"), new_sales_associate_store_path(sales_associate_id: current_sales_associate)%>
+      </div>
     </div>
+
 <% end %>

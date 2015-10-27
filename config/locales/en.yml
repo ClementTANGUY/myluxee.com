@@ -27,8 +27,6 @@ en:
         deselect: "I don't work here anymore"
         undo: "I don't work here anymore (undo)"
         new: "register it here."
-        search_address: "Search address..."
-        search_input: "Search Store!"
         destroy: "Never worked here (remove)"
         confirm: "Are you sure you want to remove the store from your profile?"
         new_store: "register the store you work for here."
@@ -43,6 +41,10 @@ en:
       find_store: "Find the store you work for here!"
       destroy: "Store removed from your profile."
       stores: "manage stores"
+      filter:
+        search_address: "Search address..."
+        search_input: "Search Store!"
+        filter: "Filter"
     create_position:
       exists_position: "You already work for this store"
       failed_position: "Could not execute action."

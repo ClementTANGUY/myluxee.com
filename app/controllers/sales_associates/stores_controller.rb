@@ -3,12 +3,17 @@ class SalesAssociates::StoresController < ApplicationController
   before_action :authenticate_sales_associate!
 
   def index
-    @address = params[:address]
-    @stores = Store.order("address")
-    if params[:address]
+    @stores = Store.includes(:brand).order("brands.name")
+    if @brand = params[:brand] and !@brand.blank?
+      @stores = @stores.where("brands.id = ?", @brand)
+    end
+    if @speciality = params[:speciality] and !@speciality.blank?
+      @stores = @stores.where("brands.speciality = ?", @speciality)
+    end
+    if @address = params[:address] and !@address.blank?
       @stores = @stores.where(["address like ?", "%#{@address}%" ])
     end
-    @stores = @stores.all
+    @stores = @stores.page(params[:page]).per(15).all
 
     render template: "sales_associates/stores/index"
   end
