@@ -80,7 +80,7 @@ function loadLocateMap() {
     };
     map = new google.maps.Map(document.getElementById('map'), myOptions);
 
-    loadMarkers()
+    loadMarkers();
     associateListToMap();
 }
 

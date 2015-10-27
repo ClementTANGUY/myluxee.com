@@ -55,12 +55,12 @@
     <div id="map" style="width: 100%; height: 550px;"></div>
   </div>
 </div>
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBC9IaTnQh2ds8DAcLWL4zvU-dYBgrdQss&callback=loadLocateMap"/>
+
 <script type="application/javascript">
     setStoresToMap(<%= raw @stores.to_json include: [:brand]%>);
 </script>
-
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBC9IaTnQh2ds8DAcLWL4zvU-dYBgrdQss&callback=loadLocateMap"/>
 
 <script type="application/javascript">
     $(document).ready(function () {
