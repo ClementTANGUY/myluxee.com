@@ -24,10 +24,10 @@ en:
         modal: "My Position"
         my_position: "My Position"
         my_position_description: "Choose my position from selected store"
-        deselect: "I don't work here anymore"
+        deselect: "I don't work here<br/> anymore"
         undo: "I don't work here anymore (undo)"
         new: "register it here."
-        destroy: "Never worked here (remove)"
+        destroy: "Never worked here<br/><small>(remove)</small>"
         confirm: "Are you sure you want to remove the store from your profile?"
         new_store: "register the store you work for here."
       position_form:

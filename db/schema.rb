@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151028211940) do
+ActiveRecord::Schema.define(version: 20151029004856) do
 
   create_table "brands", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -35,6 +35,27 @@ ActiveRecord::Schema.define(version: 20151028211940) do
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
     t.string   "role",               limit: 255
+    t.boolean  "monday"
+    t.boolean  "tuesday"
+    t.boolean  "wednesday"
+    t.boolean  "thursday"
+    t.boolean  "friday"
+    t.boolean  "saturday"
+    t.boolean  "sunday"
+    t.string   "monday_start",       limit: 255
+    t.string   "monday_end",         limit: 255
+    t.string   "tuesday_start",      limit: 255
+    t.string   "tuesday_end",        limit: 255
+    t.string   "wednesday_start",    limit: 255
+    t.string   "wednesday_end",      limit: 255
+    t.string   "thursday_start",     limit: 255
+    t.string   "thursday_end",       limit: 255
+    t.string   "friday_start",       limit: 255
+    t.string   "friday_end",         limit: 255
+    t.string   "saturday_start",     limit: 255
+    t.string   "saturday_end",       limit: 255
+    t.string   "sunday_start",       limit: 255
+    t.string   "sunday_end",         limit: 255
   end
 
   add_index "positions", ["sales_associate_id"], name: "fk_rails_f980d9ac18", using: :btree

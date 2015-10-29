@@ -23,10 +23,14 @@
                               class: "btn btn-danger", method: :delete, confirm: t(".confirm") %>
 
             <% elsif current_sales_associate.stores.exists?(id: store.id)%>
-                  <%= link_to t(".deselect"), edit_position_sales_associate_store_path(id: store, sales_associate_id: current_sales_associate),
-                              class: "btn btn-primary btn-danger", remote: true, data: {target: "modal", toogle: "my-modal"}  %>
-                  <%= link_to t(".destroy"), destroy_position_sales_associate_store_path(id: store, sales_associate_id: current_sales_associate),
-                              class: "btn btn-danger", method: :delete, data:{ confirm: t(".confirm")} %>
+                  <%= link_to edit_position_sales_associate_store_path(id: store, sales_associate_id: current_sales_associate),
+                              class: "btn btn-primary btn-danger", remote: true, data: {target: "modal", toogle: "my-modal"}  do%>
+                    <%= raw t(".deselect")%>
+                  <% end %>
+                  <%= link_to destroy_position_sales_associate_store_path(id: store, sales_associate_id: current_sales_associate),
+                              class: "btn btn-danger", method: :delete, data:{ confirm: t(".confirm")} do%>
+                      <%= raw t(".destroy") %>
+                  <% end %>
               <% else %>
                   <%= link_to t(".select"), new_position_sales_associate_store_path(id: store, sales_associate_id: current_sales_associate),
                               class: "btn btn-primary", remote: true, data: {target: "modal", toogle: "my-modal"}  %>
