@@ -19,6 +19,9 @@ class Store < ActiveRecord::Base
 
   validates :sunday_start,:sunday_end, if: :sunday?, presence: true
 
+  has_attached_file :banner, styles: { big: "800x400#" }, default_url: "store.svg"
+  validates_attachment_content_type :banner, content_type: /\Aimage\/.*\Z/
+
   has_attached_file :logo, styles: { medium: "171x180#" }, default_url: "store.svg"
   validates_attachment_content_type :logo, content_type: /\Aimage\/.*\Z/
 
@@ -27,6 +30,8 @@ class Store < ActiveRecord::Base
 
   has_many :positions, ->{where('end_date is null')}, dependent: :destroy
   has_many :sales_associates, through: :positions
+
+  has_many :store_news, class_name: StoreNews, dependent: :destroy
 
   before_save :populate_geolocation
 

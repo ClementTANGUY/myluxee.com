@@ -1,0 +1,26 @@
+<div class="panel">
+  <div class="panel-body">
+    <div class="media">
+      <div class="media-left">
+        <a href="#">
+          <%= image_tag sales_associate.avatar.url(:thumb), class: "media-object"%>
+        </a>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading"><%= sales_associate.first_name%> <%= sales_associate.last_name%></h4>
+        <p>
+          <strong>Position</strong>
+          <%= raw format_position(sales_associate.positions.first)%>
+        </p>
+        <p>
+          <strong>Languages:</strong>
+          <%= sales_associate.languages.map{|language| language.name}.join(", ") %>
+        </p>
+        <p>
+          <%= link_to(sales_associate.email, sales_associate.email) if sales_associate.be_contacted %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<br/>

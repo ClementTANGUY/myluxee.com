@@ -12,6 +12,6 @@
 
 <% @sales_associate.sales_associate_news.each do |new| %>
     <p class="bg-info lead">
-      <%= new.content.html_safe %>
+      <%= simple_format new.content,{}, wrapper_tag: "div" %>
     </p>
 <% end %>

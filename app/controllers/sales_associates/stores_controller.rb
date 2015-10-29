@@ -1,5 +1,5 @@
 class SalesAssociates::StoresController < ApplicationController
-  before_action :set_store, only: [:show,:edit_position,:finish_position,:destroy_position, :edit, :update, :destroy]
+  before_action :set_store, only: [:destroy_news, :create_news, :show,:edit_position,:finish_position,:destroy_position, :edit, :update, :destroy]
   before_action :authenticate_sales_associate!
 
   def index
@@ -72,6 +72,16 @@ class SalesAssociates::StoresController < ApplicationController
 
   # GET /stores/1/edit
   def edit
+  end
+
+  def create_news
+    @store_news = @store.store_news.create(content: params[:content])
+  end
+
+  def destroy_news
+    @store_news_id = params[:store_news_id]
+    @store_news = @store.store_news.find(params[:store_news_id])
+    @store_news.destroy
   end
 
   # POST /stores

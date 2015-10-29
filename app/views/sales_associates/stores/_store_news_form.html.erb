@@ -1,0 +1,8 @@
+<%= form_tag create_news_sales_associate_store_path(sales_associate_id: current_sales_associate, store_id: @store),
+             remote: true do |f| %>
+     <div class="form-group">
+       <%= label_tag :content, nil, class: "sr-only"%>
+       <%= text_area_tag :content, nil, class: "form-control", required: true, placeholder: t(".news")%>
+     </div>
+    <%= submit_tag t(".submit")%>
+<% end %>

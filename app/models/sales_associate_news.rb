@@ -1,4 +1,5 @@
 class SalesAssociateNews < ActiveRecord::Base
+  default_scope { order("created_at desc") }
   validates :content, presence: true
 
   belongs_to :sales_associate

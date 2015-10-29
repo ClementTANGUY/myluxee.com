@@ -1,4 +1,7 @@
-FactoryGirl.define do
+FactoryGirl.define do  factory :store_news do
+    content "MyText"
+  end
+
   factory :sales_associate do
     be_contacted false
     be_rated false

@@ -13,6 +13,8 @@ Rails.application.routes.draw do
         delete 'finish_position'
         delete 'destroy_position'
         post 'undo_position'
+        post 'create_news'
+        delete 'destroy_news'
         get 'new_position'
         get 'edit_position'
       end

@@ -24,4 +24,20 @@ module ApplicationHelper
   def current_sales_associate?(sales_associate)
     !current_sales_associate.nil? and current_sales_associate.eql?(sales_associate)
   end
+
+  def time_format(week_name, open, time_start, time_end, today)
+    time = "<span class=\"glyphicon glyphicon-time\"></span> "
+    time << week_name
+    time <<  " - "
+    if open
+      time << "#{time_start} - #{time_end}"
+    else
+      time << t("stores.helper.closed")
+    end
+    if today
+      return "<strong>#{time}</strong>"
+    else
+      return time
+    end
+  end
 end

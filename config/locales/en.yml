@@ -45,6 +45,11 @@ en:
         search_address: "Search address..."
         search_input: "Search Store!"
         filter: "Filter"
+      store_news_form:
+        submit: "Add News"
+        news: "Tell what's new about this store..."
+      store_news:
+        remove_store_news: "remove"
     create_position:
       exists_position: "You already work for this store"
       failed_position: "Could not execute action."
@@ -73,3 +78,6 @@ en:
     filter:
       show: "Change Filter"
       hide: "Hide Filter"
+  stores:
+    helper:
+      closed: "closed this day"

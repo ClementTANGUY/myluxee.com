@@ -15,7 +15,7 @@ module SalesAssociatesHelper
 
   def format_position(position)
     unless position.nil?
-      format = "<strong>#{link_to( position.store.brand.name, position.store)}</strong>  - #{position.store.brand.speciality} "
+      format = "<strong>#{link_to( position.store.brand.name, [position.sales_associate, position.store])}</strong>  - #{position.store.brand.speciality} "
       format << "(since #{position.start_date})<br/>"
       format << "<small>#{ position.store.address } #{position.store.city }, #{position.store.state } #{position.store.zip_code }</small><br>"
       format

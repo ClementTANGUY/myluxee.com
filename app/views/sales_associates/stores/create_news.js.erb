@@ -1,0 +1,6 @@
+try{
+  $("#store_news_form").html('<%= j render partial: "store_news_form"%>');
+  $("#store_news_list").prepend('<%= j render(partial: "store_news", locals: {store_news: @store_news})%>');
+}catch(err){
+    console.error(err);
+}

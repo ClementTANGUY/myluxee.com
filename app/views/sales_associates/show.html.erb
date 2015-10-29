@@ -6,20 +6,13 @@
   <div class="media-body">
     <h4 class="media-heading"><%= @sales_associate.first_name %> <%= @sales_associate.last_name %></h4>
 
-    <p>
-      <strong>Email:</strong>
-      <%= @sales_associate.email %>
-    </p>
+    <% if @sales_associate.be_contacted%>
+        <p>
+          <strong>Email:</strong>
+          <%= @sales_associate.email %>
+        </p>
+    <% end %>
 
-    <p>
-      <strong>Be contacted:</strong>
-      <%= @sales_associate.be_contacted %>
-    </p>
-
-    <p>
-      <strong>Be rated:</strong>
-      <%= @sales_associate.be_rated %>
-    </p>
     <p>
       <strong>Languages:</strong>
       <%= @sales_associate.languages.map{|language| language.name}.join(", ") %>
