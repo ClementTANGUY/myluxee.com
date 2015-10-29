@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'stores/show'
+
   get 'welcome/terms_and_conditions'
 
   get 'welcome/privacy_policy'
@@ -21,9 +23,9 @@ Rails.application.routes.draw do
     end
   end
 
-  post 'sales_associates_news' => 'sales_associates/news#create'
+  resources :stores, only: :show
 
-  resources :stores
+  post 'sales_associates_news' => 'sales_associates/news#create'
 
   get 'welcome/locate'
 

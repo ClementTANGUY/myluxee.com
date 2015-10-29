@@ -136,7 +136,7 @@ class SalesAssociates::StoresController < ApplicationController
                                   :friday, :saturday, :sunday, :monday_start, :monday_end, :tuesday_start, :tuesday_end,
                                   :wednesday_start, :wednesday_end, :thursday_start, :thursday_end, :friday_start,
                                   :friday_end, :saturday_start, :saturday_end, :sunday_start, :sunday_end,
-                                  :brand_id,
+                                  :brand_id, :logo, :banner,
                                   positions_attributes: [:id, :store_id  , :sales_associate_id, :start_date, :end_date,
                                                          :role, :monday, :tuesday, :wednesday, :thursday, :friday,
                                                          :saturday, :sunday, :monday_start, :monday_end, :tuesday_start,

@@ -1,5 +1,6 @@
 <%= link_to 'Edit', edit_sales_associate_store_path(sales_associate_id: current_sales_associate, id: @store), class: "btn btn-primary" %>
 <%= link_to 'Back', sales_associate_stores_path(sales_associate_id: current_sales_associate), class: "btn btn-default" %>
+<br/>
 <% if @store.banner.file? %>
     <%= image_tag @store.banner.url(:big) %>
 <% end %>
