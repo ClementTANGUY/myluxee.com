@@ -2,21 +2,116 @@
   <%= fields.label :brand %>
   <%= fields.select :brand_id, Brand.all.collect { |b| [b.name, b.id] }, {}, class: "form-control" %>
 </div>
-<% if fields.object.new_record? %>
+
+<%= fields.fields_for :positions, @position do |position| %>
+    <%= position.hidden_field :sales_associate_id %>
     <div class="field ">
-      <%= label_tag :start_date, t("sales_associates.stores.position_form.start_date") %>
+      <%= position.label :start_date, t("sales_associates.stores.position_form.start_date") %>
       <div class="input-group">
-        <%= text_field_tag :start_date, @start_date, data: {provide: 'datepicker'}, class: "form-control", required: true %>
+        <%= position.text_field :start_date, data: {provide: 'datepicker'}, class: "form-control", required: true %>
         <div class="input-group-addon"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></div>
       </div>
     </div>
     <div class="field">
-      <%= label_tag :role, t("sales_associates.stores.position_form.role") %>
-      <%= select_tag :role, options_for_select(Position::ROLE_LIST, @role), class: "form-control" %>
+      <%= position.label :role, t("sales_associates.stores.position_form.role") %>
+      <%= position.select :role, Position::ROLE_LIST, class: "form-control" %>
+    </div>
+    <div class="field form-horizontal">
+      <h4><%= t(".my_timetable") %></h4>
+      <div class="form-group form-group-sm ">
+        <%= position.label :monday, class: "control-label" %>
+        <%= position.check_box :monday, class: " checkbox-week " %>
+
+        <div class="checkbox-week" <%= raw 'style="display:none;"' unless position.object.monday? %>>
+          <%= position.label :monday_start, class: "sr-only" %>
+          <%= position.text_field :monday_start, class: "time" %>
+
+          <%= position.label :monday_end, class: "sr-only" %>
+          <%= position.text_field :monday_end, class: "time" %>
+        </div>
+      </div>
+
+      <div class="form-group form-group-sm ">
+        <%= position.label :tuesday, class: "control-label" %>
+        <%= position.check_box :tuesday, class: " checkbox-week " %>
+
+        <div class="checkbox-week" <%= raw 'style="display:none;"' unless position.object.tuesday? %>>
+          <%= position.label :tuesday_start, class: "sr-only" %>
+          <%= position.text_field :tuesday_start, class: "time" %>
+
+          <%= position.label :tuesday_end, class: "sr-only" %>
+          <%= position.text_field :tuesday_end, class: "time" %>
+        </div>
+      </div>
+
+      <div class="form-group form-group-sm ">
+        <%= position.label :wednesday, class: "control-label" %>
+        <%= position.check_box :wednesday, class: " checkbox-week " %>
+
+        <div class="checkbox-week" <%= raw 'style="display:none;"' unless position.object.wednesday? %>>
+          <%= position.label :wednesday_start, class: "sr-only" %>
+          <%= position.text_field :wednesday_start, class: "time" %>
+
+          <%= position.label :wednesday_end, class: "sr-only" %>
+          <%= position.text_field :wednesday_end, class: "time" %>
+        </div>
+      </div>
+
+      <div class="form-group form-group-sm ">
+        <%= position.label :thursday, class: "control-label" %>
+        <%= position.check_box :thursday, class: " checkbox-week " %>
+
+        <div class="checkbox-week" <%= raw 'style="display:none;"' unless position.object.thursday? %>>
+          <%= position.label :thursday_start, class: "sr-only" %>
+          <%= position.text_field :thursday_start, class: "time" %>
+
+          <%= position.label :thursday_end, class: "sr-only" %>
+          <%= position.text_field :thursday_end, class: "time" %>
+        </div>
+      </div>
+
+      <div class="form-group form-group-sm ">
+        <%= position.label :friday, class: "control-label" %>
+        <%= position.check_box :friday, class: " checkbox-week " %>
+
+        <div class="checkbox-week" <%= raw 'style="display:none;"' unless position.object.friday? %>>
+          <%= position.label :friday_start, class: "sr-only" %>
+          <%= position.text_field :friday_start, class: "time" %>
+
+          <%= position.label :friday_end, class: "sr-only" %>
+          <%= position.text_field :friday_end, class: "time" %>
+        </div>
+      </div>
+
+      <div class="form-group form-group-sm ">
+        <%= position.label :saturday, class: "control-label" %>
+        <%= position.check_box :saturday, class: " checkbox-week " %>
+
+        <div class="checkbox-week" <%= raw 'style="display:none;"' unless position.object.saturday? %>>
+          <%= position.label :saturday_start, class: "sr-only" %>
+          <%= position.text_field :saturday_start, class: "time" %>
+
+          <%= position.label :saturday_end, class: "sr-only" %>
+          <%= position.text_field :saturday_end, class: "time" %>
+        </div>
+      </div>
+
+      <div class="form-group form-group-sm ">
+        <%= position.label :sunday, class: "control-label" %>
+        <%= position.check_box :sunday, class: " checkbox-week " %>
+
+        <div class="checkbox-week" <%= raw 'style="display:none;"' unless position.object.sunday? %>>
+          <%= position.label :sunday_start, class: "sr-only" %>
+          <%= position.text_field :sunday_start, class: "time" %>
+
+          <%= position.label :sunday_end, class: "sr-only" %>
+          <%= position.text_field :sunday_end, class: "time" %>
+        </div>
+      </div>
     </div>
 <% end %>
-
 <hr/>
+<h4><%= t(".store_info") %></h4>
 <div class="field">
   <%= fields.text_field :address, class: "form-control" %>
   <%= fields.label :address, class: "small", required: true %><br>

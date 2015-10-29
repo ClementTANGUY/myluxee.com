@@ -68,10 +68,12 @@ class SalesAssociates::StoresController < ApplicationController
   # GET /stores/new
   def new
     @store = Store.new
+    @position = Position.new(store: @store, sales_associate: current_sales_associate)
   end
 
   # GET /stores/1/edit
   def edit
+    @position = @store.positions.where(sales_associate_id: current_sales_associate.id)
   end
 
   def create_news
@@ -88,10 +90,6 @@ class SalesAssociates::StoresController < ApplicationController
   # POST /stores.json
   def create
     @store = Store.new(store_params)
-    @start_date = params[:start_date]
-    @role = params[:role]
-    @store.positions.build(role: @role, start_date: @start_date, sales_associate: current_sales_associate)
-
     respond_to do |format|
       if @store.save
         format.html { redirect_to [current_sales_associate,  @store],
@@ -138,7 +136,13 @@ class SalesAssociates::StoresController < ApplicationController
                                   :friday, :saturday, :sunday, :monday_start, :monday_end, :tuesday_start, :tuesday_end,
                                   :wednesday_start, :wednesday_end, :thursday_start, :thursday_end, :friday_start,
                                   :friday_end, :saturday_start, :saturday_end, :sunday_start, :sunday_end,
-                                  :brand_id)
+                                  :brand_id,
+                                  positions_attributes: [:id, :store_id  , :sales_associate_id, :start_date, :end_date,
+                                                         :role, :monday, :tuesday, :wednesday, :thursday, :friday,
+                                                         :saturday, :sunday, :monday_start, :monday_end, :tuesday_start,
+                                                         :tuesday_end, :wednesday_start, :wednesday_end, :thursday_start,
+                                                         :thursday_end, :friday_start, :friday_end, :saturday_start,
+                                                         :saturday_end , :sunday_start , :sunday_end ])
   end
 
 end

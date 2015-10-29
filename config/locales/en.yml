@@ -50,12 +50,17 @@ en:
         news: "Tell what's new about this store..."
       store_news:
         remove_store_news: "remove"
+      fields:
+        my_timetable: "My timetable at this store"
+        store_info: "Store Information"
     create_position:
       exists_position: "You already work for this store"
       failed_position: "Could not execute action."
     edit:
       destroy: "Remove my profile from MyLuxee"
       destroy_confirm: "Are you sure you want to remove your profile from MyLuxee? This action can not be undone."
+    summary:
+      availability: "My Availability"
   layouts:
     application:
       title: "My Luxee"

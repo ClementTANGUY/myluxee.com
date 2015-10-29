@@ -37,5 +37,26 @@ end
 #  created_at         :datetime        not null
 #  updated_at         :datetime        not null
 #  role               :string(255)
+#  monday             :boolean(1)
+#  tuesday            :boolean(1)
+#  wednesday          :boolean(1)
+#  thursday           :boolean(1)
+#  friday             :boolean(1)
+#  saturday           :boolean(1)
+#  sunday             :boolean(1)
+#  monday_start       :string(255)
+#  monday_end         :string(255)
+#  tuesday_start      :string(255)
+#  tuesday_end        :string(255)
+#  wednesday_start    :string(255)
+#  wednesday_end      :string(255)
+#  thursday_start     :string(255)
+#  thursday_end       :string(255)
+#  friday_start       :string(255)
+#  friday_end         :string(255)
+#  saturday_start     :string(255)
+#  saturday_end       :string(255)
+#  sunday_start       :string(255)
+#  sunday_end         :string(255)
 #
 

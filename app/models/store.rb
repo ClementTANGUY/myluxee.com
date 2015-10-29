@@ -29,6 +29,8 @@ class Store < ActiveRecord::Base
   has_one :brand, through: :store_brand
 
   has_many :positions, ->{where('end_date is null')}, dependent: :destroy
+  accepts_nested_attributes_for :positions
+
   has_many :sales_associates, through: :positions
 
   has_many :store_news, class_name: StoreNews, dependent: :destroy

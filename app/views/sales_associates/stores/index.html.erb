@@ -13,7 +13,9 @@
       <tbody>
       <% @stores.each do |store| %>
           <tr>
-            <td><%= raw address_format(store) %></td>
+            <td>
+              <%=  link_to_if current_sales_associate.stores.exists?({id: store.id}),raw(address_format(store)), [current_sales_associate, store] %>
+            </td>
 
             <td>
               <% if current_sales_associate.old_stores.exists?(id: store.id) %>
