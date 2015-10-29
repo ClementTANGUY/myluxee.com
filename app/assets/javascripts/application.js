@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
-//= require chosen_v1.4.2/chosen.jquery.js
+//= require chosen_v1.4.2/chosen.jquery.min
 //= require bootstrap-datepicker
 //= require jQuery-Mask-Plugin-1.13.4/dist/jquery.mask.js
 //= require_self

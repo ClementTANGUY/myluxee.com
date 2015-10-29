@@ -5,11 +5,12 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: mysql2
+  adapter: postgresql
+  encoding: unicode
   pool: 5
   timeout: 5000
-  user: root
-  password: root
+  username: test
+  password: test
 
 development:
   <<: *default
@@ -25,4 +26,4 @@ test:
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  database: myluxee_dev

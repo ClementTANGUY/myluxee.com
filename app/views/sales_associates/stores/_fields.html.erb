@@ -24,7 +24,7 @@
 
         <div class="checkbox-week" <%= raw 'style="display:none;"' unless position.object.monday? %>>
           <%= position.label :monday_start, class: "sr-only" %>
-          <%= position.text_field :monday_start, class: "time" %>
+          <%= position.text_field :monday_start, class: "time", placeholder: "00:00" %>
 
           <%= position.label :monday_end, class: "sr-only" %>
           <%= position.text_field :monday_end, class: "time" %>
@@ -145,6 +145,8 @@
   <%= fields.label :logo %>
   <%= fields.file_field :logo %>
 </div>
+
+<h3>Store Openning Hours</h3>
 <div class="field form-horizontal">
   <%= fields.label :monday %>
   <%= fields.check_box :monday, class: "checkbox-week" %>

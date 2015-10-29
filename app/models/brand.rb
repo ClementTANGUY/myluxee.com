@@ -7,7 +7,7 @@ class Brand < ActiveRecord::Base
   has_many :stores, through: :store_brands
 
   def self.specialities
-    Brand.select("speciality").order("speciality").distinct.all.collect{|brand| brand.speciality}
+    Brand.unscoped.select("speciality").order("speciality").distinct.all.collect{|brand| brand.speciality}
   end
 end
 # == Schema Information

@@ -7,7 +7,7 @@
 //= require bootstrap-sprockets
 //= require javascript:navbar_scroll
 //= require javascript:smoothscroll
-//= require chosen_v1.4.2/chosen.jquery.js
+//= require chosen_v1.4.2/chosen.jquery.min
 //= require scrollReveal
 //= require_self
 
