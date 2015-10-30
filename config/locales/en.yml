@@ -17,7 +17,7 @@ en:
     wizard_new:
       sigin_fb: "Sign in with Facebook"
       sigin_lk: "Sign in with LinkedIn"
-      signup_description: "Sign up with Social to follow your friends and see the startups they're working on <b>(recommended)</b>"
+
     stores:
       index:
         select: "I work at this store!"
@@ -25,7 +25,7 @@ en:
         my_position: "My Position"
         my_position_description: "Choose my position from selected store"
         deselect: "I don't work here<br/> anymore"
-        undo: "I don't work here anymore (undo)"
+        undo: "I don't work here anymore<br/> (undo)"
         new: "register it here."
         destroy: "Never worked here<br/><small>(remove)</small>"
         confirm: "Are you sure you want to remove the store from your profile?"

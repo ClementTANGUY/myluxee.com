@@ -13,6 +13,7 @@
     <h3><%= @store.brand.name %><br/>
       <small><%= @store.brand.speciality %></small>
     </h3>
+    <%= link_to @store.brand.website, "http://#{@store.brand.website}", target: "_blank" %>
     <p>
       <strong>Address:</strong>
       <%= raw address_format(@store, false) %>

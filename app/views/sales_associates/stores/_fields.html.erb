@@ -27,7 +27,7 @@
           <%= position.text_field :monday_start, class: "time", placeholder: "00:00" %>
 
           <%= position.label :monday_end, class: "sr-only" %>
-          <%= position.text_field :monday_end, class: "time" %>
+          <%= position.text_field :monday_end, class: "time", placeholder: "00:00" %>
         </div>
       </div>
 
@@ -37,10 +37,10 @@
 
         <div class="checkbox-week" <%= raw 'style="display:none;"' unless position.object.tuesday? %>>
           <%= position.label :tuesday_start, class: "sr-only" %>
-          <%= position.text_field :tuesday_start, class: "time" %>
+          <%= position.text_field :tuesday_start, class: "time", placeholder: "00:00" %>
 
           <%= position.label :tuesday_end, class: "sr-only" %>
-          <%= position.text_field :tuesday_end, class: "time" %>
+          <%= position.text_field :tuesday_end, class: "time", placeholder: "00:00" %>
         </div>
       </div>
 
@@ -50,10 +50,10 @@
 
         <div class="checkbox-week" <%= raw 'style="display:none;"' unless position.object.wednesday? %>>
           <%= position.label :wednesday_start, class: "sr-only" %>
-          <%= position.text_field :wednesday_start, class: "time" %>
+          <%= position.text_field :wednesday_start, class: "time", placeholder: "00:00" %>
 
           <%= position.label :wednesday_end, class: "sr-only" %>
-          <%= position.text_field :wednesday_end, class: "time" %>
+          <%= position.text_field :wednesday_end, class: "time", placeholder: "00:00" %>
         </div>
       </div>
 
@@ -63,10 +63,10 @@
 
         <div class="checkbox-week" <%= raw 'style="display:none;"' unless position.object.thursday? %>>
           <%= position.label :thursday_start, class: "sr-only" %>
-          <%= position.text_field :thursday_start, class: "time" %>
+          <%= position.text_field :thursday_start, class: "time", placeholder: "00:00" %>
 
           <%= position.label :thursday_end, class: "sr-only" %>
-          <%= position.text_field :thursday_end, class: "time" %>
+          <%= position.text_field :thursday_end, class: "time", placeholder: "00:00" %>
         </div>
       </div>
 
@@ -76,10 +76,10 @@
 
         <div class="checkbox-week" <%= raw 'style="display:none;"' unless position.object.friday? %>>
           <%= position.label :friday_start, class: "sr-only" %>
-          <%= position.text_field :friday_start, class: "time" %>
+          <%= position.text_field :friday_start, class: "time", placeholder: "00:00" %>
 
           <%= position.label :friday_end, class: "sr-only" %>
-          <%= position.text_field :friday_end, class: "time" %>
+          <%= position.text_field :friday_end, class: "time", placeholder: "00:00" %>
         </div>
       </div>
 
@@ -89,10 +89,10 @@
 
         <div class="checkbox-week" <%= raw 'style="display:none;"' unless position.object.saturday? %>>
           <%= position.label :saturday_start, class: "sr-only" %>
-          <%= position.text_field :saturday_start, class: "time" %>
+          <%= position.text_field :saturday_start, class: "time", placeholder: "00:00" %>
 
           <%= position.label :saturday_end, class: "sr-only" %>
-          <%= position.text_field :saturday_end, class: "time" %>
+          <%= position.text_field :saturday_end, class: "time", placeholder: "00:00" %>
         </div>
       </div>
 
@@ -102,10 +102,10 @@
 
         <div class="checkbox-week" <%= raw 'style="display:none;"' unless position.object.sunday? %>>
           <%= position.label :sunday_start, class: "sr-only" %>
-          <%= position.text_field :sunday_start, class: "time" %>
+          <%= position.text_field :sunday_start, class: "time", placeholder: "00:00" %>
 
           <%= position.label :sunday_end, class: "sr-only" %>
-          <%= position.text_field :sunday_end, class: "time" %>
+          <%= position.text_field :sunday_end, class: "time", placeholder: "00:00" %>
         </div>
       </div>
     </div>
@@ -153,10 +153,10 @@
 
   <div class="field form-horizontal checkbox-week" <%= raw 'style="display:none;"' unless fields.object.monday? %>>
     <%= fields.label :monday_start, class: "sr-only" %>
-    <%= fields.text_field :monday_start, class: "time" %>
+    <%= fields.text_field :monday_start, class: "time", placeholder: "00:00" %>
 
     <%= fields.label :monday_end, class: "sr-only" %>
-    <%= fields.text_field :monday_end, class: "time" %>
+    <%= fields.text_field :monday_end, class: "time", placeholder: "00:00" %>
   </div>
 </div>
 
@@ -166,10 +166,10 @@
 
   <div class="field form-horizontal checkbox-week" <%= raw 'style="display:none;"' unless fields.object.tuesday? %>>
     <%= fields.label :tuesday_start, class: "sr-only" %>
-    <%= fields.text_field :tuesday_start, class: "time" %>
+    <%= fields.text_field :tuesday_start, class: "time", placeholder: "00:00" %>
 
     <%= fields.label :tuesday_end, class: "sr-only" %>
-    <%= fields.text_field :tuesday_end, class: "time" %>
+    <%= fields.text_field :tuesday_end, class: "time", placeholder: "00:00" %>
   </div>
 </div>
 
@@ -179,10 +179,10 @@
 
   <div class="field form-horizontal checkbox-week" <%= raw 'style="display:none;"' unless fields.object.wednesday? %>>
     <%= fields.label :wednesday_start, class: "sr-only" %>
-    <%= fields.text_field :wednesday_start, class: "time" %>
+    <%= fields.text_field :wednesday_start, class: "time", placeholder: "00:00" %>
 
     <%= fields.label :wednesday_end, class: "sr-only" %>
-    <%= fields.text_field :wednesday_end, class: "time" %>
+    <%= fields.text_field :wednesday_end, class: "time", placeholder: "00:00" %>
   </div>
 </div>
 
@@ -192,10 +192,10 @@
 
   <div class="field form-horizontal checkbox-week" <%= raw 'style="display:none;"' unless fields.object.thursday? %>>
     <%= fields.label :thursday_start, class: "sr-only" %>
-    <%= fields.text_field :thursday_start, class: "time" %>
+    <%= fields.text_field :thursday_start, class: "time", placeholder: "00:00" %>
 
     <%= fields.label :thursday_end, class: "sr-only" %>
-    <%= fields.text_field :thursday_end, class: "time" %>
+    <%= fields.text_field :thursday_end, class: "time", placeholder: "00:00" %>
   </div>
 </div>
 
@@ -205,10 +205,10 @@
 
   <div class="field form-horizontal checkbox-week" <%= raw 'style="display:none;"' unless fields.object.friday? %>>
     <%= fields.label :friday_start, class: "sr-only" %>
-    <%= fields.text_field :friday_start, class: "time" %>
+    <%= fields.text_field :friday_start, class: "time", placeholder: "00:00" %>
 
     <%= fields.label :friday_end, class: "sr-only" %>
-    <%= fields.text_field :friday_end, class: "time" %>
+    <%= fields.text_field :friday_end, class: "time", placeholder: "00:00" %>
   </div>
 </div>
 
@@ -218,10 +218,10 @@
 
   <div class="field form-horizontal checkbox-week" <%= raw 'style="display:none;"' unless fields.object.saturday? %>>
     <%= fields.label :saturday_start, class: "sr-only" %>
-    <%= fields.text_field :saturday_start, class: "time" %>
+    <%= fields.text_field :saturday_start, class: "time", placeholder: "00:00" %>
 
     <%= fields.label :saturday_end, class: "sr-only" %>
-    <%= fields.text_field :saturday_end, class: "time" %>
+    <%= fields.text_field :saturday_end, class: "time", placeholder: "00:00" %>
   </div>
 </div>
 
@@ -232,10 +232,10 @@
 
   <div class="field form-horizontal checkbox-week" <%= raw 'style="display:none;"' unless fields.object.sunday? %>>
     <%= fields.label :sunday_start, class: "sr-only" %>
-    <%= fields.text_field :sunday_start, class: "time" %>
+    <%= fields.text_field :sunday_start, class: "time", placeholder: "00:00" %>
 
     <%= fields.label :sunday_end, class: "sr-only" %>
-    <%= fields.text_field :sunday_end, class: "time" %>
+    <%= fields.text_field :sunday_end, class: "time", placeholder: "00:00" %>
   </div>
 </div>
 

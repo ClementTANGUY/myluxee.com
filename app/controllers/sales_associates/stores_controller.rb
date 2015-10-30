@@ -128,7 +128,7 @@ class SalesAssociates::StoresController < ApplicationController
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_store
-    @store = current_sales_associate.stores.find(params[:id])
+    @store = current_sales_associate.all_stores.find(params[:id])
   end
 
   def store_params
