@@ -1,6 +1,6 @@
 try{
   $("#sales_associate_news_form").html('<%= j render partial: "sales_associates/news_form"%>');
-  $("#sales_associate_news_list").prepend('<%= j render(partial: "sales_associates/news_list", locals: {news: @news})%>');
+  $("#sales_associate_news_list").prepend('<%= j render(partial: "sales_associates/news_item", locals: {news: @news})%>');
 }catch(err){
     console.error(err);
 }

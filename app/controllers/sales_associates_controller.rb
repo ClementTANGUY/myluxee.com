@@ -1,5 +1,5 @@
 class SalesAssociatesController < ApplicationController
-  before_action :authenticate_sales_associate!, except: [:new, :create]
+  before_action :authenticate_sales_associate!, except: [:new, :create, :show]
   before_action :set_sales_associate, only: [:show, :edit, :update]
   #before_action :set_sales_associate, only: [:show]
 
