@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   devise_for :sales_associates, controllers: {omniauth_callbacks: "omniauth_callbacks", registrations: "sales_associates"}
   resources :sales_associates do
+    resource :sales_associate_news, only: [:create, :destroy], controller: "sales_associates/news"
     resources :stores, controller: "sales_associates/stores" do
       member do
         post 'create_position'
@@ -24,8 +25,6 @@ Rails.application.routes.draw do
   end
 
   resources :stores, only: :show
-
-  post 'sales_associates_news' => 'sales_associates/news#create'
 
   get 'welcome/locate'
 

@@ -1,17 +1,13 @@
-<h5>Latest News</h5>
-
-<% if current_sales_associate? @sales_associate%>
-    <%= form_tag sales_associates_news_path do %>
-        <div class="form-group">
-          <%= label_tag :news, nil, class: "sr-only" %>
-          <%= text_area_tag :content,nil, required:true, class: "form-control", rows: 2, placeholder: t("sales_associates.form.news") %>
-          <%= submit_tag t("sales_associates.form.submit"), class: "btn btn-default"%>
-        </div>
-    <% end %>
-<% end %>
-
-<% @sales_associate.sales_associate_news.each do |new| %>
-    <p class="bg-info lead">
-      <%= simple_format new.content,{}, wrapper_tag: "div" %>
+<% if !@sales_associate.sales_associate_news.empty? or current_sales_associate?(@sales_associate) %>
+    <p>
+    <h4>Latest News</h4>
+    <div id="sales_associate_news_form" class="panel">
+      <%= render partial: "news_form"%>
+    </div>
+    <div class="list-group" id="sales_associate_news_list">
+      <% @sales_associate.sales_associate_news.each do |news|%>
+          <%= render partial: "news_list", locals: {news: news}%>
+      <% end %>
+    </div>
     </p>
 <% end %>

@@ -61,6 +61,11 @@ en:
       destroy_confirm: "Are you sure you want to remove your profile from MyLuxee? This action can not be undone."
     summary:
       availability: "My Availability"
+    news_list:
+      remove_news: "remove"
+    news_form:
+      submit: "Add News"
+      news: "Tell what's new about you..."
   layouts:
     application:
       title: "My Luxee"
