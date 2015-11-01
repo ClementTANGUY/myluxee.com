@@ -40,6 +40,7 @@ function loadMarkers(){
     var infoWindow = new google.maps.InfoWindow();
     for(var i=0; i < storeList.length; i++){
         var store = storeList[i];
+        console.log("loading store "+store.brand.name+" with locations "+store.latitude+" = "+store.longitude);
         var showBalloon = function(storeId) {
             infoWindow.setContent($(".balloon-area[data-id='"+storeId+"']").html());
             infoWindow.open(_map, this);
@@ -59,10 +60,11 @@ function loadMarkers(){
 }
 
 function associateListToMap() {
-    $(".store-area").mouseover(function(){
+    var store = $(".store-area");
+    store.mouseover(function(){
         storeMap[$(this).attr("data-id")].setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
     });
-    $(".store-area").mouseout(function(){
+    store.mouseout(function(){
         storeMap[$(this).attr("data-id")].setIcon('http://maps.google.com/mapfiles/ms/icons/red-dot.png');
     });
 }
