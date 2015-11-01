@@ -1,12 +1,14 @@
-<div class="row store-area" data-id="<%= store.id %>">
-  <div class="col-xs-12 bg-white">
+<div class=" store-area" data-id="<%= store.id %>">
+  <div class="col-xs-6 bg-white">
     <div class="media">
       <div class="media-left">
         <a href="#">
-          <%= image_tag store.logo.url(:thumb),
-                        alt: store.brand.name,
-                        class: "img-thumbnail media-object",
-                        "data-content" => image_icon_data_content(store.logo.url(:medium), store.brand.name) %>
+          <%= link_to store do %>
+              <%= image_tag store.logo.url(:thumb),
+                            alt: store.brand.name,
+                            class: "img-thumbnail media-object",
+                            "data-content" => image_icon_data_content(store.logo.url(:medium), store.brand.name) %>
+          <% end %>
         </a>
       </div>
       <div class="media-body">
