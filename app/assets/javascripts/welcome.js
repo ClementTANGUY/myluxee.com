@@ -59,45 +59,51 @@ function associateListToMap() {
         storeMap[$(this).attr("data-id")].setIcon('http://maps.google.com/mapfiles/ms/icons/red-dot.png');
     });
 }
-function loadLocateMap(country, city) {
+function loadLocateMap() {
     console.log('loadLocateMap');
-    http://maps.google.com/maps/api/geocode/json?address=#{address}&sensor=false
-    var myLatlng = new google.maps.LatLng(48.8536450,2.3325860);
-    var myOptions = {
-        zoom: 14,
-        maxZoom: 16,
-        center: myLatlng,
-        mapTypeId: google.maps.MapTypeId.ROADMAP,
-        styles: [{
-            "featureType": "administrative",
-            "elementType": "labels.text.fill",
-            "stylers": [{"color": "#444444"}]
-        }, {"featureType": "landscape", "elementType": "all", "stylers": [{"color": "#f2f2f2"}]}, {
-            "featureType": "poi",
-            "elementType": "all",
-            "stylers": [{"visibility": "off"}]
-        }, {
-            "featureType": "road",
-            "elementType": "all",
-            "stylers": [{"saturation": -100}, {"lightness": 45}]
-        }, {
-            "featureType": "road.highway",
-            "elementType": "all",
-            "stylers": [{"visibility": "simplified"}]
-        }, {
-            "featureType": "road.arterial",
-            "elementType": "labels.icon",
-            "stylers": [{"visibility": "off"}]
-        }, {
-            "featureType": "transit",
-            "elementType": "all",
-            "stylers": [{"visibility": "off"}]
-        }, {"featureType": "water", "elementType": "all", "stylers": [{"color": "#46bcec"}, {"visibility": "on"}]}]
-    };
-    map = new google.maps.Map(document.getElementById('map'), myOptions);
+    $.get( "http://maps.google.com/maps/api/geocode/json?address="+_city+"+"+_country+"&sensor=false", function(location){
+        var myLatlng = new google.maps.LatLng(48.8536450,2.3325860);
+        if (location["results"]){
+            var geo = location["results"][0];
+            myLatlng = new google.maps.LatLng(geo["geometry"]["location"]["lat"], geo["geometry"]["location"]["lng"])
+        }
 
-    loadMarkers();
-    associateListToMap();
+        var myOptions = {
+            zoom: 14,
+            maxZoom: 16,
+            center: myLatlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            styles: [{
+                "featureType": "administrative",
+                "elementType": "labels.text.fill",
+                "stylers": [{"color": "#444444"}]
+            }, {"featureType": "landscape", "elementType": "all", "stylers": [{"color": "#f2f2f2"}]}, {
+                "featureType": "poi",
+                "elementType": "all",
+                "stylers": [{"visibility": "off"}]
+            }, {
+                "featureType": "road",
+                "elementType": "all",
+                "stylers": [{"saturation": -100}, {"lightness": 45}]
+            }, {
+                "featureType": "road.highway",
+                "elementType": "all",
+                "stylers": [{"visibility": "simplified"}]
+            }, {
+                "featureType": "road.arterial",
+                "elementType": "labels.icon",
+                "stylers": [{"visibility": "off"}]
+            }, {
+                "featureType": "transit",
+                "elementType": "all",
+                "stylers": [{"visibility": "off"}]
+            }, {"featureType": "water", "elementType": "all", "stylers": [{"color": "#46bcec"}, {"visibility": "on"}]}]
+        };
+        map = new google.maps.Map(document.getElementById('map'), myOptions);
+
+        loadMarkers();
+        associateListToMap();
+    });
 }
 
 $(document).on("page:change",function(){
