@@ -11,9 +11,12 @@
 //= require scrollReveal
 //= require_self
 
-var storeList = [];
-var storeMap = {};
-var map;
+var storeList = [], storeMap = {}, map, _country, _city;
+
+function setInitialLocation(country, city){
+    _country = country;
+    _city = city;
+}
 
 function setStoresToMap(stores) {
     storeList = stores;
@@ -56,8 +59,9 @@ function associateListToMap() {
         storeMap[$(this).attr("data-id")].setIcon('http://maps.google.com/mapfiles/ms/icons/red-dot.png');
     });
 }
-function loadLocateMap() {
+function loadLocateMap(country, city) {
     console.log('loadLocateMap');
+    http://maps.google.com/maps/api/geocode/json?address=#{address}&sensor=false
     var myLatlng = new google.maps.LatLng(48.8536450,2.3325860);
     var myOptions = {
         zoom: 14,

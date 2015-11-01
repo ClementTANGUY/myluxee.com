@@ -88,6 +88,8 @@ en:
     filter:
       show: "Change Filter"
       hide: "Hide Filter"
+    index:
+      find_store: "Find a Store!"
   stores:
     helper:
       closed: "closed this day"

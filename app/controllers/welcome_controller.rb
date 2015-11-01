@@ -1,7 +1,9 @@
 class WelcomeController < ApplicationController
   before_action :require_no_user
   def locate
-    @stores = Store.includes(:brand).order("brands.name")
+    @country = params[:country]
+    @city = params[:city]
+    @stores = Store.includes(:brand).where({country: @country, city: @city}).order("brands.name")
     if @brand = params[:brand] and !@brand.blank?
       @stores = @stores.where("brands.id = ?", @brand)
     end

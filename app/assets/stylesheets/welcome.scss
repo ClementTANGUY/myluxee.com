@@ -36,3 +36,14 @@
   }
 }
 
+.find_search{
+  color: #000000;
+  text-shadow: none;
+  .panel,.panel-body,.panel-heading{
+    background-color: #f0f0f0;
+  }
+  .form-control{
+    width: 425px;
+  }
+}
+
