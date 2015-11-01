@@ -11,7 +11,7 @@
 //= require scrollReveal
 //= require_self
 
-var storeList = [], storeMap = {}, map, _country, _city;
+var storeList = [], storeMap = {}, _map, _country, _city;
 
 function setInitialLocation(country, city){
     _country = country;
@@ -37,18 +37,25 @@ function removeOldMarkers(){
 function loadMarkers(){
     console.log('loadMarkers');
     var bounds = new google.maps.LatLngBounds();
+    var infoWindow = new google.maps.InfoWindow();
     for(var i=0; i < storeList.length; i++){
         var store = storeList[i];
+        var showBalloon = function(storeId) {
+            infoWindow.setContent($(".balloon-area[data-id='"+storeId+"']").html());
+            infoWindow.open(_map, this);
+        };
+
         storeMap[store.id] = new google.maps.Marker({
             position: {lat: store.latitude, lng: store.longitude},
-            map: map,
+            map: _map,
             title: store.brand.name
         });
         storeMap[store.id].setIcon('http://maps.google.com/mapfiles/ms/icons/red-dot.png');
+        storeMap[store.id].addListener('click', showBalloon.bind(storeMap[store.id], store.id));
         bounds.extend(new google.maps.LatLng(store.latitude, store.longitude));
     }
 
-    map.fitBounds(bounds);
+    _map.fitBounds(bounds);
 }
 
 function associateListToMap() {
@@ -99,7 +106,7 @@ function loadLocateMap() {
                 "stylers": [{"visibility": "off"}]
             }, {"featureType": "water", "elementType": "all", "stylers": [{"color": "#46bcec"}, {"visibility": "on"}]}]
         };
-        map = new google.maps.Map(document.getElementById('map'), myOptions);
+        _map = new google.maps.Map(document.getElementById('map'), myOptions);
 
         loadMarkers();
         associateListToMap();
