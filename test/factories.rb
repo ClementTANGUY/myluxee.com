@@ -1,4 +1,11 @@
-FactoryGirl.define do  factory :store_news do
+FactoryGirl.define do  factory :account do
+    first_name "MyString"
+last_name "MyString"
+email "MyString"
+password "MyString"
+password_confirmation "MyString"
+  end
+  factory :store_news do
     content "MyText"
   end
   factory :user do

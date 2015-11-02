@@ -13,11 +13,11 @@
 
         <div class="row">
           <div class=" col-md-6 ">
-            <%= link_to omniauth_authorize_path(resource_name, :facebook), class: "btn btn-block btn-social btn-facebook" do %>
-                <i class="fa fa-facebook"></i> <%= t(".sigin_fb") %>
+            <%= link_to "auth/facebook", class: "btn btn-block btn-social btn-facebook" do %>
+                <i class="fa fa-facebook"></i> <%= t("sales_associates.wizard_new.sigin_fb")%>
             <% end %> <br/>
-            <%= link_to omniauth_authorize_path(resource_name, :linkedin), class: "btn btn-block btn-social btn-linkedin" do %>
-                <i class="fa fa-linkedin"></i> <%= t(".sigin_lk") %>
+            <%= link_to "auth/linkedin", class: "btn btn-block btn-social btn-linkedin" do %>
+                <i class="fa fa-linkedin"></i> <%= t("sales_associates.wizard_new.sigin_lk")%>
             <% end %> <br/>
 
           </div>

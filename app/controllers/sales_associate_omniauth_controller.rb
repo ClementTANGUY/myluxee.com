@@ -1,4 +1,14 @@
-class MyOmniauthCallbacksController < Devise::OmniauthCallbacksController
+class SalesAssociateOmniauthController < ApplicationController
+
+  def create
+    if params[:provider].eql?("facebook")
+      facebook
+    else
+      linkedin
+    end
+  end
+
+  private
   def facebook
     sales_associate = SalesAssociate.from_omniauth(request.env['omniauth.auth'])
     if sales_associate.persisted?
