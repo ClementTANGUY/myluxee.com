@@ -43,7 +43,7 @@ class SalesAssociatesController < ApplicationController
 
     respond_to do |format|
       if @sales_associate.save
-        format.html { redirect_to sales_associate_stores_path(sales_associate_id: @sales_associate.id) , notice: 'Sales associate was successfully created.' }
+        format.html { redirect_to sales_associate_stores_path(sales_associate: @sales_associate) , notice: 'Sales associate was successfully created.' }
         format.json { render :show, status: :created, location: @sales_associate }
       else
         format.html { render :new }
@@ -57,7 +57,7 @@ class SalesAssociatesController < ApplicationController
   def update
     respond_to do |format|
       if @sales_associate.update(sales_associate_params)
-        format.html { redirect_to @sales_associate.stores.empty? ? sales_associate_stores_path(sales_associate_id: @sales_associate.id) : @sales_associate, notice: 'Sales associate was successfully updated.' }
+        format.html { redirect_to @sales_associate.stores.empty? ? sales_associate_stores_path(sales_associate_id: @sales_associate) : @sales_associate, notice: 'Sales associate was successfully updated.' }
         format.json { render :show, status: :ok, location: @sales_associate }
       else
         format.html { render :edit }

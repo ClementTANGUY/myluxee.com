@@ -4,7 +4,7 @@
 </div>
 
 <%= fields.fields_for :positions, @position do |position| %>
-    <%= position.hidden_field :sales_associate_id %>
+    <%= position.hidden_field :user_id %>
     <div class="row">
         <div class="field col-md-6">
           <%= position.label :start_date, t("sales_associates.stores.position_form.start_date") %>

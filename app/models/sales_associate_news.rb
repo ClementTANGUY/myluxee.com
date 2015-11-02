@@ -2,7 +2,7 @@ class SalesAssociateNews < ActiveRecord::Base
   default_scope { order("created_at desc") }
   validates :content, presence: true
 
-  belongs_to :sales_associate
+  belongs_to :sales_associate, class_name: "User", foreign_key: "user_id"
 
 end
 # == Schema Information

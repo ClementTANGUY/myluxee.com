@@ -1,8 +1,8 @@
 class AddOmniauthToSalesAssociate < ActiveRecord::Migration
   def change
-    add_column :sales_associates, :provider, :string
-    add_index :sales_associates, :provider
-    add_column :sales_associates, :uid, :string
-    add_index :sales_associates, :uid
+    add_column :users, :provider, :string
+    add_index :users, :provider
+    add_column :users, :uid, :string
+    add_index :users, :uid
   end
 end

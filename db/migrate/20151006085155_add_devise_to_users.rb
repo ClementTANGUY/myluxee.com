@@ -1,6 +1,6 @@
-class AddDeviseToSalesAssociates < ActiveRecord::Migration
+class AddDeviseToUsers < ActiveRecord::Migration
   def self.up
-    change_table(:sales_associates) do |t|
+    change_table(:users) do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
@@ -35,10 +35,10 @@ class AddDeviseToSalesAssociates < ActiveRecord::Migration
       # t.timestamps
     end
 
-    add_index :sales_associates, :email,                unique: true
-    add_index :sales_associates, :reset_password_token, unique: true
-    # add_index :sales_associates, :confirmation_token,   unique: true
-    # add_index :sales_associates, :unlock_token,         unique: true
+    add_index :users, :email,                unique: true
+    add_index :users, :reset_password_token, unique: true
+    # add_index :users, :confirmation_token,   unique: true
+    # add_index :users, :unlock_token,         unique: true
   end
 
   def self.down

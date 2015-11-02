@@ -1,5 +1,4 @@
-class OmniauthCallbacksController < Devise::OmniauthCallbacksController
-
+class MyOmniauthCallbacksController < Devise::OmniauthCallbacksController
   def facebook
     sales_associate = SalesAssociate.from_omniauth(request.env['omniauth.auth'])
     if sales_associate.persisted?

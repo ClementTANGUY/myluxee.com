@@ -73,7 +73,7 @@ class SalesAssociates::StoresController < ApplicationController
 
   # GET /stores/1/edit
   def edit
-    @position = @store.positions.where(sales_associate_id: current_sales_associate.id)
+    @position = @store.positions.where(user_id: current_sales_associate.id)
   end
 
   def create_news
@@ -120,7 +120,7 @@ class SalesAssociates::StoresController < ApplicationController
   def destroy
     @store.destroy
     respond_to do |format|
-      format.html { redirect_to sales_associate_stores_path(sales_associate_id: current_sales_associate), notice: I18n.t("sales_associates.stores.destroy") }
+      format.html { redirect_to sales_associate_stores_path(sales_associate: current_sales_associate), notice: I18n.t("sales_associates.stores.destroy") }
       format.json { head :no_content }
     end
   end
@@ -137,7 +137,7 @@ class SalesAssociates::StoresController < ApplicationController
                                   :wednesday_start, :wednesday_end, :thursday_start, :thursday_end, :friday_start,
                                   :friday_end, :saturday_start, :saturday_end, :sunday_start, :sunday_end,
                                   :brand_id, :logo, :banner,
-                                  positions_attributes: [:id, :store_id  , :sales_associate_id, :start_date, :end_date,
+                                  positions_attributes: [:id, :store_id  , :user_id, :start_date, :end_date,
                                                          :role, :monday, :tuesday, :wednesday, :thursday, :friday,
                                                          :saturday, :sunday, :monday_start, :monday_end, :tuesday_start,
                                                          :tuesday_end, :wednesday_start, :wednesday_end, :thursday_start,

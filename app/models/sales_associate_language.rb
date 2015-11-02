@@ -1,6 +1,6 @@
 class SalesAssociateLanguage < ActiveRecord::Base
   belongs_to :language
-  belongs_to :sales_associate
+  belongs_to :sales_associate, class_name: "User", foreign_key: "user_id"
 end
 # == Schema Information
 #

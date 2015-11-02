@@ -1,22 +1,24 @@
 FactoryGirl.define do  factory :store_news do
     content "MyText"
   end
-
-  factory :sales_associate do
-    be_contacted false
-    be_rated false
+  factory :user do
     encrypted_password Devise.bcrypt(SalesAssociate, 'password')
     password "password"
     password_confirmation "password"
-    factory :john do
-      first_name "John"
-      last_name "Wayne"
-      email "john@gmail.com.br"
+    factory :sales_associate, class: SalesAssociate do
+      type "SalesAssociate"
+      be_contacted false
+      be_rated false
+      factory :john do
+        first_name "John"
+        last_name "Wayne"
+        email "john@gmail.com.br"
+      end
+      factory :marie
+        first_name "Marie"
+        last_name "S."
+        email "marie@gmail.com.br"
     end
-    factory :marie
-      first_name "Marie"
-      last_name "S."
-      email "marie@gmail.com.br"
   end
   factory :brand do
     factory :agnes_brand do

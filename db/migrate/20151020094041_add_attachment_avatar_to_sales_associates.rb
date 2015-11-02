@@ -1,11 +1,11 @@
 class AddAttachmentAvatarToSalesAssociates < ActiveRecord::Migration
   def self.up
-    change_table :sales_associates do |t|
+    change_table :users do |t|
       t.attachment :avatar
     end
   end
 
   def self.down
-    remove_attachment :sales_associates, :avatar
+    remove_attachment :users, :avatar
   end
 end

@@ -1,6 +1,4 @@
-class SalesAssociate < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+class SalesAssociate < User
   devise :database_authenticatable, :registerable, :omniauthable,
          :recoverable, :rememberable, :trackable, :validatable
 
@@ -11,22 +9,22 @@ class SalesAssociate < ActiveRecord::Base
   has_attached_file :avatar, styles: { medium: "171x180#", thumb: "100x100#", tiny: "40x40#" }, default_url: "profile-photo.jpg"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
-  has_many :sales_associate_news, dependent: :destroy, class_name: SalesAssociateNews
+  has_many :sales_associate_news, dependent: :destroy, class_name: SalesAssociateNews, foreign_key: "user_id"
   accepts_nested_attributes_for :sales_associate_news,
                                 reject_if: lambda {|attributes| attributes['content'].blank?}
 
-  has_many :sales_associate_languages, dependent: :destroy
+  has_many :sales_associate_languages, dependent: :destroy, foreign_key: "user_id"
   accepts_nested_attributes_for :sales_associate_languages
 
   has_many :languages, through: :sales_associate_languages
   accepts_nested_attributes_for :languages,
                                 reject_if: lambda {|attributes| attributes['id'].blank?}
 
-  has_many :all_positions, dependent: :destroy, class_name: Position
+  has_many :all_positions, dependent: :destroy, class_name: Position, foreign_key: "user_id"
 
-  has_many :old_positions, -> {where('end_date is not null')}, dependent: :destroy, class_name: Position
+  has_many :old_positions, -> {where('end_date is not null')}, dependent: :destroy, class_name: Position , foreign_key: "user_id"
 
-  has_many :positions, -> {where('end_date is null')}, dependent: :destroy
+  has_many :positions, -> {where('end_date is null')}, dependent: :destroy, foreign_key: "user_id"
   accepts_nested_attributes_for :positions,
                                 reject_if: lambda {|attributes| attributes['role'].blank?}
 
@@ -36,6 +34,7 @@ class SalesAssociate < ActiveRecord::Base
   has_many :old_stores, ->{order("start_date desc")}, through: :old_positions, source: :store
 
   has_many :all_stores, ->{order("start_date desc")}, through: :all_positions, source: :store
+
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

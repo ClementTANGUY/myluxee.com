@@ -1,11 +1,11 @@
 class Position < ActiveRecord::Base
   ROLE_LIST = ["Store Manager", "Department Head","Sales Associate", "First Salesman", "Floor Manager"]
 
-  belongs_to :sales_associate
+  belongs_to :sales_associate, class_name: "User", foreign_key: "user_id"
   belongs_to :store
 
   validates :start_date, :role , presence: true
-  validates :sales_associate_id, uniqueness: { scope: :store_id }
+  validates :user_id, uniqueness: { scope: :store_id }
 
   validates :monday_start,:monday_end  ,:tuesday_start,:tuesday_end ,:wednesday_start ,:wednesday_end,:thursday_start,
             :thursday_end,:friday_start,:friday_end  ,:saturday_start  ,:saturday_end,:sunday_start,:sunday_end,

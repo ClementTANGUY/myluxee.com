@@ -7,8 +7,8 @@ Rails.application.routes.draw do
 
   get 'dashboard/index'
 
-  devise_for :sales_associates, controllers: {omniauth_callbacks: "omniauth_callbacks", registrations: "sales_associates"}
-  resources :sales_associates do
+  devise_for :sales_associates, controllers: {omniauth_callbacks: "my_omniauth_callbacks", registrations: "sales_associates"}
+  resources :sales_associates, controller: "sales_associates" do
     resource :sales_associate_news, only: [:create, :destroy], controller: "sales_associates/news"
     resources :stores, controller: "sales_associates/stores" do
       member do
