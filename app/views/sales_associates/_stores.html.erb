@@ -1,0 +1,15 @@
+ <% if current_sales_associate? sales_associate %>
+     <h5>Former Positions<br/>
+      <small><%= link_to t(".stores"), sales_associate_stores_path(sales_associate_id: sales_associate) %></small>
+      </h5>
+      <% if sales_associate.stores.empty? %>
+          You are not working for any store right now.<br/>
+          <%= link_to t(".find_store"), sales_associate_stores_path(sales_associate_id: sales_associate) %>
+      <% end %>
+  <% end %>
+  <% @sales_associate.old_stores.each do |position| %>
+      <p class="bg-info">
+        <%= raw store_position_format position %>
+      </p>
+  <% end %>
+

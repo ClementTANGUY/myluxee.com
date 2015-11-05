@@ -1,0 +1,60 @@
+<div class="text-center" id="banner">
+  <p>
+    SALES ASSOCIATES? COME GROW THE COMMUNITY, TELL AND RETAIN YOUR CLIENTS !
+    <button type="button" class="btn-rounded btn-sm" data-toggle="modal" data-target="#wizard-new-modal">SIGN UP</button>
+  </p>
+</div>
+
+<div class="row" id="search-content">
+  <div class="col-sm-6 store-list">
+    <div class="row">
+      <div class="col-xs-12">
+        <%= render partial: "filter" %>
+      </div>
+    </div>
+    <div class="row ">
+      <div class="col-xs-12 text-right" id="pagination-area">
+        <%= paginate @stores, remote: true, params: {address: @address, brand: @brand, speciality: @speciality,
+                                                     country: @country, city: @city} %>
+      </div>
+    </div>
+    <div id="stores-area">
+      <% @stores.each do |store| %>
+          <%= render partial: "store_card", locals: {store: store} %>
+      <% end %>
+      <% if @stores.empty? %>
+          <div class="jumbotron text-center">
+            <h3>It seems that there is no store with the filters you chose.</h3>
+            <h4>signup to our newsletter and find out when new stores are registered</h4>
+
+            <form class="form-inline" role="form" action="//myluxee.us11.list-manage.com/subscribe/post?u=b7959a16cabf22b1008be1d01&amp;id=faf2916d4c" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form">
+              <input type="email" name="EMAIL" class="form-control" id="mce-EMAIL" placeholder="email address" required>
+              <input type="submit" value="Remind me" name="subscribe" id="mc-embedded-subscribe" class="btn btn-primary">
+            </form>
+
+          </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="col-sm-6">
+    <div id="map" style="width: 100%; height: 550px;"></div>
+  </div>
+</div>
+
+<script type="application/javascript">
+    setInitialLocation('<%= @country %>', '<%= @city %>')
+    setStoresToMap(<%= raw @stores.to_json include: [:brand]%>);
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBC9IaTnQh2ds8DAcLWL4zvU-dYBgrdQss&callback=loadLocateMap"/>
+
+<script type="application/javascript">
+    $(document).ready(function () {
+        $(".img-popover").popover({
+            html: true,
+            trigger: "hover",
+            placement: "bottom"
+        });
+    });
+</script>

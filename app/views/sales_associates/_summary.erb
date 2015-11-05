@@ -1,0 +1,38 @@
+<div class="panel">
+  <div class="panel-body">
+    <div class="media">
+      <div class="media-left">
+        <%= link_to sales_associate do %>
+          <%= image_tag sales_associate.avatar.url(:thumb), class: "media-object"%>
+        <% end %>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading"><%= sales_associate.first_name%> <%= sales_associate.last_name%></h4>
+        <p>
+          <strong>Position</strong>
+          <%= raw format_position(sales_associate.positions.first)%>
+        </p>
+        <p>
+          <strong>Languages:</strong>
+          <%= sales_associate.languages.map{|language| language.name}.join(", ") %>
+        </p>
+        <p>
+          <%= mail_to(sales_associate.email, sales_associate.email) if sales_associate.be_contacted %>
+        </p>
+        <p>
+          <strong><%= t(".availability")%></strong>
+
+              <%= raw time_format_small("monday",sales_associate.positions.first.monday, sales_associate.positions.first.monday_start, sales_associate.positions.first.monday_end, Time.now.monday?) %>
+              <%= raw time_format_small("tuesday",sales_associate.positions.first.tuesday, sales_associate.positions.first.tuesday_start, sales_associate.positions.first.tuesday_end, Time.now.tuesday?) %>
+              <%= raw time_format_small("wednesday",sales_associate.positions.first.wednesday, sales_associate.positions.first.wednesday_start, sales_associate.positions.first.wednesday_end, Time.now.wednesday?) %>
+              <%= raw time_format_small("thursday",sales_associate.positions.first.thursday, sales_associate.positions.first.thursday_start, sales_associate.positions.first.thursday_end, Time.now.thursday?) %>
+              <%= raw time_format_small("friday",sales_associate.positions.first.friday, sales_associate.positions.first.friday_start, sales_associate.positions.first.friday_end, Time.now.friday?) %>
+              <%= raw time_format_small("saturday",sales_associate.positions.first.saturday, sales_associate.positions.first.saturday_start, sales_associate.positions.first.saturday_end, Time.now.saturday?) %>
+              <%= raw time_format_small("sunday",sales_associate.positions.first.sunday, sales_associate.positions.first.sunday_start, sales_associate.positions.first.sunday_end, Time.now.sunday?) %>
+
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<br/>

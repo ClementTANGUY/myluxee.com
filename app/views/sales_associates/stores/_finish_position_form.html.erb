@@ -1,0 +1,13 @@
+
+<%= raw address_format(@store) %>
+
+<%= form_tag finish_position_sales_associate_store_path(id: @store, sales_associate_id: current_sales_associate), id: "form-position", method: :delete do %>
+    <div class="field form-horizontal">
+      <%= label_tag :end_date, t(".finish_date") %>
+      <div class="input-group">
+        <%= text_field_tag :end_date,nil, data: {provide: 'datepicker'}, class: "form-control", required: true%>
+        <div class="input-group-addon"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></div>
+      </div>
+    </div>
+    <%= submit_tag t(".finish"), class: "btn btn-danger"%>
+<% end %>

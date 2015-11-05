@@ -1,0 +1,13 @@
+<div class="list-group-item" data-id="<%= store_news.id%>">
+  <h4 class="list-group-item-heading"><%= simple_format store_news.content,{}, wrapper_tag: "div" %></h4>
+  <p class="list-group-item-text">
+    <%= store_news.created_at.strftime("%d/%m/%Y")%>
+    <br/>
+    <small>
+      <%= link_to t(".remove_store_news"),
+                       destroy_news_sales_associate_store_path(sales_associate_id: current_sales_associate,
+                                                                store_id: @store, store_news_id: store_news.id),
+      method: :delete, remote: true %>
+    </small>
+  </p>
+</div>

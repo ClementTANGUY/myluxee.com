@@ -1,0 +1,15 @@
+<% if !@sales_associate.sales_associate_news.empty? or current_sales_associate?(@sales_associate) %>
+    <p>
+    <h4>Latest News</h4>
+    <% if current_sales_associate? @sales_associate %>
+        <div id="sales_associate_news_form" class="panel">
+          <%= render partial: "news_form" %>
+        </div>
+    <% end %>
+    <div class="list-group" id="sales_associate_news_list">
+      <% @sales_associate.sales_associate_news.each do |news| %>
+          <%= render partial: "news_item", locals: {news: news} %>
+      <% end %>
+    </div>
+    </p>
+<% end %>

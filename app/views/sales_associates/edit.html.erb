@@ -1,0 +1,7 @@
+<div class="container-fluid">
+  <h1>Sales Associate</h1>
+
+  <%= render 'form' %>
+  <%= render partial: "stores", locals:{ sales_associate: sales_associate } %>
+  <%= button_to  t(".destroy"), @sales_associate, method: :delete, data: {confirm: t(".destroy_confirm")}, class: "btn btn-danger btn-sm"%>
+</div>

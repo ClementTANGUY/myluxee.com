@@ -1,0 +1,23 @@
+<div class="panel">
+  <div class="panel-heading">
+    <%= t(".filter") %>
+  </div>
+  <div class="panel-body">
+
+    <%= form_tag sales_associate_stores_path(sales_associate_id: current_sales_associate), method: :get, class: "form-inline" do %>
+        <div class="form-group form-group-sm">
+          <%= label_tag :address %> <%= text_field_tag :address, @address, class: "form-control", placeholder: t('.search_address') %>
+        </div>
+        <div class="form-group form-group-sm">
+          <%= label_tag :brand %>
+          <%= select_tag :brand, options_for_select(Brand.all.collect { |brand| [brand.name, brand.id] }, @brand),  class: "form-control", include_blank: true %>
+        </div>
+        <div class="form-group form-group-sm">
+          <%= label_tag :speciality %>
+          <%= select_tag :speciality, options_for_select(Brand.specialities, @speciality), class: "form-control", include_blank: true %>
+        </div>
+        <%= submit_tag t(".search_input"), class: "btn btn-primary btn-sm " %>
+
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+
+<%= raw address_format(@store) %>
+
+<%= form_tag create_position_sales_associate_store_path(id: @store, sales_associate_id: current_sales_associate), id: "form-position" do %>
+    <div class="field form-horizontal">
+      <%= label_tag :start_date, t(".start_date") %>
+      <div class="input-group">
+        <%= text_field_tag :start_date,nil, data: {provide: 'datepicker'}, class: "form-control", required: true%>
+        <div class="input-group-addon"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></div>
+      </div>
+    </div>
+    <h4><%=  t(".work_as")%></h4>
+    <%= hidden_field_tag :role, nil, id: "role-hidden" %>
+    <% Position::ROLE_LIST.each do |role| %>
+        <%= button_tag role, class: "btn btn-primary btn-lg btn-block button-role", data: role%>
+    <% end %>
+<% end %>
+
+<script type="application/javascript">
+
+    $(".button-role").click(function(e){
+        e.preventDefault();
+        $("#role-hidden").val($(this).attr("data"));
+        $("#form-position").submit();
+    });
+
+</script>

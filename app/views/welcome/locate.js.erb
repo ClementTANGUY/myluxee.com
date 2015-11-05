@@ -1,0 +1,13 @@
+try{
+    removeOldMarkers();
+    setStoresToMap(<%= raw @stores.to_json include: [:brand]%>);
+    $('#stores-area').empty();
+    <% @stores.each do |store|%>
+        $("#stores-area").append('<%= j render partial: "store_card", locals: {store: store} %> ');
+    <% end %>
+    loadMarkers();
+    associateListToMap();
+    $('#pagination-area').html('<%= escape_javascript(paginate(@stores, remote: true, params: {address: @address, brand: @brand, speciality: @speciality}))%>');
+}catch(err){
+    console.error(err);
+}

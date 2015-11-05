@@ -1,0 +1,58 @@
+<%= link_to 'Edit', edit_sales_associate_store_path(sales_associate_id: current_sales_associate, id: @store), class: "btn btn-primary" %>
+<%= link_to 'Back', sales_associate_stores_path(sales_associate_id: current_sales_associate), class: "btn btn-default" %>
+<br/>
+<% if @store.banner.file? %>
+    <%= image_tag @store.banner.url(:big) %>
+<% end %>
+
+<div class="media">
+  <div class="media-left">
+    <a href="#">
+      <%= image_tag @store.logo.url(:medium), class: "media-object"%>
+    </a>
+  </div>
+  <div class="media-body">
+    <h3><%= @store.brand.name %><br/>
+      <small><%= @store.brand.speciality %></small>
+    </h3>
+    <%= link_to @store.brand.website, "http://#{@store.brand.website}", target: "_blank" %>
+    <p>
+      <strong>Address:</strong>
+      <%= raw address_format(@store, false) %>
+    </p>
+  </div>
+</div>
+<br/>
+
+
+<hr/>
+<p>
+    <h4>Opening hours </h4>
+    <%= raw time_format("monday",@store.monday, @store.monday_start, @store.monday_end, Time.now.monday?) %> <br/>
+    <%= raw time_format("tuesday",@store.tuesday, @store.tuesday_start, @store.tuesday_end, Time.now.tuesday?) %> <br/>
+    <%= raw time_format("wednesday",@store.wednesday, @store.wednesday_start, @store.wednesday_end, Time.now.wednesday?) %><br/>
+    <%= raw time_format("thursday",@store.thursday, @store.thursday_start, @store.thursday_end, Time.now.thursday?) %>          <br/>
+    <%= raw time_format("friday",@store.friday, @store.friday_start, @store.friday_end, Time.now.friday?) %> <br/>
+    <%= raw time_format("saturday",@store.saturday, @store.saturday_start, @store.saturday_end, Time.now.saturday?) %> <br/>
+    <%= raw time_format("sunday",@store.sunday, @store.sunday_start, @store.sunday_end, Time.now.sunday?) %>
+</p>
+<hr/>
+<% if !@store.store_news.empty? or current_sales_associate.stores.include?(@store) %>
+    <p>
+      <h4>Latest News</h4>
+        <div id="store_news_form" class="panel">
+            <%= render partial: "store_news_form"%>
+        </div>
+        <div class="list-group" id="store_news_list">
+          <% @store.store_news.each do |store_news|%>
+             <%= render partial: "store_news", locals: {store_news: store_news}%>
+          <% end %>
+        </div>
+    </p>
+<% end %>
+<hr/>
+<h4>Sales Associate's Profiles</h4>
+<% @store.sales_associates.each do |sales_associate|%>
+    <%=render partial: "sales_associates/summary", locals: {sales_associate: sales_associate} %>
+<% end %>
+<br/>

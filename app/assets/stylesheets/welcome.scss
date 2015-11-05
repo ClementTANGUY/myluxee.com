@@ -1,0 +1,56 @@
+
+// General Style Variables
+@import "config/variables";
+@import "config/bootstrap_variables";
+
+// External Frameworks
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "chosen_v1.4.2/chosen";
+
+// Our CSS
+@import "layout/*";
+@import "components/*";
+@import "pages/*";
+@import "vendor/*";
+
+@import "bootstrap-social/bootstrap-social";
+
+.alert{
+  position: absolute;
+  right: 40%;
+  z-index: 9999;
+  opacity: 0.8;
+}
+
+.store-list {
+  height: 550px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+#search-form{
+  .chosen-container{
+    width: 100% !important;
+  }
+}
+
+.find_search{
+  color: #000000;
+  text-shadow: none;
+  .panel,.panel-body,.panel-heading{
+    background-color: #f0f0f0;
+  }
+  .form-control{
+    width: 425px;
+  }
+}
+
+.balloon-row{
+  width: 150px;
+  max-height: 150px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+

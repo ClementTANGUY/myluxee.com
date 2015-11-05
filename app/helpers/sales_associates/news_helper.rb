@@ -1,0 +1,2 @@
+module SalesAssociates::NewsHelper
+end

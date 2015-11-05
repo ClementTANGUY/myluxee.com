@@ -1,0 +1,250 @@
+<div class="field ">
+  <%= fields.label :brand %>
+  <%= fields.select :brand_id, Brand.all.collect { |b| [b.name, b.id] }, {}, class: "form-control" %>
+</div>
+
+<%= fields.fields_for :positions, @position do |position| %>
+    <%= position.hidden_field :user_id %>
+    <div class="row">
+        <div class="field col-md-6">
+          <%= position.label :start_date, t("sales_associates.stores.position_form.start_date") %>
+          <div class="input-group">
+            <%= position.text_field :start_date, data: {provide: 'datepicker'}, class: "form-control", required: true %>
+            <div class="input-group-addon"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></div>
+          </div>
+        </div>
+        <div class="field col-md-6">
+          <%= position.label :role, t("sales_associates.stores.position_form.role") %>
+          <%= position.select :role, Position::ROLE_LIST,{}, class: "form-control"%>
+
+        </div>
+    </div>
+    <div class="field form-horizontal row">
+      <h4 class="col-md-4"><%= t(".my_timetable") %></h4>
+
+      <div class="col-md-8">
+        <div class="form-group form-group-sm ">
+          <%= position.label :monday, class: "control-label" %>
+          <%= position.check_box :monday, class: " checkbox-week " %>
+
+          <div class="checkbox-week" <%= raw 'style="display:none;"' unless position.object.monday? %>>
+            <%= position.label :monday_start, class: "sr-only" %>
+            <%= position.text_field :monday_start, class: "time", placeholder: "00:00" %>
+
+            <%= position.label :monday_end, class: "sr-only" %>
+            <%= position.text_field :monday_end, class: "time", placeholder: "00:00" %>
+          </div>
+        </div>
+
+        <div class="form-group form-group-sm ">
+          <%= position.label :tuesday, class: "control-label" %>
+          <%= position.check_box :tuesday, class: " checkbox-week " %>
+
+          <div class="checkbox-week" <%= raw 'style="display:none;"' unless position.object.tuesday? %>>
+            <%= position.label :tuesday_start, class: "sr-only" %>
+            <%= position.text_field :tuesday_start, class: "time", placeholder: "00:00" %>
+
+            <%= position.label :tuesday_end, class: "sr-only" %>
+            <%= position.text_field :tuesday_end, class: "time", placeholder: "00:00" %>
+          </div>
+        </div>
+
+        <div class="form-group form-group-sm ">
+          <%= position.label :wednesday, class: "control-label" %>
+          <%= position.check_box :wednesday, class: " checkbox-week " %>
+
+          <div class="checkbox-week" <%= raw 'style="display:none;"' unless position.object.wednesday? %>>
+            <%= position.label :wednesday_start, class: "sr-only" %>
+            <%= position.text_field :wednesday_start, class: "time", placeholder: "00:00" %>
+
+            <%= position.label :wednesday_end, class: "sr-only" %>
+            <%= position.text_field :wednesday_end, class: "time", placeholder: "00:00" %>
+          </div>
+        </div>
+
+        <div class="form-group form-group-sm ">
+          <%= position.label :thursday, class: "control-label" %>
+          <%= position.check_box :thursday, class: " checkbox-week " %>
+
+          <div class="checkbox-week" <%= raw 'style="display:none;"' unless position.object.thursday? %>>
+            <%= position.label :thursday_start, class: "sr-only" %>
+            <%= position.text_field :thursday_start, class: "time", placeholder: "00:00" %>
+
+            <%= position.label :thursday_end, class: "sr-only" %>
+            <%= position.text_field :thursday_end, class: "time", placeholder: "00:00" %>
+          </div>
+        </div>
+
+        <div class="form-group form-group-sm ">
+          <%= position.label :friday, class: "control-label" %>
+          <%= position.check_box :friday, class: " checkbox-week " %>
+
+          <div class="checkbox-week" <%= raw 'style="display:none;"' unless position.object.friday? %>>
+            <%= position.label :friday_start, class: "sr-only" %>
+            <%= position.text_field :friday_start, class: "time", placeholder: "00:00" %>
+
+            <%= position.label :friday_end, class: "sr-only" %>
+            <%= position.text_field :friday_end, class: "time", placeholder: "00:00" %>
+          </div>
+        </div>
+
+        <div class="form-group form-group-sm ">
+          <%= position.label :saturday, class: "control-label" %>
+          <%= position.check_box :saturday, class: " checkbox-week " %>
+
+          <div class="checkbox-week" <%= raw 'style="display:none;"' unless position.object.saturday? %>>
+            <%= position.label :saturday_start, class: "sr-only" %>
+            <%= position.text_field :saturday_start, class: "time", placeholder: "00:00" %>
+
+            <%= position.label :saturday_end, class: "sr-only" %>
+            <%= position.text_field :saturday_end, class: "time", placeholder: "00:00" %>
+          </div>
+        </div>
+
+        <div class="form-group form-group-sm ">
+          <%= position.label :sunday, class: "control-label" %>
+          <%= position.check_box :sunday, class: " checkbox-week " %>
+
+          <div class="checkbox-week" <%= raw 'style="display:none;"' unless position.object.sunday? %>>
+            <%= position.label :sunday_start, class: "sr-only" %>
+            <%= position.text_field :sunday_start, class: "time", placeholder: "00:00" %>
+
+            <%= position.label :sunday_end, class: "sr-only" %>
+            <%= position.text_field :sunday_end, class: "time", placeholder: "00:00" %>
+          </div>
+        </div>
+      </div>
+    </div>
+<% end %>
+<hr/>
+<h4><%= t(".store_info") %></h4>
+<div class="field form-horizontal">
+  <%= fields.label :banner %>
+  <%= fields.file_field :banner %>
+</div>
+<div class="field">
+  <%= fields.text_field :address, class: "form-control" %>
+  <%= fields.label :address, class: "small", required: true %><br>
+</div>
+<div class="row">
+
+  <div class="field col-md-6">
+    <%= fields.text_field :city, class: "form-control" %>
+    <%= fields.label :city, class: "small", required: true %>
+  </div>
+  <div class="field col-md-6">
+    <%= fields.text_field :state, class: "form-control" %>
+    <%= fields.label :state, class: "small", required: true %>
+  </div>
+</div>
+<div class="row">
+  <div class="field col-md-6">
+    <%= fields.number_field :zip_code, class: "form-control" %>
+    <%= fields.label :zip_code, class: "small", required: true %>
+  </div>
+  <div class="field col-md-6">
+    <%= fields.text_field :country, class: "form-control" %>
+    <%= fields.label :country, class: "small", required: true %>
+  </div>
+</div>
+<div class="field form-horizontal">
+  <%= fields.label :logo %>
+  <%= fields.file_field :logo %>
+</div>
+
+<div class="form-horizontal row">
+  <h3 class="col-md-4">Store Openning Hours</h3>
+
+  <div class="col-md-4">
+    <div class="field">
+      <%= fields.label :monday %>
+      <%= fields.check_box :monday, class: "checkbox-week" %>
+
+      <div class="field form-horizontal checkbox-week" <%= raw 'style="display:none;"' unless fields.object.monday? %>>
+        <%= fields.label :monday_start, class: "sr-only" %>
+        <%= fields.text_field :monday_start, class: "time", placeholder: "00:00" %>
+
+        <%= fields.label :monday_end, class: "sr-only" %>
+        <%= fields.text_field :monday_end, class: "time", placeholder: "00:00" %>
+      </div>
+    </div>
+
+    <div class="field">
+      <%= fields.label :tuesday %>
+      <%= fields.check_box :tuesday, class: "checkbox-week" %>
+
+      <div class="field form-horizontal checkbox-week" <%= raw 'style="display:none;"' unless fields.object.tuesday? %>>
+        <%= fields.label :tuesday_start, class: "sr-only" %>
+        <%= fields.text_field :tuesday_start, class: "time", placeholder: "00:00" %>
+
+        <%= fields.label :tuesday_end, class: "sr-only" %>
+        <%= fields.text_field :tuesday_end, class: "time", placeholder: "00:00" %>
+      </div>
+    </div>
+
+    <div class="field">
+      <%= fields.label :wednesday %>
+      <%= fields.check_box :wednesday, class: "checkbox-week" %>
+
+      <div class="field  checkbox-week" <%= raw 'style="display:none;"' unless fields.object.wednesday? %>>
+        <%= fields.label :wednesday_start, class: "sr-only" %>
+        <%= fields.text_field :wednesday_start, class: "time", placeholder: "00:00" %>
+
+        <%= fields.label :wednesday_end, class: "sr-only" %>
+        <%= fields.text_field :wednesday_end, class: "time", placeholder: "00:00" %>
+      </div>
+    </div>
+
+    <div class="field ">
+      <%= fields.label :thursday %>
+      <%= fields.check_box :thursday, class: "checkbox-week" %>
+
+      <div class="field  checkbox-week" <%= raw 'style="display:none;"' unless fields.object.thursday? %>>
+        <%= fields.label :thursday_start, class: "sr-only" %>
+        <%= fields.text_field :thursday_start, class: "time", placeholder: "00:00" %>
+
+        <%= fields.label :thursday_end, class: "sr-only" %>
+        <%= fields.text_field :thursday_end, class: "time", placeholder: "00:00" %>
+      </div>
+    </div>
+
+    <div class="field ">
+      <%= fields.label :friday %>
+      <%= fields.check_box :friday, class: "checkbox-week" %>
+
+      <div class="field  checkbox-week" <%= raw 'style="display:none;"' unless fields.object.friday? %>>
+        <%= fields.label :friday_start, class: "sr-only" %>
+        <%= fields.text_field :friday_start, class: "time", placeholder: "00:00" %>
+
+        <%= fields.label :friday_end, class: "sr-only" %>
+        <%= fields.text_field :friday_end, class: "time", placeholder: "00:00" %>
+      </div>
+    </div>
+
+    <div class="field ">
+      <%= fields.label :saturday %>
+      <%= fields.check_box :saturday, class: "checkbox-week" %>
+
+      <div class="field  checkbox-week" <%= raw 'style="display:none;"' unless fields.object.saturday? %>>
+        <%= fields.label :saturday_start, class: "sr-only" %>
+        <%= fields.text_field :saturday_start, class: "time", placeholder: "00:00" %>
+
+        <%= fields.label :saturday_end, class: "sr-only" %>
+        <%= fields.text_field :saturday_end, class: "time", placeholder: "00:00" %>
+      </div>
+    </div>
+
+    <div class="field ">
+      <%= fields.label :sunday %>
+      <%= fields.check_box :sunday, class: "checkbox-week" %>
+
+      <div class="field  checkbox-week" <%= raw 'style="display:none;"' unless fields.object.sunday? %>>
+        <%= fields.label :sunday_start, class: "sr-only" %>
+        <%= fields.text_field :sunday_start, class: "time", placeholder: "00:00" %>
+
+        <%= fields.label :sunday_end, class: "sr-only" %>
+        <%= fields.text_field :sunday_end, class: "time", placeholder: "00:00" %>
+      </div>
+    </div>
+  </div>
+</div>
