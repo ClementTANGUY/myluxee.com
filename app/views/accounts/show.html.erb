@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 
 <p>
   <strong>First name:</strong>
@@ -25,5 +24,4 @@
   <%= @account.password_confirmation %>
 </p>
 
-<%= link_to 'Edit', edit_account_path(@account) %> |
-<%= link_to 'Back', accounts_path %>
+<%= link_to 'Edit', edit_account_path(@account), class: "btn btn-primary" %>

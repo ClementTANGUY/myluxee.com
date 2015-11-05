@@ -31,8 +31,10 @@ class WelcomeController < ApplicationController
   private
 
   def require_no_user
-    if signed_in?
+    if sales_associate_signed_in?
       redirect_to current_sales_associate
+    else account_signed_in?
+      redirect_to current_account
     end
   end
 end

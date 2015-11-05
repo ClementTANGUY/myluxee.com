@@ -93,3 +93,6 @@ en:
   stores:
     helper:
       closed: "closed this day"
+  accounts:
+    form:
+      submit: "Save"

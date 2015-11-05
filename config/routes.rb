@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   devise_for :accounts, controllers: {registrations: "accounts"}
   resources :accounts, controller: "accounts"
 
-  get "auth/:provider/callback" => "sales_associate_omniauth#create"
+  get "auth/:provider/callback" => "my_omniauth#create"
 
   # get "accounts/auth/:provider(.:format)", to: "accounts_omniauth#passthru {:provider=>/(?!)/}"
   # get "accounts/auth/:action/callback(.:format)", to: "accounts_omniauth#(?-mix:(?!))"

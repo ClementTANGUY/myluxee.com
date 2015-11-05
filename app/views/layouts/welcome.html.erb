@@ -62,8 +62,15 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Sales associates<span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li><%= link_to 'Log in', "#", data: { toggle: "modal", target: "#wizard-new-session-modal" }  %></li>
-                <li><%= link_to 'Become a Luxee', "#", data: { toggle: "modal", target: "#wizard-new-modal" }  %></li>
+                <li><%= link_to 'Log in', "#", data: { toggle: "modal", target: "#wizard-new-sales-session-modal" }  %></li>
+                <li><%= link_to 'Become a Luxee', "#", data: { toggle: "modal", target: "#wizard-new-sales-modal" }  %></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Client<span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><%= link_to 'Log in', "#", data: { toggle: "modal", target: "#wizard-new-account-session-modal" }  %></li>
+                <li><%= link_to 'Create account', "#", data: { toggle: "modal", target: "#wizard-new-account-modal" }  %></li>
               </ul>
             </li>
             <li class="dropdown">
@@ -89,7 +96,9 @@
     </nav>
 
     <%= render "sales_associates/wizard_new" %>
-    <%= render "devise/sessions/wizard_new" %>
+    <%= render "accounts/wizard_new" %>
+    <%= render "devise/sessions/wizard_sales_new" %>
+    <%= render "devise/sessions/wizard_account_new" %>
     <%= yield %>
 
     <div id="footer">
