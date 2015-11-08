@@ -1,10 +1,4 @@
-FactoryGirl.define do  factory :account do
-    first_name "MyString"
-last_name "MyString"
-email "MyString"
-password "MyString"
-password_confirmation "MyString"
-  end
+FactoryGirl.define do
   factory :store_news do
     content "MyText"
   end
@@ -21,10 +15,21 @@ password_confirmation "MyString"
         last_name "Wayne"
         email "john@gmail.com.br"
       end
-      factory :marie
+      factory :marie do
         first_name "Marie"
         last_name "S."
         email "marie@gmail.com.br"
+      end
+
+      factory :account, class: Account do
+        type "Account"
+        factory :peter do
+          first_name "Peter"
+          last_name "Smith"
+          email "peter@gmail.com.br"
+        end
+
+      end
     end
   end
   factory :brand do
@@ -99,11 +104,11 @@ password_confirmation "MyString"
   end
 
   factory :portuguese, class: :language do
-      name "Portuguese"
+    name "Portuguese"
   end
 
   factory :english, class: :language do
-      name "English"
+    name "English"
   end
 end
 

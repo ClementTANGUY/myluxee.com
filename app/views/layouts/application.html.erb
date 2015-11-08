@@ -19,15 +19,12 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <% if sales_associate_signed_in? %>
-            <li>
-              <%= link_to t(".my_profile"), current_sales_associate%>
-            </li>
-            <li>
-              <%= link_to t(".logout"), destroy_sales_associate_session_path, method: :delete%>
-            </li>
+          <%= render partial: 'sales_associates/menu'%>
+        <% elsif account_signed_in? %>
+          <%= render partial: 'accounts/menu'%>
         <% else %>
             <li>
-              <%= render "devise/sessions/new_inline"%>
+              <%= render 'devise/sessions/new_inline'%>
             </li>
         <% end %>
 

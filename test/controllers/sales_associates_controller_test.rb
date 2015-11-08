@@ -11,13 +11,6 @@ class SalesAssociatesControllerTest < ActionController::TestCase
     {first_name: "bigtestpass", last_name: "bigtestpass", email: "test@test.com.br", password: "bigtestpass", password_confirmation: "bigtestpass"}
   end
 
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:sales_associates)
-  end
-
-
   test "should get new" do
     get :new, sales_associate: {first_name: "john"}
     assert_response :success

@@ -1,14 +1,14 @@
 module ApplicationHelper
   def resource_name
-    :sales_associate
+    @resource.class.name.underscore
   end
 
   def resource
-    @resource ||= SalesAssociate.new
+    @resource
   end
 
   def devise_mapping
-    @devise_mapping ||= Devise.mappings[:sales_associate]
+    @devise_mapping
   end
 
   def address_format(store, show_brand=true)

@@ -2,13 +2,9 @@ require 'test_helper'
 
 class AccountsControllerTest < ActionController::TestCase
   setup do
-    @account = accounts(:one)
-  end
-
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:accounts)
+    @request.env["devise.mapping"] = Devise.mappings[:account]
+    @account = FactoryGirl.create(:peter)
+    sign_in @account
   end
 
   test "should get new" do
@@ -18,7 +14,7 @@ class AccountsControllerTest < ActionController::TestCase
 
   test "should create account" do
     assert_difference('Account.count') do
-      post :create, account: { email: @account.email, first_name: @account.first_name, last_name: @account.last_name, password: @account.password, password_confirmation: @account.password_confirmation }
+      post :create, account: { email: "aa#{@account.email}", first_name: @account.first_name, last_name: @account.last_name, password: 'testtest', password_confirmation: 'testtest' }
     end
 
     assert_redirected_to account_path(assigns(:account))
@@ -35,7 +31,7 @@ class AccountsControllerTest < ActionController::TestCase
   end
 
   test "should update account" do
-    patch :update, id: @account, account: { email: @account.email, first_name: @account.first_name, last_name: @account.last_name, password: @account.password, password_confirmation: @account.password_confirmation }
+    patch :update, id: @account, account: { first_name: @account.first_name, last_name: @account.last_name }
     assert_redirected_to account_path(assigns(:account))
   end
 
@@ -44,6 +40,6 @@ class AccountsControllerTest < ActionController::TestCase
       delete :destroy, id: @account
     end
 
-    assert_redirected_to accounts_path
+    assert_redirected_to root_path
   end
 end

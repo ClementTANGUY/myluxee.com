@@ -2,16 +2,12 @@ class SalesAssociatesController < ApplicationController
   before_action :authenticate_sales_associate!, except: [:new, :create, :show]
   before_action :set_sales_associate, only: [:show, :edit, :update]
   #before_action :set_sales_associate, only: [:show]
+  before_action :set_devise_information, only: [:show, :edit, :new, :create, :update]
 
   def wizard_create
     @sales_associate = SalesAssociate.new(sales_associate_params)
     @sales_associate.sales_associate_news.build(content: I18n.t('sales_associates.news_initial_content'))
     render :new
-  end
-  # GET /sales_associates
-  # GET /sales_associates.json
-  def index
-    @sales_associates = SalesAssociate.all
   end
 
   def edit
@@ -43,7 +39,7 @@ class SalesAssociatesController < ApplicationController
 
     respond_to do |format|
       if @sales_associate.save
-        format.html { redirect_to sales_associate_stores_path(sales_associate: @sales_associate) , notice: 'Sales associate was successfully created.' }
+        format.html { redirect_to @sales_associate, notice: 'Sales associate was successfully created.' }
         format.json { render :show, status: :created, location: @sales_associate }
       else
         format.html { render :new }
@@ -88,5 +84,10 @@ class SalesAssociatesController < ApplicationController
     def sales_associate_params
       params.require(:sales_associate).permit(:avatar, :first_name, :provider, :uid, :contact_email, :last_name, :email, :be_contacted, :be_rated, :password,
            :password_confirmation,sales_associate_news_attributes: [:id,:content], language_ids: [])
+    end
+
+    def set_devise_information
+      @resource = @sales_associate
+      @devise_mapping = Devise.mappings[:sales_associate]
     end
 end
