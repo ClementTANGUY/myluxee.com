@@ -1,4 +1,8 @@
-FactoryGirl.define do
+FactoryGirl.define do  factory :rating do
+    score 1
+description "MyText"
+  end
+
   factory :store_news do
     content "MyText"
   end

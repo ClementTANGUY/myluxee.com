@@ -15,16 +15,14 @@
         Find a sales associate in a store!
       </div>
       <div class="panel-body">
-        <%= form_tag welcome_locate_path, class: "form-inline", method: :get do %>
-            <div class="form-group">
-              <%= label_tag :country %>
-              <%= text_field_tag :country, nil, class: "form-control" %>
+        <%= form_tag welcome_locate_path,  method: :get, class: "row" do %>
+            <div class="form-group col-md-10">
+              <%= label_tag :place,nil, class: "sr-only" %>
+              <%= text_field_tag :place, @place, class: "form-control", placeholder: t(".place") %>
             </div>
-            <div class="form-group">
-              <%= label_tag :city %>
-              <%= text_field_tag :city, nil, class: "form-control" %>
+            <div class="col-md-2">
+              <%= submit_tag t(".find_store"), class: "btn btn-primary"%>
             </div>
-            <%= submit_tag t(".find_store"), class: "btn btn-primary"%>
         <% end %>
       </div>
     </div>

@@ -29,34 +29,34 @@ end
 #
 # Table name: positions
 #
-#  id                 :integer(4)      not null, primary key
-#  store_id           :integer(4)
-#  sales_associate_id :integer(4)
-#  start_date         :date
-#  end_date           :date
-#  created_at         :datetime        not null
-#  updated_at         :datetime        not null
-#  role               :string(255)
-#  monday             :boolean(1)
-#  tuesday            :boolean(1)
-#  wednesday          :boolean(1)
-#  thursday           :boolean(1)
-#  friday             :boolean(1)
-#  saturday           :boolean(1)
-#  sunday             :boolean(1)
-#  monday_start       :string(255)
-#  monday_end         :string(255)
-#  tuesday_start      :string(255)
-#  tuesday_end        :string(255)
-#  wednesday_start    :string(255)
-#  wednesday_end      :string(255)
-#  thursday_start     :string(255)
-#  thursday_end       :string(255)
-#  friday_start       :string(255)
-#  friday_end         :string(255)
-#  saturday_start     :string(255)
-#  saturday_end       :string(255)
-#  sunday_start       :string(255)
-#  sunday_end         :string(255)
+#  id              :integer         not null, primary key
+#  store_id        :integer
+#  user_id         :integer
+#  start_date      :date
+#  end_date        :date
+#  created_at      :datetime        not null
+#  updated_at      :datetime        not null
+#  role            :string
+#  monday          :boolean
+#  tuesday         :boolean
+#  wednesday       :boolean
+#  thursday        :boolean
+#  friday          :boolean
+#  saturday        :boolean
+#  sunday          :boolean
+#  monday_start    :string
+#  monday_end      :string
+#  tuesday_start   :string
+#  tuesday_end     :string
+#  wednesday_start :string
+#  wednesday_end   :string
+#  thursday_start  :string
+#  thursday_end    :string
+#  friday_start    :string
+#  friday_end      :string
+#  saturday_start  :string
+#  saturday_end    :string
+#  sunday_start    :string
+#  sunday_end      :string
 #
 

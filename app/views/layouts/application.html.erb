@@ -16,8 +16,7 @@
     </a>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
+    <div class="collapse navbar-collapse">
         <% if sales_associate_signed_in? %>
           <%= render partial: 'sales_associates/menu'%>
         <% elsif account_signed_in? %>
@@ -27,8 +26,6 @@
               <%= render 'devise/sessions/new_inline'%>
             </li>
         <% end %>
-
-      </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>

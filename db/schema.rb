@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151102144026) do
+ActiveRecord::Schema.define(version: 20151108153550) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,19 @@ ActiveRecord::Schema.define(version: 20151102144026) do
     t.string   "saturday_end"
     t.string   "sunday_start"
     t.string   "sunday_end"
+  end
+
+  create_table "ratings", force: :cascade do |t|
+    t.integer  "grader_id"
+    t.integer  "graded_id"
+    t.integer  "welcome_score"
+    t.integer  "appearance_score"
+    t.integer  "knowledge_score"
+    t.integer  "listening_score"
+    t.integer  "global_score"
+    t.text     "description"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "sales_associate_languages", force: :cascade do |t|
@@ -164,6 +177,8 @@ ActiveRecord::Schema.define(version: 20151102144026) do
 
   add_foreign_key "positions", "stores"
   add_foreign_key "positions", "users"
+  add_foreign_key "ratings", "users", column: "graded_id"
+  add_foreign_key "ratings", "users", column: "grader_id"
   add_foreign_key "sales_associate_languages", "languages"
   add_foreign_key "sales_associate_languages", "users"
   add_foreign_key "sales_associate_news", "users"

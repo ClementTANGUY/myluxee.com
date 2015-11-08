@@ -24,6 +24,12 @@
       <strong>Position</strong>
       <%= raw format_position(@sales_associate.positions.first) %>
     </p>
+
+    <% if @sales_associate.be_rated? and account_signed_in?%>
+      <% unless @sales_associate.ratings.exists?(account: current_account)%>
+        <%= link_to t(".rate_link"), new_sales_associate_ratings_path(sales_associate_id: @sales_associate) %>
+      <% end %>
+    <% end %>
   </div>
 </div>
 

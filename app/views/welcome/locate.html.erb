@@ -15,7 +15,7 @@
     <div class="row ">
       <div class="col-xs-12 text-right" id="pagination-area">
         <%= paginate @stores, remote: true, params: {address: @address, brand: @brand, speciality: @speciality,
-                                                     country: @country, city: @city} %>
+                                                     place: @place} %>
       </div>
     </div>
     <div id="stores-area">
@@ -32,6 +32,16 @@
               <input type="submit" value="Remind me" name="subscribe" id="mc-embedded-subscribe" class="btn btn-primary">
             </form>
 
+            <h6>Or change the city/country of your choice</h6>
+            <div class="panel-body">
+              <%= form_tag welcome_locate_path, method: :get, class: "form-inline" do %>
+                  <div class="form-group">
+                    <%= label_tag :place %>
+                    <%= text_field_tag :place, @place, class: "form-control" %>
+                  </div>
+                  <%= submit_tag t("welcome.index.find_store"), class: "btn btn-primary"%>
+              <% end %>
+            </div>
           </div>
       <% end %>
     </div>
@@ -43,7 +53,7 @@
 </div>
 
 <script type="application/javascript">
-    setInitialLocation('<%= @country %>', '<%= @city %>')
+    setInitialLocation('<%= @place %>')
     setStoresToMap(<%= raw @stores.to_json include: [:brand]%>);
 </script>
 <script async defer
