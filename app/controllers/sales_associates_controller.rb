@@ -39,7 +39,8 @@ class SalesAssociatesController < ApplicationController
 
     respond_to do |format|
       if @sales_associate.save
-        format.html { redirect_to @sales_associate, notice: 'Sales associate was successfully created.' }
+        format.html { redirect_to sales_associate_stores_path(sales_associate_id: @sales_associate),
+                                  notice: 'Sales associate was successfully created.' }
         format.json { render :show, status: :created, location: @sales_associate }
       else
         format.html { render :new }
