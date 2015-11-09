@@ -22,9 +22,7 @@
         <% elsif account_signed_in? %>
           <%= render partial: 'accounts/menu'%>
         <% else %>
-            <li>
-              <%= render 'devise/sessions/new_inline'%>
-            </li>
+          <%= render 'devise/sessions/new_inline'%>
         <% end %>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

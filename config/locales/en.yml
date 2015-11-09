@@ -70,6 +70,7 @@ en:
       rate_link: "Rate this Sales Associate"
     menu:
       my_profile: "My Profile"
+      stores: "Stores"
   layouts:
     application:
       title: "My Luxee"

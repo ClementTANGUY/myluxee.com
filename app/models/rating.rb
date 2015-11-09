@@ -6,7 +6,7 @@ class Rating < ActiveRecord::Base
   validates :welcome_score,:appearance_score,
               :knowledge_score, :listening_score,
               :global_score, inclusion: SCORE_LIST, allow_blank: true
-
+  validates :grader_id, uniqueness: { scope: :graded_id}
   belongs_to :sales_associate, foreign_key: :graded_id
   belongs_to :account, foreign_key: :grader_id
 end

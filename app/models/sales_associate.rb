@@ -51,6 +51,13 @@ class SalesAssociate < User
     uid.present?
   end
 
+  def rating_score
+    score = 0
+    ratings.each{|rating| score += (rating.welcome_score + rating.appearance_score+rating.knowledge_score+
+        rating.listening_score+(rating.global_score * 2)) / 6}
+    score / ratings.size
+  end
+
   private
   def be_contacted_true
     be_contacted

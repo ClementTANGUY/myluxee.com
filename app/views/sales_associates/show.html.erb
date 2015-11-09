@@ -26,6 +26,11 @@
     </p>
 
     <% if @sales_associate.be_rated? and account_signed_in?%>
+      <% unless @sales_associate.ratings.empty? %>
+        <label>Rating:</label> <span class="badge"><%= @sales_associate.rating_score%></span>
+      <% else %>
+        <span>Sales Associate not rated yet</span>
+      <% end %>
       <% unless @sales_associate.ratings.exists?(account: current_account)%>
         <%= link_to t(".rate_link"), new_sales_associate_ratings_path(sales_associate_id: @sales_associate) %>
       <% end %>
