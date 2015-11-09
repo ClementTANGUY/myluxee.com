@@ -13,25 +13,25 @@
 
   <div class="field">
     <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
+    <%= f.text_field :first_name, class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
+    <%= f.text_field :last_name, class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label :email %><br>
-    <%= f.text_field :email %>
+    <%= f.text_field :email, class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label :password %><br>
-    <%= f.text_field :password %>
+    <%= f.text_field :password, class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label :password_confirmation %><br>
-    <%= f.text_field :password_confirmation %>
+    <%= f.text_field :password_confirmation, class: "form-control" %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit t(".submit"), class: "btn btn-primary"%>
   </div>
 <% end %>

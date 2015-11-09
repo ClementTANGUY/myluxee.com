@@ -1,11 +1,9 @@
 class AccountsController < ApplicationController
-  before_action :set_account, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_account!, except: [:new, :create]
 
-  # GET /accounts
-  # GET /accounts.json
-  def index
-    @accounts = Account.all
-  end
+  before_action :set_account, only: [:show, :edit, :update, :destroy]
+  before_action :set_devise_information, only: [:show, :edit, :new, :create, :update]
+
 
   # GET /accounts/1
   # GET /accounts/1.json
@@ -25,9 +23,9 @@ class AccountsController < ApplicationController
   # POST /accounts.json
   def create
     @account = Account.new(account_params)
-
     respond_to do |format|
       if @account.save
+        sign_in @account
         format.html { redirect_to @account, notice: 'Account was successfully created.' }
         format.json { render :show, status: :created, location: @account }
       else
@@ -54,9 +52,10 @@ class AccountsController < ApplicationController
   # DELETE /accounts/1
   # DELETE /accounts/1.json
   def destroy
-    @account.destroy
+    current_account.destroy
+    sign_out current_account
     respond_to do |format|
-      format.html { redirect_to accounts_url, notice: 'Account was successfully destroyed.' }
+      format.html { redirect_to root_path }
       format.json { head :no_content }
     end
   end
@@ -70,5 +69,10 @@ class AccountsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def account_params
       params.require(:account).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+    end
+
+    def set_devise_information
+       @resource = @account
+       @devise_mapping = Devise.mappings[:account]
     end
 end

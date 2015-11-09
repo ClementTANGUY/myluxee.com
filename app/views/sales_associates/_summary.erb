@@ -7,7 +7,10 @@
         <% end %>
       </div>
       <div class="media-body">
-        <h4 class="media-heading"><%= sales_associate.first_name%> <%= sales_associate.last_name%></h4>
+        <h4 class="media-heading"><%= sales_associate.first_name%> <%= sales_associate.last_name%>
+          <% if sales_associate.be_rated? and !sales_associate.ratings.empty? %>
+            <span class="badge" title="Rating"><%= sales_associate.rating_score%></span></h4>
+          <% end %>
         <p>
           <strong>Position</strong>
           <%= raw format_position(sales_associate.positions.first)%>

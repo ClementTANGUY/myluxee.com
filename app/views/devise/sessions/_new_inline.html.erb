@@ -1,21 +1,6 @@
-<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "navbar-form navbar-left"}) do |f| %>
-    <div class="form-group">
-      <%= f.label :email, class: "sr-only" %>
-      <%= f.email_field :email, autofocus: true , class: "form-control", placeholder: t(".email")  %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :password, class: "sr-only" %>
-      <%= f.password_field :password, autocomplete: "off", class: "form-control" , placeholder: t(".password") %>
-    </div>
-
-    <% if devise_mapping.rememberable? -%>
-        <div class="form-group">
-          <%= f.check_box :remember_me, class: "form-control" %>
-          <%= f.label :remember_me %>
-        </div>
-    <% end -%>
-
-    <%= f.submit "Log in" %>
-
-<% end %>
+<ul class="nav navbar-nav navbar-right">
+  <div class="navbar-left">
+    <%=link_to t(".sign_in_account"), new_account_session_path%> |
+    <%=link_to t(".sign_in_sales"), new_sales_associate_session_path%>
+  </div>
+</ul>

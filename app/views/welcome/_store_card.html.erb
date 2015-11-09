@@ -12,7 +12,7 @@
         </a>
       </div>
       <div class="media-body">
-        <h4 class="media-heading"><%= link_to store.brand.name, store %></h4>
+        <h5 class="media-heading"><%= link_to store.brand.name, store %></h5>
         <%= link_to store.brand.website, "http://#{store.brand.website}", target: "_blank" %> <br/>
         <%= raw address_format store, false %>
         <p>

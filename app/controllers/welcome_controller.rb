@@ -1,9 +1,8 @@
 class WelcomeController < ApplicationController
-  before_action :require_no_user
+  before_action :require_no_sales_associate
   def locate
-    @country = params[:country]
-    @city = params[:city]
-    @stores = Store.includes(:brand).where({country: @country, city: @city}).order("brands.name")
+    @place = params[:place]
+    @stores = Store.includes(:brand).where("city = ? or country = ?", @place, @place).order("brands.name")
     if @brand = params[:brand] and !@brand.blank?
       @stores = @stores.where("brands.id = ?", @brand)
     end
@@ -30,8 +29,8 @@ class WelcomeController < ApplicationController
 
   private
 
-  def require_no_user
-    if signed_in?
+  def require_no_sales_associate
+    if sales_associate_signed_in?
       redirect_to current_sales_associate
     end
   end

@@ -11,11 +11,10 @@
 //= require scrollReveal
 //= require_self
 
-var storeList = [], storeMap = {}, _map, _country, _city;
+var storeList = [], storeMap = {}, _map, _place;
 
-function setInitialLocation(country, city){
-    _country = country;
-    _city = city;
+function setInitialLocation(place){
+    _place = place;
 }
 
 function setStoresToMap(stores) {
@@ -70,7 +69,7 @@ function associateListToMap() {
 }
 function loadLocateMap() {
     console.log('loadLocateMap');
-    $.get( "http://maps.google.com/maps/api/geocode/json?address="+_city+"+"+_country+"&sensor=false", function(location){
+    $.get( "http://maps.google.com/maps/api/geocode/json?address="+_place+"&sensor=false", function(location){
         var myLatlng = new google.maps.LatLng(48.8536450,2.3325860);
         if (location["results"]){
             var geo = location["results"][0];

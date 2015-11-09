@@ -66,6 +66,11 @@ en:
     news_form:
       submit: "Add News"
       news: "Tell what's new about you..."
+    show:
+      rate_link: "Rate this Sales Associate"
+    menu:
+      my_profile: "My Profile"
+      stores: "Stores"
   layouts:
     application:
       title: "My Luxee"
@@ -78,6 +83,8 @@ en:
       new_inline:
         email: "E-mail"
         password: "Password"
+        sign_in_account: "Sign in as a client"
+        sign_in_sales: "Sign in as a Sales Associate"
   store:
     error:
       time_format: "not a valid time"
@@ -90,6 +97,21 @@ en:
       hide: "Hide Filter"
     index:
       find_store: "Find a Store!"
+      place: "Search in a country/city for stores..."
   stores:
     helper:
       closed: "closed this day"
+  accounts:
+    form:
+      submit: "Save"
+    menu:
+      my_profile: "My Profile"
+  ratings:
+    new:
+      submit: "Rate!"
+      back: "Back to sales associate"
+      welcome_score: "Welcome"
+      appearance_score: "Appearance / Language"
+      knowledge_score: "Product's knowledge"
+      listening_score: "Listening/Advice/Proposal"
+      global_score: "Global Opinion"

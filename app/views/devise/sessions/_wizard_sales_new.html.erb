@@ -1,4 +1,4 @@
-<div class="modal fade" id="wizard-new-session-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="wizard-new-sales-session-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -11,17 +11,17 @@
           <div class=" col-md-6 ">
             <h5>Log in with social network<br/>
               <small>Login with E-mail</small></h5>
-            <%= link_to "auth/facebook", class: "btn btn-block btn-social btn-facebook" do %>
+            <%= link_to "auth/facebook?resource=sales_associate", class: "btn btn-block btn-social btn-facebook" do %>
                 <i class="fa fa-facebook"></i> <%= t("sales_associates.wizard_new.sigin_fb")%>
             <% end %> <br/>
-            <%= link_to "auth/linkedin", class: "btn btn-block btn-social btn-linkedin" do %>
+            <%= link_to "auth/linkedin?resource=sales_associate", class: "btn btn-block btn-social btn-linkedin" do %>
                 <i class="fa fa-linkedin"></i> <%= t("sales_associates.wizard_new.sigin_lk")%>
             <% end %> <br/>
           </div>
           <div class="col-md-6 ">
             <h5>E-mail Login<br/>
             <small>Login with E-mail</small></h5>
-            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <%= form_for(SalesAssociate.new, as: "sales_associate", url: session_path("sales_associate")) do |f| %>
                 <p class="field">
                   <%= f.label :email %><br />
                   <%= f.email_field :email, autofocus: true, class: "form-control" %>
@@ -32,12 +32,10 @@
                   <%= f.password_field :password, autocomplete: "off" , class: "form-control"%>
                 </div>
 
-                <% if devise_mapping.rememberable? -%>
                     <div class="field">
                       <%= f.check_box :remember_me %>
                       <%= f.label :remember_me %>
                     </div>
-                <% end -%>
 
                 <p class="actions">
                   <%= f.submit "Log in" %>
@@ -53,9 +51,9 @@
 
 <script type="text/javascript" charset="utf-8">
 $("#signup-link").click(function(){
-    $('#wizard-new-session-modal').modal('hide');
+    $('#wizard-new-sales-session-modal').modal('hide');
 
-    $('#wizard-new-modal').modal('show');
+    $('#wizard-new-sales-modal').modal('show');
 
 });
 </script>

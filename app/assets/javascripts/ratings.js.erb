@@ -1,0 +1,11 @@
+//= require raty-2.7.0/lib/jquery.raty
+
+function rateField(element) {
+    $(element).raty({
+        score: $(element).attr('data-value'),
+      scoreName: $(element).attr('name'),
+        number: 5,
+      starOff: "<%= asset_path "star-off.png"%>",
+      starOn:  "<%= asset_path "star-on.png"%>"
+    });
+}

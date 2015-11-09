@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'ratings/new'
+
   get 'stores/show'
 
   get 'welcome/terms_and_conditions'
@@ -9,15 +11,16 @@ Rails.application.routes.draw do
   get 'dashboard/index'
 
   devise_for :accounts, controllers: {registrations: "accounts"}
-  resources :accounts, controller: "accounts"
+  resources :accounts, controller: "accounts", except: [:index]
 
-  get "auth/:provider/callback" => "sales_associate_omniauth#create"
+  get "auth/:provider/callback" => "my_omniauth#create"
 
   # get "accounts/auth/:provider(.:format)", to: "accounts_omniauth#passthru {:provider=>/(?!)/}"
   # get "accounts/auth/:action/callback(.:format)", to: "accounts_omniauth#(?-mix:(?!))"
 
   devise_for :sales_associates, controllers: { registrations: "sales_associates"}
-  resources :sales_associates, controller: "sales_associates" do
+  resources :sales_associates, controller: "sales_associates", except: [:index] do
+    resource :ratings, only: [:new, :create, :destroy]
     resource :sales_associate_news, only: [:create, :destroy], controller: "sales_associates/news"
     resources :stores, controller: "sales_associates/stores" do
       member do
