@@ -4,41 +4,39 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">SIGN UP<br/>
-          <small>(it's Free)</small>
+        <h4 class="modal-title" id="myModalLabel">SIGN UP <small>(it's free)</small>
+          <br><small>Already have an account ? <a href="javascript:" id="signin-link">Log in</a></small>
         </h4>
-
       </div>
       <div class="modal-body">
-
         <div class="row">
           <div class=" col-md-6 ">
+            <h5>Sign up with your social networks</h5>
+            <br>
             <%= link_to "auth/facebook", class: "btn btn-block btn-social btn-facebook" do %>
                 <i class="fa fa-facebook"></i> <%= t("sales_associates.wizard_new.sigin_fb")%>
             <% end %> <br/>
             <%= link_to "auth/linkedin", class: "btn btn-block btn-social btn-linkedin" do %>
                 <i class="fa fa-linkedin"></i> <%= t("sales_associates.wizard_new.sigin_lk")%>
             <% end %> <br/>
-
           </div>
           <div class="col-md-6 ">
-            <%= form_for SalesAssociate.new, url: new_sales_associate_registration_path, :html => {method: :get} do |f| %>
-                <div class="row">
-                  <h5><span class="col-md-6">Sign up with e-mail</span>
-                    <small class="col-md-6 text-right"><a href="javascript:" id="signin-link">or log in to your account</a></small>
-                  </h5>
-                  <br/>
-                </div>
-                <p>
-                  <%= f.text_field :first_name, placeholder: "First Name", class: "form-control" %>
+            <%= form_for SalesAssociate.new, url: new_sales_associate_registration_path, :html => {method: :get} do |f| %>   
+              <h5>Sign up with your email</h5>
+                <br>
+                <p class="field">
+                  <%= f.label :first_name %><br />
+                  <%= f.text_field :first_name, class: "form-control" %>
                 </p>
-                <p>
-                  <%= f.text_field :last_name, placeholder: "Last Name", class: "form-control" %>
+                <p class="field">
+                  <%= f.label :last_name %><br />
+                  <%= f.text_field :last_name, class: "form-control" %>
                 </p>
-                <p>
-                  <%= f.text_field :email, placeholder: "E-mail", class: "form-control" %>
+                <p class="field">
+                  <%= f.label :email %><br />
+                  <%= f.text_field :email, class: "form-control" %>
                 </p>
-                <%= f.submit "Sign Up With E-mail" %>
+                <%= f.submit "Sign up", class: "btn btn-primary" %>
             <% end %>
           </div>
         </div>

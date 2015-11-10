@@ -2,7 +2,7 @@
 // Your footer style
 
 #footer{
-	background-color: $gray-dark;
+	background-color: $tundora;
 
 	color: $silverChalice;
 
@@ -15,7 +15,7 @@
 	a {
 		color: $silverChalice;
 		&:hover {
-		color: $alto;
+		color: white;
 		text-decoration:none;
 		}
 	}

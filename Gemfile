@@ -37,8 +37,6 @@ gem 'omniauth-facebook'
 
 gem 'omniauth-linkedin'
 
-gem 'mysql2'
-
 gem 'annotate'
 
 # Assets

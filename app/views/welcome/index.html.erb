@@ -1,21 +1,20 @@
 <div id="wrapper">
 
-  <div class="container text-right">
-    <h1>The Luxury Shopping Assistant</h1>
-  </div>
-
-  <div class="container text-right">
-    <h3>Close to you. Close to the brands.</h3>
+  <div class="container text-left">
+    <h1>Luxury stores' overview</h1>
+    <h2>Your personal shopping assistant</h2>
   </div>
 
   <div class="vertical-spacer"></div>
-  <div class="container find_search">
-    <div class="panel">
-      <div class="panel-heading">
-        Find a sales associate in a store!
-      </div>
-      <div class="panel-body">
-        <%= form_tag welcome_locate_path, class: "form-inline", method: :get do %>
+
+  <div class="container find_search padded">
+    <div class="row panel">
+      <div class="col-xs-12">
+        <div class="panel-heading">
+          Connect to the first community of sales associates in luxury retail
+        </div>
+        <div class="panel-body">
+          <%= form_tag welcome_locate_path, class: "form-inline", method: :get do %>
             <div class="form-group">
               <%= label_tag :country %>
               <%= text_field_tag :country, nil, class: "form-control" %>
@@ -25,23 +24,20 @@
               <%= text_field_tag :city, nil, class: "form-control" %>
             </div>
             <%= submit_tag t(".find_store"), class: "btn btn-primary"%>
-        <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
+
   <div class="vertical-spacer"></div>
-  <div class="text-center blinking">
-    <%= link_to '#benefits' do %>
-        <button type="button" class="btn btn-primary pulse">HOW'S THAT ?</button>
-    <% end %>
-  </div>
 
 </div>
 
 <div class="container padded" id="benefits">
 
   <div class="container text-left title">
-    <h3>Connect to the first community of sales associates in luxury retail.</h3>
+      <h3>Close to you. Close to the brands.</h3>
   </div>
 
   <div class="vertical-spacer"></div>
@@ -79,12 +75,13 @@
         </p>
       </div>
     </div>
+
   </div>
 
-  <div class="vertical-spacer"></div>
+</div>
 
   <div class="container text-center">
-    <h4>Get news from MyLuxee</h4>
+    <h3>Get news from MyLuxee</h3>
 
     <p>Leave us your mail, we won't be sending sacks of emails. Promise.
     </p>
@@ -94,14 +91,20 @@
       <input type="submit" value="Remind me" name="subscribe" id="mc-embedded-subscribe" class="btn btn-primary">
     </form>
   </div>
-</div>
-</div>
 
+  <div class="vertical-spacer"></div>
+
+  <div class="text-center" id="banner">
+  <p>
+    WORK IN LUXURY STORE ? COME GROW THE COMMUNITY, TELL AND RETAIN YOUR CLIENTS !
+    <br><button type="button" class="btn-rounded btn-lg" data-toggle="modal" data-target="#wizard-new-modal">SIGN UP</button>
+  </p>
+  </div>
 
 <div class="padded" id="About">
 
   <div class="container text-left title">
-    <h3>WHAT</h3>
+    <h3>WHAT IS IT REALLY ?</h3>
   </div>
 
   <div class="container text-center">
@@ -150,11 +153,11 @@
     </div>
   </div>
 
-  <div class="container text-left title">
-    <h3>WHY</h3>
-  </div>
+  <div class="vertical-spacer"></div>
 
   <p class="text-center title"><strong>PEOPLE BUY FROM PEOPLE - EVEN MORE SO IN LUXURY</strong></p>
+
+  <div class="vertical-spacer"></div>
 
   <div class="container text-justify">
     <div class="row">
@@ -187,43 +190,6 @@
     </p>
   </div>
 
-  <div class="container text-left title">
-    <h3>WHO</h3>
-  </div>
-
-  <div class="container">
-    <div class="row text-center">
-      <div class="col-xs-6">
-        <h4>Clément TANGUY</h4>
-        <%= image_tag "ClementTANGUY.jpg", class: "img-circle" %>
-        <p>
-          Autodidact, dabbler, luxury retail soldier,
-          <br>I think human should ever be first in its digital issues.
-          <br>That's why I founded MyLuxee.</p>
-      </div>
-      <div class="col-xs-6">
-        <h4>Want you !</h4>
-        <%= image_tag "profile-photo.jpg", height: 100, class: "img-circle" %>
-        <p>
-          Coding, designing, marketing ?
-          <br>Participate to this community project.
-          <br>Join a unique disruptive adventure.
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="container text-center">
-  <h3>Get news from MyLuxee</h3>
-
-  <p>Leave us your mail, we won't be sending sacks of emails. Promise.</p>
-
-  <form class="form-inline" role="form" action="//myluxee.us11.list-manage.com/subscribe/post?u=b7959a16cabf22b1008be1d01&amp;id=faf2916d4c" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form">
-    <input type="email" name="EMAIL" class="form-control" id="mce-EMAIL" placeholder="email address" required>
-    <input type="submit" value="Grow together" name="subscribe" id="mc-embedded-subscribe" class="btn btn-primary">
-  </form>
-</div>
 </div>
 
 <div class="vertical-spacer"></div>
