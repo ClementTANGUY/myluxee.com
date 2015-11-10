@@ -19,10 +19,11 @@
       </div>
     </div>
     <div id="stores-area">
-      <% @stores.each do |store| %>
-          <%= render partial: "store_card", locals: {store: store} %>
-      <% end %>
-      <% if @stores.empty? %>
+      <% unless @stores.empty? %>
+        <% @stores.each do |store| %>
+            <%= render partial: "store_card", locals: {store: store} %>
+        <% end %>
+      <% else %>
           <div class="jumbotron text-center">
             <h3>It seems that there is no store with the filters you chose.</h3>
             <h4>signup to our newsletter and find out when new stores are registered</h4>

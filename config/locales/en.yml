@@ -98,6 +98,8 @@ en:
     index:
       find_store: "Find a Store!"
       place: "Search in a country/city for stores..."
+    store_card:
+      view_sales: "View Sales Associates"
   stores:
     helper:
       closed: "closed this day"

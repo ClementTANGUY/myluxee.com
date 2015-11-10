@@ -24,29 +24,31 @@
   <div class="balloon-area" style="display: none" data-id="<%= store.id %>">
 
     <h6><%= link_to store.brand.name, store %><br/>
-      <% if store.sales_associates.empty? %>
-          <small>No sales associate yet</small>
-      <% else %>
-          <small>Sales Associates</small>
-      <% end %>
-    </h6>
-    <div class="balloon-row">
-    <% store.sales_associates.each do |sales_associate| %>
-
-        <div class="media">
-          <%= link_to sales_associate do %>
-              <div class="media-left">
-                <%= image_tag sales_associate.avatar.url(:tiny) %>
-              </div>
-              <div class="media-body">
-                <%= sales_associate.first_name %> <%= sales_associate.last_name %> <br/>
-                <small><%= sales_associate.languages.map { |language| language.name }.join(", ") %></small>
-              </div>
+      <small>
+        <%= raw address_format store, false %>
+        <% unless store.sales_associates.empty? %>
+          <%= link_to "javascript:", class: "balloon-link-sales", data: {toggle: "modal", target: "#ballon-sales-#{store.id}"} do %>
+              <span class="glyphicon glyphicon-user"></span> <%= t(".view_sales") %>
           <% end %>
+        <% end %>
+      </small>
+    </h6>
+
+  </div>
+  <div class="modal fade" id="<%= "ballon-sales-#{store.id}" %>" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content modal-summary">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4><%= store.brand.name %></h4>
         </div>
 
-    <% end %>
+        <div class="modal-body">
+          <% store.sales_associates.each do |sales_associate| %>
+              <%= render partial: "sales_associates/summary", locals: {sales_associate: sales_associate} %>
+          <% end %>
+        </div>
+      </div>
     </div>
-
   </div>
 </div>
