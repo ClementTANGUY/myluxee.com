@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
-  before_action :require_no_sales_associate
+  before_action :require_no_sales_associate, only: [:index, :locate]
   def locate
     @place = params[:place]
     @stores = Store.includes(:brand).where("LOWER(city) = LOWER(?) or LOWER(country) = LOWER(?)", @place, @place).order("brands.name")

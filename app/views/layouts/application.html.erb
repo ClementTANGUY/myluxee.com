@@ -8,12 +8,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<header>
 <nav class="navbar navbar-default">
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
-    <a class="navbar-brand" href="#">
-      <%= image_tag "logo.png", class: "col-xs-3 col-md-3"%>
-    </a>
+    <div class="navbar-header logo" >
+      <%= image_tag "mylogo.png", class: "col-xs-3 col-md-3"%>
+    </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse">
@@ -27,6 +28,7 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+  </header>
 <div class="container">
   <%= render 'alert_area' %>
     <%= yield %>
@@ -40,7 +42,13 @@
       <li></li>
       <li><%= link_to raw('<i class="fa fa-twitter fa-2x"></i>'), "http://twitter.com/MyLuxee", target: "blank" %></li>
       <li></li>
-      <li><%= link_to raw('<i class="fa fa-envelope fa-2x"></i>'), "mailto:contact@myluxee.com" %></li>
+      <li><%= link_to raw('<i class="fa fa-linkedin fa-2x"></i>'), "https://www.linkedin.com/company/10235063", target: "blank" %></li>
+      <li></li>
+      <li><%= mail_to "contact@myluxee.com", raw('<i class="fa fa-envelope fa-2x"></i>') %></li>
+    </ul>
+    <ul class="list-inline">
+      <li><small><%= link_to t("layouts.application.privacy"), welcome_privacy_policy_path%></small></li>|
+      <li><small><%= link_to t("layouts.application.terms"), welcome_terms_and_conditions_path%></small></li>
     </ul>
   </div>
 </div>
