@@ -1,6 +1,11 @@
 class RatingsController < ApplicationController
   before_action :authenticate_account!
   before_action :set_sales_associate
+
+  def index
+    @ratings = @sales_associate.ratings
+  end
+
   def new
     @rating = Rating.new
   end

@@ -21,7 +21,7 @@
           <%= sales_associate.languages.map{|language| language.name}.join(", ") %>
         </p>
         <p>
-          <%= mail_to(sales_associate.email, sales_associate.email) if sales_associate.be_contacted %>
+          <%= mail_to( sales_associate.email, t(".contact", first_name: sales_associate.first_name)) if sales_associate.be_contacted %>
         </p>
         <p>
           <strong><%= t(".availability")%></strong>

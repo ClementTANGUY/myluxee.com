@@ -1,0 +1,15 @@
+try {
+  $("#ratings-modal .modal-body").html('<%= j render partial: "index"%>');
+  $.each($("#ratings-modal .modal-body .rating"), function( index, value ) {
+    $(value).raty({
+    score: $(value).attr('data-value'),
+      readOnly: true,
+    number: 5,
+    starOff: "<%= asset_path "star-off.png"%>",
+    starOn: "<%= asset_path "star-on.png"%>"
+  });
+  });
+  $("#ratings-modal").modal({});
+} catch(err){
+  console.error(err);
+}

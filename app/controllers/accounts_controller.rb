@@ -1,7 +1,7 @@
 class AccountsController < ApplicationController
   before_action :authenticate_account!, except: [:new, :create]
 
-  before_action :set_account, only: [:show, :edit, :update, :destroy]
+  before_action :set_account, only: [:show]
   before_action :set_devise_information, only: [:show, :edit, :new, :create, :update]
 
 
@@ -17,6 +17,7 @@ class AccountsController < ApplicationController
 
   # GET /accounts/1/edit
   def edit
+    @account =  current_account
   end
 
   # POST /accounts
@@ -26,7 +27,7 @@ class AccountsController < ApplicationController
     respond_to do |format|
       if @account.save
         sign_in @account
-        format.html { redirect_to @account, notice: 'Account was successfully created.' }
+        format.html { redirect_to @account, notice: 'Welcome to MyLuxee!' }
         format.json { render :show, status: :created, location: @account }
       else
         format.html { render :new }
@@ -38,6 +39,7 @@ class AccountsController < ApplicationController
   # PATCH/PUT /accounts/1
   # PATCH/PUT /accounts/1.json
   def update
+    @account = current_account
     respond_to do |format|
       if @account.update(account_params)
         format.html { redirect_to @account, notice: 'Account was successfully updated.' }
