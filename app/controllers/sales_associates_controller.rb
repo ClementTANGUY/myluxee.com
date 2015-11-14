@@ -1,6 +1,6 @@
 class SalesAssociatesController < ApplicationController
   before_action :authenticate_sales_associate!, except: [:new, :create, :show]
-  before_action :set_sales_associate, only: [:show, :edit, :update]
+  before_action :set_sales_associate, only: [:show]
   #before_action :set_sales_associate, only: [:show]
   before_action :set_devise_information, only: [:show, :edit, :new, :create, :update]
 
@@ -11,6 +11,7 @@ class SalesAssociatesController < ApplicationController
   end
 
   def edit
+    @sales_associate = current_sales_associate
     if @sales_associate.sales_associate_news.empty?
       @sales_associate.sales_associate_news.build
     end
@@ -53,6 +54,7 @@ class SalesAssociatesController < ApplicationController
   # PATCH/PUT /sales_associates/1
   # PATCH/PUT /sales_associates/1.json
   def update
+    @sales_associate = current_sales_associate
     respond_to do |format|
       if @sales_associate.update(sales_associate_params)
         format.html { redirect_to @sales_associate.stores.empty? ? sales_associate_stores_path(sales_associate_id: @sales_associate) : @sales_associate, notice: 'Sales associate was successfully updated.' }

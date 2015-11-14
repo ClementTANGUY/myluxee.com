@@ -61,6 +61,7 @@ en:
       destroy_confirm: "Are you sure you want to remove your profile from MyLuxee? This action can not be undone."
     summary:
       availability: "My Availability"
+      contact: "Contact %{first_name}"
     news_list:
       remove_news: "remove"
     news_form:
@@ -68,6 +69,7 @@ en:
       news: "Tell what's new about you..."
     show:
       rate_link: "Rate this Sales Associate"
+      contact: "Contact %{first_name}"
     menu:
       my_profile: "My Profile"
       stores: "Stores"
@@ -98,6 +100,8 @@ en:
     index:
       find_store: "Find a Store!"
       place: "Search in a country/city for stores..."
+    store_card:
+      view_sales: "View Sales Associates"
   stores:
     helper:
       closed: "closed this day"

@@ -44,10 +44,9 @@
   }
 }
 
-.balloon-row{
-  width: 150px;
-  max-height: 150px;
-  overflow-y: auto;
-  overflow-x: hidden;
+.modal{
+  .modal-summary{
+    font-size: 13px;
+  }
 }
 

@@ -10,8 +10,7 @@
 
     <% if @sales_associate.be_contacted %>
         <p>
-          <strong>Email:</strong>
-          <%= @sales_associate.email %>
+          <%= mail_to( @sales_associate.email, t(".contact", first_name: @sales_associate.first_name)) %>
         </p>
     <% end %>
 
@@ -25,17 +24,34 @@
       <%= raw format_position(@sales_associate.positions.first) %>
     </p>
 
-    <% if @sales_associate.be_rated? and account_signed_in?%>
-      <% unless @sales_associate.ratings.empty? %>
-        <label>Rating:</label> <span class="badge"><%= @sales_associate.rating_score%></span>
-      <% else %>
-        <span>Sales Associate not rated yet</span><br/>
-      <% end %>
-      <% unless @sales_associate.ratings.exists?(account: current_account)%>
-        <%= link_to t(".rate_link"), new_sales_associate_ratings_path(sales_associate_id: @sales_associate), data: {no_turbolink: true} %>
-      <% end %>
+    <% if @sales_associate.be_rated? %>
+        <% unless @sales_associate.ratings.empty? %>
+            <%= link_to sales_associate_ratings_path(sales_associate_id: @sales_associate), remote: true do %>
+                <label>Rating:</label> <span class="badge"><%= @sales_associate.rating_score %></span>
+            <% end %>
+            <div class="modal fade" id="ratings-modal">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Ratings</h4>
+                  </div>
+                  <div class="modal-body">
+
+                  </div>
+                </div><!-- /.modal-content -->
+              </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+
+        <% else %>
+            <span>Sales Associate not rated yet</span><br/>
+        <% end %>
+        <% if account_signed_in? and !  @sales_associate.ratings.exists?(account: current_account)  %>
+            <%= link_to t(".rate_link"), new_sales_associate_ratings_path(sales_associate_id: @sales_associate), data: {no_turbolink: true} %>
+        <% end %>
     <% end %>
-  </div>
+    </div>
 </div>
 
 

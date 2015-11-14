@@ -1,0 +1,33 @@
+<% @ratings.each do |rating| %>
+  <div class="panel">
+    <div class="panel-body">
+     <div class="text-right"> <%= rating.created_at.strftime("%d/%m/%Y")%></div>
+        <div>
+          <%= label_tag :welcome_score, t("ratings.new.welcome_score") %>
+          <div class="rating" data-value="<%= rating.welcome_score%>"></div>
+        </div>
+        <div>
+          <%= label_tag :appearance_score, t("ratings.new.appearance_score") %>
+          <div class="rating" data-value="<%= rating.appearance_score%>"></div>
+        </div>
+        <div>
+          <%= label_tag :knowledge_score, t("ratings.new.knowledge_score") %>
+          <div class="rating" data-value="<%= rating.knowledge_score%>"></div>
+        </div>
+        <div>
+          <%= label_tag :listening_score, t("ratings.new.listening_score") %>
+          <div class="rating" data-value="<%= rating.listening_score%>"></div>
+        </div>
+        <div>
+          <%= label_tag :global_score, t("ratings.new.global_score") %>
+          <div class="rating" data-value="<%= rating.global_score%>"></div>
+        </div>
+        <div>
+          <%= label_tag :description, t("ratings.new.description") %>
+          <%= rating.description.html_safe%>
+        </div>
+
+    </div>
+  </div>
+    <hr/>
+<% end %>

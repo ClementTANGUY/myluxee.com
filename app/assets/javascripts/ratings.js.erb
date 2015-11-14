@@ -2,10 +2,10 @@
 
 function rateField(element) {
     $(element).raty({
-        score: $(element).attr('data-value'),
+      score: $(element).attr('data-value'),
       scoreName: $(element).attr('name'),
-        number: 5,
+      number: 5,
       starOff: "<%= asset_path "star-off.png"%>",
-      starOn:  "<%= asset_path "star-on.png"%>"
+      starOn: "<%= asset_path "star-on.png"%>"
     });
 }
