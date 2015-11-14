@@ -30,6 +30,7 @@
   overflow-y: auto;
   overflow-x: hidden;
 }
+
 #search-form{
   .chosen-container{
     width: 100% !important;
@@ -41,7 +42,7 @@
   color: $tundora;
   text-shadow: none;
   .panel,.panel-body,.panel-heading{
-    background-color: $cararra;
+    background: linear-gradient( to right, $cararra, white);
   .form-control{
     width: 425px;
     }
