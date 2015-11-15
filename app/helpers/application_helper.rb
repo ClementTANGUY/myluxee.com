@@ -42,15 +42,15 @@ module ApplicationHelper
   end
 
 
-  def time_format_small(week_name, open, time_start, time_end, today)
+  def time_format_small(week_name, open, time_start, time_end, today, breakline = false)
     if open
       time = "<span class=\"glyphicon glyphicon-time\"></span> "
       time << week_name
       time <<  " - #{time_start} - #{time_end}"
       if today
-        return "<strong>#{time}</strong>"
+        return "<strong>#{time}</strong>#{ "<br/>" if breakline}"
       else
-        return time
+        return "#{time} #{ "<br/>" if breakline}"
       end
     end
   end

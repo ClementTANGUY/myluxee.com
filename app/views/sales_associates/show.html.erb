@@ -1,5 +1,6 @@
 <% if current_sales_associate? @sales_associate %>
     <%= link_to 'Edit your profile', edit_sales_associate_path(@sales_associate), class: "btn btn-default" if current_sales_associate?(@sales_associate) %>
+    <%= render partial: "sales_associates/notification_area" %>
 <% elsif account_signed_in? or !sales_associate_signed_in? %>
     <ol class="breadcrumb">
       <li><%= link_to "Find stores", welcome_locate_path%></li>
@@ -60,6 +61,18 @@
     <% end %>
     </div>
 </div>
+<p>
+  <h4><%= t("sales_associates.summary.availability")%></h4>
+
+  <%= raw time_format_small("monday",@sales_associate.positions.first.monday, @sales_associate.positions.first.monday_start, @sales_associate.positions.first.monday_end, Time.now.monday?, true) %>
+  <%= raw time_format_small("tuesday",@sales_associate.positions.first.tuesday, @sales_associate.positions.first.tuesday_start, @sales_associate.positions.first.tuesday_end, Time.now.tuesday?, true) %>
+  <%= raw time_format_small("wednesday",@sales_associate.positions.first.wednesday, @sales_associate.positions.first.wednesday_start, @sales_associate.positions.first.wednesday_end, Time.now.wednesday?, true) %>
+  <%= raw time_format_small("thursday",@sales_associate.positions.first.thursday, @sales_associate.positions.first.thursday_start, @sales_associate.positions.first.thursday_end, Time.now.thursday?, true) %>
+  <%= raw time_format_small("friday",@sales_associate.positions.first.friday, @sales_associate.positions.first.friday_start, @sales_associate.positions.first.friday_end, Time.now.friday?, true) %>
+  <%= raw time_format_small("saturday",@sales_associate.positions.first.saturday, @sales_associate.positions.first.saturday_start, @sales_associate.positions.first.saturday_end, Time.now.saturday?, true) %>
+  <%= raw time_format_small("sunday",@sales_associate.positions.first.sunday, @sales_associate.positions.first.sunday_start, @sales_associate.positions.first.sunday_end, Time.now.sunday?, true) %>
+
+</p>
 
 
 <%= render partial: "stores", locals: {sales_associate: @sales_associate} %>

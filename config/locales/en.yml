@@ -87,7 +87,7 @@ en:
       new_inline:
         email: "E-mail"
         password: "Password"
-        sign_in_account: "Sign in as a client"
+        sign_in_account: "Sign in as a costumer"
         sign_in_sales: "Sign in as a Sales Associate"
   store:
     error:
