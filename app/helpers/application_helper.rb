@@ -42,16 +42,31 @@ module ApplicationHelper
   end
 
 
-  def time_format_small(week_name, open, time_start, time_end, today, breakline = false)
+  def time_format_small(week_name, open, time_start, time_end, today)
     if open
       time = "<span class=\"glyphicon glyphicon-time\"></span> "
       time << week_name
       time <<  " - #{time_start} - #{time_end}"
       if today
-        return "<strong>#{time}</strong>#{ "<br/>" if breakline}"
+        return "<strong>#{time}</strong>"
       else
-        return "#{time} #{ "<br/>" if breakline}"
+        return time
       end
     end
+  end
+
+  def my_time_format(week_name, open, time_start, time_end, today)
+    time = "<span class=\"glyphicon glyphicon-time\"></span> "
+    time << week_name
+    time <<  " - "
+    if open
+      time << "#{time_start} - #{time_end}"
+    else
+      time << t("sales_associates.helper.closed")
+    end
+    if today
+      time = "<strong>#{time}</strong>"
+    end
+    "#{time}<br/>"
   end
 end

@@ -5,6 +5,21 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="MyLuxee - Keep in touch with luxury stores"/>
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="http://www.myluxee.com/" />
+  <meta property="og:image" content="<%= asset_url "images/photowrapper2" %>" />
+  <meta property="og:description" content="MyLuxee is the first community of salespeople in luxury retail, allowing worldwide shoppers to improve their in-store experience thanks to privileged contacts in points of sale"/>
+  <meta property="og:site_name" content="MyLuxee" />
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@MyLuxee">
+  <meta name="twitter:title" content="MyLuxee - Keep in touch with luxury stores">
+  <meta name="twitter:description" content="MyLuxee is the first community of salespeople in luxury retail, allowing worldwide shoppers to improve their in-store experience thanks to privileged contacts in points of sale">
+  <meta name="twitter:creator" content="@author_handle">
+  <meta name="twitter:image:src" content="<%= asset_url "images/photowrapper2" %>">
+
   <%= csrf_meta_tags %>
 </head>
 <body>

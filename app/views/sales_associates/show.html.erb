@@ -65,13 +65,13 @@
   <p>
     <h4><%= t("sales_associates.summary.availability")%></h4>
   
-    <%= raw time_format_small("monday",position.monday, position.monday_start, position.monday_end, Time.now.monday?, true) %>
-    <%= raw time_format_small("tuesday",position.tuesday, position.tuesday_start, position.tuesday_end, Time.now.tuesday?, true) %>
-    <%= raw time_format_small("wednesday",position.wednesday, position.wednesday_start, position.wednesday_end, Time.now.wednesday?, true) %>
-    <%= raw time_format_small("thursday",position.thursday, position.thursday_start, position.thursday_end, Time.now.thursday?, true) %>
-    <%= raw time_format_small("friday",position.friday, position.friday_start, position.friday_end, Time.now.friday?, true) %>
-    <%= raw time_format_small("saturday",position.saturday, position.saturday_start, position.saturday_end, Time.now.saturday?, true) %>
-    <%= raw time_format_small("sunday",position.sunday, position.sunday_start, position.sunday_end, Time.now.sunday?, true) %>
+    <%= raw my_time_format("monday",position.monday, position.monday_start, position.monday_end, Time.now.monday?) %>
+    <%= raw my_time_format("tuesday",position.tuesday, position.tuesday_start, position.tuesday_end, Time.now.tuesday?) %>
+    <%= raw my_time_format("wednesday",position.wednesday, position.wednesday_start, position.wednesday_end, Time.now.wednesday?) %>
+    <%= raw my_time_format("thursday",position.thursday, position.thursday_start, position.thursday_end, Time.now.thursday?) %>
+    <%= raw my_time_format("friday",position.friday, position.friday_start, position.friday_end, Time.now.friday?) %>
+    <%= raw my_time_format("saturday",position.saturday, position.saturday_start, position.saturday_end, Time.now.saturday?) %>
+    <%= raw my_time_format("sunday",position.sunday, position.sunday_start, position.sunday_end, Time.now.sunday?) %>
   
   </p>
 <% end %>

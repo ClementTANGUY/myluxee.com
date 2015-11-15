@@ -73,6 +73,8 @@ en:
     menu:
       my_profile: "My Profile"
       stores: "Stores"
+    helper:
+      closed: "not working"
   layouts:
     application:
       title: "My Luxee"
