@@ -1,5 +1,3 @@
-//= require_tree
-
 // General Style Variables
 @import "config/variables";
 @import "config/bootstrap_variables";
@@ -29,5 +27,8 @@ label.small{
   width: 400px;
 }
 
-
+.logo img{
+  width: 85px;
+  margin: 5px;
+}
 

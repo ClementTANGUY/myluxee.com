@@ -1,7 +1,9 @@
 <h1>Listing Stores</h1>
 
 <%= render partial: "filter"%>
-
+<% if sales_associate_signed_in? %>
+    <%= render partial: "sales_associates/notification_area" %>
+<% end %>
 <small><%= link_to t(".new_store"), new_sales_associate_store_path(sales_associate_id: current_sales_associate)%></small>
 <% unless @stores.empty? %>
     <table class="table ">

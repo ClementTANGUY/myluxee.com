@@ -5,15 +5,31 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="MyLuxee - Keep in touch with luxury stores"/>
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="http://www.myluxee.com/" />
+  <meta property="og:image" content="<%= asset_url "images/photowrapper2" %>" />
+  <meta property="og:description" content="MyLuxee is the first community of salespeople in luxury retail, allowing worldwide shoppers to improve their in-store experience thanks to privileged contacts in points of sale"/>
+  <meta property="og:site_name" content="MyLuxee" />
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@MyLuxee">
+  <meta name="twitter:title" content="MyLuxee - Keep in touch with luxury stores">
+  <meta name="twitter:description" content="MyLuxee is the first community of salespeople in luxury retail, allowing worldwide shoppers to improve their in-store experience thanks to privileged contacts in points of sale">
+  <meta name="twitter:creator" content="@author_handle">
+  <meta name="twitter:image:src" content="<%= asset_url "images/photowrapper2" %>">
+
   <%= csrf_meta_tags %>
 </head>
 <body>
+<header>
 <nav class="navbar navbar-default">
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
-    <a class="navbar-brand" href="#">
-      <%= image_tag "logo.png", class: "col-xs-3 col-md-3"%>
-    </a>
+    <div class="navbar-header logo" >
+      <%= image_tag "mylogo.png", class: "col-xs-3 col-md-3"%>
+    </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse">
@@ -27,6 +43,7 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+  </header>
 <div class="container">
   <%= render 'alert_area' %>
     <%= yield %>
@@ -40,7 +57,13 @@
       <li></li>
       <li><%= link_to raw('<i class="fa fa-twitter fa-2x"></i>'), "http://twitter.com/MyLuxee", target: "blank" %></li>
       <li></li>
-      <li><%= link_to raw('<i class="fa fa-envelope fa-2x"></i>'), "mailto:contact@myluxee.com" %></li>
+      <li><%= link_to raw('<i class="fa fa-linkedin fa-2x"></i>'), "https://www.linkedin.com/company/10235063", target: "blank" %></li>
+      <li></li>
+      <li><%= mail_to "contact@myluxee.com", raw('<i class="fa fa-envelope fa-2x"></i>') %></li>
+    </ul>
+    <ul class="list-inline">
+      <li><small><%= link_to t("layouts.application.privacy"), welcome_privacy_policy_path%></small></li>|
+      <li><small><%= link_to t("layouts.application.terms"), welcome_terms_and_conditions_path%></small></li>
     </ul>
   </div>
 </div>

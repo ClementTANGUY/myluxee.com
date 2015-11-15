@@ -1,5 +1,5 @@
 class RatingsController < ApplicationController
-  before_action :authenticate_account!
+  before_action :authenticate_account!, only: [:new, :create]
   before_action :set_sales_associate
 
   def index

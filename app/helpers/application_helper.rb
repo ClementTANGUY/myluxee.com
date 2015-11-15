@@ -54,4 +54,19 @@ module ApplicationHelper
       end
     end
   end
+
+  def my_time_format(week_name, open, time_start, time_end, today)
+    time = "<span class=\"glyphicon glyphicon-time\"></span> "
+    time << week_name
+    time <<  " - "
+    if open
+      time << "#{time_start} - #{time_end}"
+    else
+      time << t("sales_associates.helper.closed")
+    end
+    if today
+      time = "<strong>#{time}</strong>"
+    end
+    "#{time}<br/>"
+  end
 end

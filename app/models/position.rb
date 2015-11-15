@@ -24,6 +24,10 @@ class Position < ActiveRecord::Base
   validates :saturday_start,:saturday_end, if: :saturday?, presence: true
 
   validates :sunday_start,:sunday_end, if: :sunday?, presence: true
+
+  def has_timetable?
+    monday? or tuesday? or wednesday? or thursday? or friday? or saturday? or sunday?
+  end
 end
 # == Schema Information
 #

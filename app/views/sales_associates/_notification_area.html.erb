@@ -1,0 +1,7 @@
+<% if position = current_sales_associate.positions.first and !position.has_timetable? %>
+    <div class="alert alert-danger  alert-dismissible text-center" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      You did not say what is your timetable for <%= position.store.brand.name%> yet.<br/>
+      Let everybody know when you are available by <%= link_to "clicking here.", edit_sales_associate_store_path(sales_associate_id: current_sales_associate, id: position.store), class: "alert-link"%>
+    </div>
+<% end %>

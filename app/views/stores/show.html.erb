@@ -1,3 +1,7 @@
+<ol class="breadcrumb">
+  <li><%= link_to "Find stores", welcome_locate_path%></li>
+  <li class="active"><%= @store.brand.name %></li>
+</ol>
 
 <% if @store.banner.file? %>
     <%= image_tag @store.banner.url(:big) %>

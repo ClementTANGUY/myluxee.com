@@ -1,5 +1,13 @@
 <% if current_sales_associate? @sales_associate %>
     <%= link_to 'Edit your profile', edit_sales_associate_path(@sales_associate), class: "btn btn-default" if current_sales_associate?(@sales_associate) %>
+    <%= render partial: "sales_associates/notification_area" %>
+<% elsif account_signed_in? or !sales_associate_signed_in? %>
+    <ol class="breadcrumb">
+      <li><%= link_to "Find stores", welcome_locate_path%></li>
+      <li><%= link_to sales_associate.positions.first.store.brand.name, sales_associate.positions.first.store%></li>
+      <li class="active"><%= @sales_associate.first_name %> <%=@sales_associate.last_name%></li>
+    </ol>
+
 <% end %>
 <div class="media">
   <div class="media-left">
@@ -53,7 +61,20 @@
     <% end %>
     </div>
 </div>
-
+<% if position = @sales_associate.positions.first%>
+  <p>
+    <h4><%= t("sales_associates.summary.availability")%></h4>
+  
+    <%= raw my_time_format("monday",position.monday, position.monday_start, position.monday_end, Time.now.monday?) %>
+    <%= raw my_time_format("tuesday",position.tuesday, position.tuesday_start, position.tuesday_end, Time.now.tuesday?) %>
+    <%= raw my_time_format("wednesday",position.wednesday, position.wednesday_start, position.wednesday_end, Time.now.wednesday?) %>
+    <%= raw my_time_format("thursday",position.thursday, position.thursday_start, position.thursday_end, Time.now.thursday?) %>
+    <%= raw my_time_format("friday",position.friday, position.friday_start, position.friday_end, Time.now.friday?) %>
+    <%= raw my_time_format("saturday",position.saturday, position.saturday_start, position.saturday_end, Time.now.saturday?) %>
+    <%= raw my_time_format("sunday",position.sunday, position.sunday_start, position.sunday_end, Time.now.sunday?) %>
+  
+  </p>
+<% end %>
 
 <%= render partial: "stores", locals: {sales_associate: @sales_associate} %>
 <hr/>
