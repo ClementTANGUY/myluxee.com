@@ -7,26 +7,26 @@
   <div class="vertical-spacer"></div>
 
   <div class="container find_search padded">
-    <div class="row panel">
-      <div class="col-xs-12">
-        <div class="panel-heading">
-          The first community of salespeople in luxury retail at your disposal for personal shopping
-        </div>
-        <div class="panel-body">
-          <%= form_tag welcome_locate_path, class: "form-inline", method: :get do %>
-            <div class="form-group">
-              <%= label_tag :country %>
-              <%= text_field_tag :country, nil, class: "form-control" %>
-            </div>
-            <div class="form-group">
-              <%= label_tag :city %>
-              <%= text_field_tag :city, nil, class: "form-control" %>
-            </div>
-            <%= submit_tag t(".find_store"), class: "btn btn-primary"%>
-          <% end %>
+      <div class="row panel">
+        <div class="col-xs-12">
+          <div class="panel-heading">
+            The first community of salespeople in luxury retail at your disposal for personal shopping
+          </div>
+          <div class="panel-body">
+            <%= form_tag welcome_locate_path, class: "form-inline", method: :get do %>
+              <div class="form-group">
+                <%= label_tag :country %>
+                <%= text_field_tag :country, nil, class: "form-control" %>
+              </div>
+              <div class="form-group">
+                <%= label_tag :city %>
+                <%= text_field_tag :city, nil, class: "form-control" %>
+              </div>
+              <%= submit_tag t(".find_store"), class: "btn btn-primary"%>
+            <% end %>
+          </div>
         </div>
       </div>
-    </div>
   </div>
 
   <div class="vertical-spacer"></div>
