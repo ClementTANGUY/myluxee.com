@@ -27,14 +27,14 @@ body {
 }
 
 #banner {
-	background: $cerulean;
-	height: 140px;
-	padding-top: 90px;
+	background: $tundora;
+	height: 200px;
+	padding-top: 50px;
 	padding-bottom: 50px;
 	font-weight: 400;
-	font-size: 15px;
-	line-height: 30px;
-	color: white;
+	font-size: 22px;
+	line-height: 25px;
+	color: $silverChalice;
 }
 
 .bg-white {
@@ -59,7 +59,7 @@ body {
 }
 
 #About {
-	font-weight: 300;
+	font-weight: 400;
 	color: $tundora;
  	img {
 	margin-bottom: 1em;

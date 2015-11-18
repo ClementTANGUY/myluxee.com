@@ -30,6 +30,7 @@
   overflow-y: auto;
   overflow-x: hidden;
 }
+
 #search-form{
   .chosen-container{
     width: 100% !important;
@@ -37,10 +38,11 @@
 }
 
 .find_search{
-  color: #000000;
+  font-weight: 400;
+  color: $tundora;
   text-shadow: none;
   .panel,.panel-body,.panel-heading{
-    background-color: #f0f0f0;
+  background: linear-gradient( to right, $cararra, white);
   }
 }
 

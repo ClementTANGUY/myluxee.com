@@ -5,8 +5,8 @@
  * Feel free to change them and create your own
  * ------------------------------------- */
 .padded {
-  padding-top: 8em;
-  padding-bottom: 8em;
+  padding-top: 7em;
+  padding-bottom: 7em;
 }
 
 .bg-red {
@@ -35,13 +35,5 @@
 }
 
 .vertical-spacer {
-  height: 5em;
-}
-
-.blinking{
-  font-size: 90px;
-  position: relative;
-  a {
-    color: $cerulean;
-  }
+  height: 4em;
 }
