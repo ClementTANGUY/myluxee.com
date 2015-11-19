@@ -38,7 +38,7 @@
                     </div>
 
                 <p class="actions">
-                  <%= f.submit "Log in" %>
+                  <%= f.submit "Log in", class: "btn btn-primary" %>
                 </p>
             <% end %>
           </div>
@@ -50,9 +50,8 @@
 
 
 <script type="text/javascript" charset="utf-8">
-$("#signup-link").click(function(){
+  +$("#wizard-new-sales-session-modal a#signup-link").click(function(){
     $('#wizard-new-sales-session-modal').modal('hide');
-
     $('#wizard-new-sales-modal').modal('show');
 
 });
