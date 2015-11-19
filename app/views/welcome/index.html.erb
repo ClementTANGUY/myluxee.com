@@ -5,32 +5,33 @@
   </div>
 
   <div class="vertical-spacer"></div>
+
   <div class="container find_search padded">
     <div class="panel">
       <div class="panel-heading">
         The first community of salespeople in luxury retail at your disposal for personal shopping
       </div>
       <div class="panel-body">
-        <%= form_tag welcome_locate_path,  method: :get, class: "row" do %>
+        <%= form_tag welcome_locate_path, method: :get, class: "row" do %>
             <div class="form-group col-md-10">
-              <%= label_tag :place,nil, class: "sr-only" %>
+              <%= label_tag :place, nil, class: "sr-only" %>
               <%= text_field_tag :place, @place, class: "form-control", placeholder: t(".place") %>
             </div>
             <div class="col-md-2">
-              <%= submit_tag t(".find_store"), class: "btn btn-primary"%>
+              <%= submit_tag t(".find_store"), class: "btn btn-primary" %>
             </div>
         <% end %>
       </div>
+    </div>
   </div>
-
   <div class="vertical-spacer"></div>
-
 </div>
+
 
 <div class="container padded" id="benefits">
 
   <div class="container text-left title">
-      <h3>Close to you. Close to the brands.</h3>
+    <h3>Close to you. Close to the brands.</h3>
   </div>
 
   <div class="vertical-spacer"></div>
@@ -73,26 +74,28 @@
 
 </div>
 
-  <div class="container text-center">
-    <h3>Get news from MyLuxee</h3>
+<div class="container text-center">
+  <h3>Get news from MyLuxee</h3>
 
-    <p>Leave us your mail, we won't be sending sacks of emails. Promise.
-    </p>
+  <p>Leave us your mail, we won't be sending sacks of emails. Promise.
+  </p>
 
-    <form class="form-inline" role="form" action="//myluxee.us11.list-manage.com/subscribe/post?u=b7959a16cabf22b1008be1d01&amp;id=faf2916d4c" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form">
-      <input type="email" name="EMAIL" class="form-control" id="mce-EMAIL" placeholder="email address" required>
-      <input type="submit" value="Remind me" name="subscribe" id="mc-embedded-subscribe" class="btn btn-primary">
-    </form>
-  </div>
+  <form class="form-inline" role="form" action="//myluxee.us11.list-manage.com/subscribe/post?u=b7959a16cabf22b1008be1d01&amp;id=faf2916d4c" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form">
+    <input type="email" name="EMAIL" class="form-control" id="mce-EMAIL" placeholder="email address" required>
+    <input type="submit" value="Remind me" name="subscribe" id="mc-embedded-subscribe" class="btn btn-primary">
+  </form>
+</div>
 
-  <div class="vertical-spacer"></div>
+<div class="vertical-spacer"></div>
 
-  <div class="text-center" id="banner">
+<div class="text-center" id="banner">
   <p>
     WORK IN LUXURY STORE ? COME GROW THE COMMUNITY, TELL AND RETAIN YOUR CLIENTS !
-    <br><button type="button" class="btn-rounded btn-lg" data-toggle="modal" data-target="#wizard-new-modal">SIGN UP</button>
+    <br>
+    <button type="button" class="btn-rounded btn-lg" data-toggle="modal" data-target="#wizard-new-modal">SIGN UP
+    </button>
   </p>
-  </div>
+</div>
 
 <div class="padded" id="About">
 
@@ -156,7 +159,8 @@
     <div class="row">
       <div class="col-sm-6 col-md-6">
         <p>
-          MyLuxee is an easy web-to-store solution that maintains the relationships between the retail luxury stores and
+          MyLuxee is an easy web-to-store solution that maintains the relationships between the retail luxury stores
+          and
           their clients.
           <br>The platform creates close links, allowing customers to get in touch with theirs favorite stores thanks
           to privileged contacts with the salespeople.
@@ -169,7 +173,8 @@
           clients even call them by their first names.
           <br>Abroad or in places they know less, they often prefer being understood and advised by those who speak
           their own language.
-          <br>Brands hire specialists, fluent, but these are not always at full disposition due to different timetables.
+          <br>Brands hire specialists, fluent, but these are not always at full disposition due to different
+          timetables.
         </p>
       </div>
     </div>
@@ -189,6 +194,6 @@
 
 <script>
 
-    window.sr = new scrollReveal();
+  window.sr = new scrollReveal();
 
 </script>
