@@ -13,12 +13,12 @@
           <% end %>
         </h4>
         <p>
-          <strong>Position</strong>
-          <%= raw format_position(sales_associate.positions.first)%>
+          <h5>Position</h5>
+          <br><%= raw format_position(sales_associate.positions.first)%>
         </p>
         <p>
-          <strong>Languages:</strong>
-          <%= sales_associate.languages.map{|language| language.name}.join(", ") %>
+          <h5>Languages</h5>
+          <br><%= sales_associate.languages.map{|language| language.name}.join(", ") %>
         </p>
         <p>
           <%= mail_to( sales_associate.email, t(".contact", first_name: sales_associate.first_name)) if sales_associate.be_contacted %>

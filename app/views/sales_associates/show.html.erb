@@ -14,7 +14,17 @@
     <%= image_tag @sales_associate.avatar.url(:medium), class: "media-object thumbnail", width: 171, height: 180 %>
   </div>
   <div class="media-body">
-    <h4 class="media-heading"><%= @sales_associate.first_name %> <%= @sales_associate.last_name %></h4>
+    <h3 class="media-heading"><%= @sales_associate.first_name %> <%= @sales_associate.last_name %></h3>
+
+    <p>
+      <h4>Position</h4>
+      <br><%= raw format_position(@sales_associate.positions.first) %>
+    </p>
+
+    <p>
+      <h4>Languages</h4>
+        <br><%= @sales_associate.languages.map { |language| language.name }.join(", ") %>
+    </p>
 
     <% if @sales_associate.be_contacted %>
         <p>
@@ -22,20 +32,11 @@
         </p>
     <% end %>
 
-    <p>
-      <strong>Languages:</strong>
-      <%= @sales_associate.languages.map { |language| language.name }.join(", ") %>
-    </p>
-
-    <p>
-      <strong>Position</strong>
-      <%= raw format_position(@sales_associate.positions.first) %>
-    </p>
-
     <% if @sales_associate.be_rated? %>
         <% unless @sales_associate.ratings.empty? %>
             <%= link_to sales_associate_ratings_path(sales_associate_id: @sales_associate), remote: true do %>
-                <label>Rating:</label> <span class="badge"><%= @sales_associate.rating_score %></span>
+                <label>Rating:</label> 
+                <br><span class="badge"><%= @sales_associate.rating_score %></span>
             <% end %>
             <div class="modal fade" id="ratings-modal">
               <div class="modal-dialog">
@@ -53,7 +54,7 @@
             </div><!-- /.modal -->
 
         <% else %>
-            <span>Sales Associate not rated yet</span><br/>
+            <span>Not rated yet</span><br/>
         <% end %>
         <% if account_signed_in? and !  @sales_associate.ratings.exists?(account: current_account)  %>
             <%= link_to t(".rate_link"), new_sales_associate_ratings_path(sales_associate_id: @sales_associate), data: {no_turbolink: true} %>

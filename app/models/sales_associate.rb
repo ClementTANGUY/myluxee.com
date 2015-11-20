@@ -4,7 +4,7 @@ class SalesAssociate < User
 
   validates :contact_email, presence: true, if: :be_contacted_true, email_format:true
 
-  has_attached_file :avatar, styles: { medium: "171x180#", thumb: "100x100#", tiny: "40x40#" }, default_url: "profile-photo.jpg"
+  has_attached_file :avatar, styles: { medium: "171x180#", thumb: "100x100#", tiny: "40x40#" }, default_url: "boy.svg"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
   has_many :sales_associate_news, dependent: :destroy, class_name: SalesAssociateNews, foreign_key: "user_id"

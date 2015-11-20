@@ -60,7 +60,7 @@ en:
       destroy: "Remove my profile from MyLuxee"
       destroy_confirm: "Are you sure you want to remove your profile from MyLuxee? This action can not be undone."
     summary:
-      availability: "My Availability"
+      availability: "Availability"
       contact: "Contact %{first_name}"
     news_list:
       remove_news: "Remove"

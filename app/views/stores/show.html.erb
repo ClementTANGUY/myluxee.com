@@ -7,24 +7,33 @@
     <%= image_tag @store.banner.url(:big) %>
 <% end %>
 
-<div class="media">
-  <div class="media-left">
-    <a href="#">
-      <%= image_tag @store.logo.url(:medium), class: "media-object"%>
-    </a>
-  </div>
+
+<div class="media-left">
+  <a href="#">
+    <%= image_tag @store.logo.url(:medium), class: "media-object"%>
+  </a>
+</div>
+
+<div class="media"> 
   <div class="media-body">
     <h3><%= @store.brand.name %><br/>
       <small><%= @store.brand.speciality %></small>
     </h3>
-    <%= link_to @store.brand.website, "http://#{@store.brand.website}", target: "_blank" %>
-    <p>
-      <strong>Address:</strong>
-      <%= raw address_format(@store, false) %>
-    </p>
+
+    <p><%= link_to @store.brand.website, "http://#{@store.brand.website}", target: "_blank" %></p>
+
   </div>
 </div>
+
 <hr/>
+
+<p>
+  <h4>Address</h4>
+  <%= raw address_format(@store, false) %>
+</p>
+
+<hr/>
+
 <p>
 <h4>Opening hours </h4>
 <%= raw time_format("monday",@store.monday, @store.monday_start, @store.monday_end, Time.now.monday?) %> <br/>
@@ -35,11 +44,12 @@
 <%= raw time_format("saturday",@store.saturday, @store.saturday_start, @store.saturday_end, Time.now.saturday?) %> <br/>
 <%= raw time_format("sunday",@store.sunday, @store.sunday_start, @store.sunday_end, Time.now.sunday?) %>
 </p>
+
 <hr/>
-<% if !@store.store_news.empty?  %>
+
+<% if !@store.store_news.empty? %>
     <p>
     <h4>Latest News</h4>
-
     <div class="list-group" id="store_news_list">
       <% @store.store_news.each do |store_news|%>
           <%= render partial: "store_news", locals: {store_news: store_news}%>
@@ -47,9 +57,12 @@
     </div>
     </p>
 <% end %>
+
 <hr/>
-<h4>Sales Associate's Profiles</h4>
+
+<h4>Salespeople Profiles</h4>
 <% @store.sales_associates.each do |sales_associate|%>
     <%=render partial: "sales_associates/summary", locals: {sales_associate: sales_associate} %>
 <% end %>
+
 <br/>
