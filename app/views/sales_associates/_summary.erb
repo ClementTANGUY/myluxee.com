@@ -24,7 +24,7 @@
           <%= mail_to( sales_associate.email, t(".contact", first_name: sales_associate.first_name)) if sales_associate.be_contacted %>
         </p>
         <p>
-          <strong><%= t(".availability")%></strong>
+          <h5><%= t(".availability") %></h5>
 
               <%= raw time_format_small("monday",sales_associate.positions.first.monday, sales_associate.positions.first.monday_start, sales_associate.positions.first.monday_end, Time.now.monday?) %>
               <%= raw time_format_small("tuesday",sales_associate.positions.first.tuesday, sales_associate.positions.first.tuesday_start, sales_associate.positions.first.tuesday_end, Time.now.tuesday?) %>

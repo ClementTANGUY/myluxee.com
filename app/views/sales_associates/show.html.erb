@@ -15,15 +15,15 @@
   </div>
   <div class="media-body">
     <h3 class="media-heading"><%= @sales_associate.first_name %> <%= @sales_associate.last_name %></h3>
-
+    <hr>
     <p>
       <h4>Position</h4>
-      <br><%= raw format_position(@sales_associate.positions.first) %>
+      <%= raw format_position(@sales_associate.positions.first) %>
     </p>
 
     <p>
       <h4>Languages</h4>
-        <br><%= @sales_associate.languages.map { |language| language.name }.join(", ") %>
+        <%= @sales_associate.languages.map { |language| language.name }.join(", ") %>
     </p>
 
     <% if @sales_associate.be_contacted %>
