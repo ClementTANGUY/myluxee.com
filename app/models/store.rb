@@ -22,7 +22,7 @@ class Store < ActiveRecord::Base
   has_attached_file :banner, styles: { big: "800x400>" }, default_url: "store.svg"
   validates_attachment_content_type :banner, content_type: /\Aimage\/.*\Z/
 
-  has_attached_file :logo, styles: { medium: "180x180#", thumb: "100x100#" }, default_url: "store.svg"
+  has_attached_file :logo, styles: { medium: "171x180#", thumb: "100x100#" }, default_url: "store.svg"
   validates_attachment_content_type :logo, content_type: /\Aimage\/.*\Z/
 
   has_one :store_brand, dependent: :destroy
