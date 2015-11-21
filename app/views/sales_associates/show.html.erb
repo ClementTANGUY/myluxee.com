@@ -18,12 +18,12 @@
     
     <p>
       <h4>Position</h4>
-      <%= raw format_position(@sales_associate.positions.first) %>
+      <br><%= raw format_position(@sales_associate.positions.first) %>
     </p>
 
     <p>
       <h4>Languages</h4>
-        <%= @sales_associate.languages.map { |language| language.name }.join(", ") %>
+        <br><%= @sales_associate.languages.map { |language| language.name }.join(", ") %>
     </p>
 
     <% if @sales_associate.be_contacted %>
