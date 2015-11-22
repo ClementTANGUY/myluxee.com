@@ -9,7 +9,7 @@
         <div class="field col-md-6">
           <%= position.label :start_date, t("sales_associates.stores.position_form.start_date") %>
           <div class="input-group">
-            <%= position.text_field :start_date, data: {provide: 'datepicker'}, class: "form-control", required: false %>
+            <%= position.text_field :start_date, data: {provide: 'datepicker'}, class: "form-control" %>
             <div class="input-group-addon"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></div>
           </div>
         </div>
@@ -134,7 +134,7 @@
   </div>
   <div class="field col-md-6">
     <%= fields.text_field :state, class: "form-control" %>
-    <%= fields.label :state, class: "small", required: false %>
+    <%= fields.label :state, class: "small" %>
   </div>
 </div>
 <div class="row">
