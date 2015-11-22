@@ -25,10 +25,9 @@
     </p>
   </div>
 </div>
-<br/>
-
 
 <hr/>
+
 <p>
     <h4>Opening hours </h4>
     <%= raw time_format("monday",@store.monday, @store.monday_start, @store.monday_end, Time.now.monday?) %> <br/>
@@ -39,7 +38,9 @@
     <%= raw time_format("saturday",@store.saturday, @store.saturday_start, @store.saturday_end, Time.now.saturday?) %> <br/>
     <%= raw time_format("sunday",@store.sunday, @store.sunday_start, @store.sunday_end, Time.now.sunday?) %>
 </p>
+
 <hr/>
+
 <% if !@store.store_news.empty? or current_sales_associate.stores.include?(@store) %>
     <p>
       <h4>Latest News</h4>
@@ -53,7 +54,9 @@
         </div>
     </p>
 <% end %>
+
 <hr/>
+
 <h4>Sales Associate's Profiles</h4>
 <% @store.sales_associates.each do |sales_associate|%>
     <%=render partial: "sales_associates/summary", locals: {sales_associate: sales_associate} %>
