@@ -35,7 +35,7 @@
           </p>
         <% else %>
           <p>
-            <%= link_to "Sign in as a shopper to contact <%= sales_associate.first_name%>", new_account_session_path %>
+            <%= link_to "Sign in as a shopper to contact <%= @sales_associate.first_name %>", new_account_session_path %>
           </p>
         <% end %>
       <% end %>
@@ -63,7 +63,7 @@
 
         <% else %>
           <p>
-            <%= link_to "Sign in as a shopper to rate <%= sales_associate.first_name%>", new_account_session_path %>
+            <%= link_to "Sign in as a shopper to rate <%= @sales_associate.first_name %>", new_account_session_path %>
           </p>
         <% end %>
         <% if account_signed_in? and !  @sales_associate.ratings.exists?(account: current_account)  %>
