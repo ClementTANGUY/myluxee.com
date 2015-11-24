@@ -35,7 +35,7 @@
           </p>
         <% else %>
           <p>
-            <%= link_to("Sign in to rate", first_name: @sales_associate.first_name), new_account_session_path %>
+            <%= link_to( new_account_session_path, "Sign in to rate", first_name: @sales_associate.first_name) %>
           </p>
         <% end %>
       <% end %>
