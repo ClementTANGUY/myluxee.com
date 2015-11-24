@@ -103,7 +103,7 @@ en:
       hide: "Hide Filter"
     index:
       find_store: "Find your Store !"
-      place: "Search in a country/city for stores..."
+      place: "Search in a country or a city"
     store_card:
       view_sales: "View Salespeople"
   stores:
