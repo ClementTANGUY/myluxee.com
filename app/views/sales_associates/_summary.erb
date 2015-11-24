@@ -21,7 +21,17 @@
           <%= sales_associate.languages.map{|language| language.name}.join(", ") %>
         </p>
         <p>
-          <%= mail_to( sales_associate.email, t(".contact", first_name: sales_associate.first_name)) if sales_associate.be_contacted %>
+          <% if sales_associate.be_contacted %>
+                   <% if  account_signed_in? or sales_associate_signed_in?%>
+                     <p>
+                       <%= mail_to( sales_associate.email, t(".contact", first_name: sales_associate.first_name))  %>
+                     </p>
+                   <% else %>
+                     <p>
+                       <%= link_to "Sign in to contact", new_account_session_path %>
+                     </p>
+                   <% end %>
+                 <% end %>
         </p>
         <p>
           <h5><%= t(".availability") %></h5>
