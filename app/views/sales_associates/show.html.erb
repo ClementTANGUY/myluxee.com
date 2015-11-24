@@ -35,7 +35,7 @@
           </p>
         <% else %>
           <p>
-            <%= link_to "Sign in to contact", new_account_session_path %>
+            <%= link_to "Sign in as a shopper to contact <%= sales_associate.first_name%>", new_account_session_path %>
           </p>
         <% end %>
       <% end %>
@@ -62,7 +62,9 @@
             </div><!-- /.modal -->
 
         <% else %>
-            <span>Sign in and Rate <%= @sales_associate.first_name %></span><br/>
+          <p>
+            <%= link_to "Sign in as a shopper to rate <%= sales_associate.first_name%>", new_account_session_path %>
+          </p>
         <% end %>
         <% if account_signed_in? and !  @sales_associate.ratings.exists?(account: current_account)  %>
             <%= link_to t(".rate_link"), new_sales_associate_ratings_path(sales_associate_id: @sales_associate), data: {no_turbolink: true} %>
