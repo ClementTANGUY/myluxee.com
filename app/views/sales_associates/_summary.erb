@@ -20,6 +20,7 @@
           <h5>Languages</h5>
           <%= sales_associate.languages.map{|language| language.name}.join(", ") %>
         </p>
+
         <p>
           <% if sales_associate.be_contacted %>
                    <% if  account_signed_in? or sales_associate_signed_in?%>
@@ -33,6 +34,7 @@
                    <% end %>
                  <% end %>
         </p>
+
         <p>
           <h5><%= t(".availability") %></h5>
 
