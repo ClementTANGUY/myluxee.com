@@ -62,7 +62,7 @@
             </div><!-- /.modal -->
 
         <% else %>
-            <span>Not rated yet</span><br/>
+            <span>Sign in and Rate <%= @sales_associate.first_name %></span><br/>
         <% end %>
         <% if account_signed_in? and !  @sales_associate.ratings.exists?(account: current_account)  %>
             <%= link_to t(".rate_link"), new_sales_associate_ratings_path(sales_associate_id: @sales_associate), data: {no_turbolink: true} %>
