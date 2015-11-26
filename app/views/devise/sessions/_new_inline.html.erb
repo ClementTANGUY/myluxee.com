@@ -1,4 +1,6 @@
-<ul class="nav navbar-nav navbar-right">
-    <li><%=link_to t(".sign_in_account"), new_account_session_path%></li>
-    <li><%=link_to t(".sign_in_sales"), new_sales_associate_session_path%></li>
-</ul>
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><%=link_to t(".sign_in_account"), new_account_session_path%></li>
+    	<li class="active"><%=link_to t(".sign_in_sales"), new_sales_associate_session_path%></li>
+      </ul>
+</div>
