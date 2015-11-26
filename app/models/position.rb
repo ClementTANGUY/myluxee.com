@@ -1,5 +1,5 @@
 class Position < ActiveRecord::Base
-  ROLE_LIST = ["Store Manager", "Department Head", "Floor Manager", "First Salesman", "Sales Associate", "Other"]
+  ROLE_LIST = ["Store Manager", "Store Manager Assistant", "Department Head", "Floor Manager", "First Salesman", "Sales Associate", "Other"]
 
   belongs_to :sales_associate, class_name: "User", foreign_key: "user_id"
   belongs_to :store
