@@ -1,27 +1,32 @@
-<div class="login-area center-block">
-        <h2><%= t(".login") %></h2>
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-          <div class="form-group">
-            <%= f.label :email %><br />
-            <%= f.email_field :email, autofocus: true %>
-          </div>
-
-          <div class="form-group">
-            <%= f.label :password %><br />
-            <%= f.password_field :password, autocomplete: "off" %>
-          </div>
-
-          <% if devise_mapping.rememberable? -%>
+<div class="container-fluid padded">
+  <div class="login-area left-block">
+    <ol class="breadcrumb">
+      <li><%= link_to "Find stores", welcome_locate_path%></li>
+    </ol>
+          <h3><%= t(".login") %></h3>
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
             <div class="form-group">
-              <%= f.check_box :remember_me %>
-              <%= f.label :remember_me %>
+              <%= f.label :email %><br />
+              <%= f.email_field :email, autofocus: true %>
             </div>
-          <% end -%>
 
-          <div class="actions">
-            <%= f.submit "Log in", class: "btn btn-default" %>
-          </div>
-        <% end %>
+            <div class="form-group">
+              <%= f.label :password %><br />
+              <%= f.password_field :password, autocomplete: "off" %>
+            </div>
 
-        <%= render "devise/shared/links" %>
+            <% if devise_mapping.rememberable? -%>
+              <div class="form-group">
+                <%= f.check_box :remember_me %>
+                <%= f.label :remember_me %>
+              </div>
+            <% end -%>
+
+            <div class="actions">
+              <%= f.submit "Log in", class: "btn btn-primary" %>
+            </div>
+          <% end %>
+
+          <%= render "devise/shared/links" %>
+  </div>
 </div>

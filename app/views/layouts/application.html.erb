@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>MyluxeeCom</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <title>MyLuxee - Keep in touch with luxury stores</title>
+  <meta name="description" content="MyLuxee connects worldwide shoppers to their favorite luxury stores through the first network of salespeople. Easy & free !"/>
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Always force latest IE rendering engine or request Chrome Frame -->
+  <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
 
   <meta property="og:title" content="MyLuxee - Keep in touch with luxury stores"/>
   <meta property="og:type" content="article" />
@@ -20,30 +23,44 @@
   <meta name="twitter:creator" content="@author_handle">
   <meta name="twitter:image:src" content="<%= asset_url "images/photowrapper2" %>">
 
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= javascript_include_tag  "welcome.js" %>
 </head>
-<body>
-<header>
-<nav class="navbar navbar-default">
-  <div class="container">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header logo" >
-      <%=image_tag "mylogo.png", class: "col-xs-3 col-md-3" %>
-    </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse">
-        <% if sales_associate_signed_in? %>
-          <%= render partial: 'sales_associates/menu'%>
-        <% elsif account_signed_in? %>
-          <%= render partial: 'accounts/menu'%>
-        <% else %>
-          <%= render 'devise/sessions/new_inline'%>
-        <% end %>
-    </div><!-- /.navbar-collapse -->
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top navbar-wagon" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <%= link_to root_path, class: "navbar-brand" do %>
+            <%=image_tag "mylogo.png" %>
+          <% end %>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+            <% if sales_associate_signed_in? %>
+            <%= render partial: 'sales_associates/menu'%>
+            <% elsif account_signed_in? %>
+            <%= render partial: 'accounts/menu'%>
+            <% else %>
+            <%= render 'devise/sessions/new_inline'%>
+            <% end %>
+      </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-  </header>
+
 <div class="container">
   <%= render 'alert_area' %>
     <%= yield %>

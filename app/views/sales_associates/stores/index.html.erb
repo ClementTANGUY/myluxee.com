@@ -1,4 +1,4 @@
-<h1>Listing Stores</h1>
+<h2>Listing Stores</h2>
 
 <%= render partial: "filter"%>
 <% if sales_associate_signed_in? %>
@@ -63,7 +63,7 @@
 <% else %>
     <div class="jumbotron">
       <div class="container text-center">
-        <h4>No stores were found.</h4> <br/>Maybe you should <%= link_to t(".new"), new_sales_associate_store_path(sales_associate_id: current_sales_associate)%>
+        <h4>No stores were found.</h4> <br/>May be you should <%= link_to t(".new"), new_sales_associate_store_path(sales_associate_id: current_sales_associate)%>
       </div>
     </div>
 

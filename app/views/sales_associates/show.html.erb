@@ -1,3 +1,4 @@
+<div class="container-fluid padded">
 <% if current_sales_associate? @sales_associate %>
     <%= link_to 'Edit your profile', edit_sales_associate_path(@sales_associate), class: "btn btn-default" if current_sales_associate?(@sales_associate) %>
     <%= render partial: "sales_associates/notification_area" %>
@@ -90,4 +91,5 @@
 <%= render partial: "stores", locals: {sales_associate: @sales_associate} %>
 <hr/>
 <%= render partial: "news", locals: {sales_associate: @sales_associate} %>
-
+</div>
+</br>

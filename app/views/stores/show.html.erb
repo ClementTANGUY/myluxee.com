@@ -1,3 +1,4 @@
+<div class="container-fluid padded">
 <ol class="breadcrumb">
   <li><%= link_to "Find stores", welcome_locate_path%></li>
   <li class="active"><%= @store.brand.name %></li>
@@ -53,9 +54,12 @@
     </p>
 <% end %>
 
+<p>
 <h4>Salespeople Profiles</h4>
 <% @store.sales_associates.each do |sales_associate|%>
     <%=render partial: "sales_associates/summary", locals: {sales_associate: sales_associate} %>
 <% end %>
+</p>
 
-<br/>
+</div>
+</br>

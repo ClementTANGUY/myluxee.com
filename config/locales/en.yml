@@ -11,9 +11,9 @@ en:
       languages: "Spoken Languages"
       select_language: "Select the languages you speak"
       store: "Store"
-      select_store: "Select the store you work!"
+      select_store: "Select the store where you work !"
       submit: "Save"
-    news_initial_content: "I am now part of MyLuxee!"
+    news_initial_content: "I am now part of MyLuxee !"
     wizard_new:
       sigin_fb: "Facebook"
       sigin_lk: "LinkedIn"
