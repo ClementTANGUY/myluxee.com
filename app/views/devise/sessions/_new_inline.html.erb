@@ -1,14 +1,4 @@
-<div class="navbar-header">
-    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-       <span class="icon-bar"></span>
-       <span class="icon-bar"></span>
-    </button>
-	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-	<ul class="nav navbar-nav">
-		<li><%=link_to t(".sign_in_account"), class: "sr-only", new_account_session_path%></li>
-		<li><%=link_to t(".sign_in_sales"), class: "sr-only", new_sales_associate_session_path%></li>
-	</ul>
-	</div>
-</div>
+<ul class="nav navbar-nav navbar-right">
+    <li><%=link_to t(".sign_in_account"), new_account_session_path%></li>
+    <li><%=link_to t(".sign_in_sales"), new_sales_associate_session_path%></li>
+</ul>

@@ -7,7 +7,6 @@
     <%= image_tag @store.banner.url(:big) %>
 <% end %>
 
-
 <div class="media-left">
   <a href="#">
     <%= image_tag @store.logo.url(:medium), class: "media-object"%>
@@ -20,19 +19,17 @@
       <small><%= @store.brand.speciality %></small>
     </h3>
 
-    <p><%= link_to @store.brand.website, "http://#{@store.brand.website}", target: "_blank" %></p>
+    <p>
+      <%= link_to @store.brand.website, "http://#{@store.brand.website}", target: "_blank" %>
+    </p>
 
   </div>
 </div>
-
-<hr/>
 
 <p>
   <h4>Address</h4>
   <%= raw address_format(@store, false) %>
 </p>
-
-<hr/>
 
 <p>
 <h4>Opening hours </h4>
@@ -45,8 +42,6 @@
 <%= raw time_format("sunday",@store.sunday, @store.sunday_start, @store.sunday_end, Time.now.sunday?) %>
 </p>
 
-<hr/>
-
 <% if !@store.store_news.empty? %>
     <p>
     <h4>Latest News</h4>
@@ -57,8 +52,6 @@
     </div>
     </p>
 <% end %>
-
-<hr/>
 
 <h4>Salespeople Profiles</h4>
 <% @store.sales_associates.each do |sales_associate|%>

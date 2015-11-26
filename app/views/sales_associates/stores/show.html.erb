@@ -18,16 +18,17 @@
     <h3><%= @store.brand.name %><br/>
       <small><%= @store.brand.speciality %></small>
     </h3>
-    <%= link_to @store.brand.website, "http://#{@store.brand.website}", target: "_blank" %>
     <p>
-      <strong>Address:</strong>
-      <%= raw address_format(@store, false) %>
+      <%= link_to @store.brand.website, "http://#{@store.brand.website}", target: "_blank" %>
     </p>
   </div>
 </div>
 
-<hr/>
-
+<p>
+  <h4>Address</h4>
+  <%= raw address_format(@store, false) %>
+</p>
+ 
 <p>
     <h4>Opening hours </h4>
     <%= raw time_format("monday",@store.monday, @store.monday_start, @store.monday_end, Time.now.monday?) %> <br/>
@@ -38,8 +39,6 @@
     <%= raw time_format("saturday",@store.saturday, @store.saturday_start, @store.saturday_end, Time.now.saturday?) %> <br/>
     <%= raw time_format("sunday",@store.sunday, @store.sunday_start, @store.sunday_end, Time.now.sunday?) %>
 </p>
-
-<hr/>
 
 <% if !@store.store_news.empty? or current_sales_associate.stores.include?(@store) %>
     <p>
@@ -55,9 +54,7 @@
     </p>
 <% end %>
 
-<hr/>
-
-<h4>Sales Associate's Profiles</h4>
+<h4>SalesPeople Profiles</h4>
 <% @store.sales_associates.each do |sales_associate|%>
     <%=render partial: "sales_associates/summary", locals: {sales_associate: sales_associate} %>
 <% end %>
