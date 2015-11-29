@@ -1,6 +1,6 @@
 <div class="container-fluid padded">
 <% if current_sales_associate? @sales_associate %>
-    <%= link_to 'Edit your profile', edit_sales_associate_path(@sales_associate), class: "btn btn-default" if current_sales_associate?(@sales_associate) %>
+    <%= link_to 'Edit your profile', edit_sales_associate_path(@sales_associate), class: "btn btn-primary" if current_sales_associate?(@sales_associate) %>
     <%= render partial: "sales_associates/notification_area" %>
 <% elsif account_signed_in? or !sales_associate_signed_in? %>
     <ol class="breadcrumb">
@@ -10,14 +10,13 @@
     </ol>
 
 <% end %>
-<div class="media">
+
   <div class="media-left">
     <%= image_tag @sales_associate.avatar.url(:medium), class: "media-object thumbnail", width: 171, height: 180 %>
   </div>
+  <div class="media">
   <div class="media-body">
     <h3 class="media-heading"><%= @sales_associate.first_name %> <%= @sales_associate.last_name %></h3>
-    
-    <hr/>
     
     <p>
       <h4>Position</h4>
@@ -92,4 +91,3 @@
 <hr/>
 <%= render partial: "news", locals: {sales_associate: @sales_associate} %>
 </div>
-</br>

@@ -1,8 +1,8 @@
 <div class="container-fluid padded">
-  <div class="login-area left-block">
     <ol class="breadcrumb">
-      <li><%= link_to "Find stores", welcome_locate_path%></li>
+      <li><%= link_to "Back", :back %></li>
     </ol>
+
     <h3>Forgot your password?</h3>
 
       <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
@@ -10,14 +10,14 @@
 
         <div class="form-group">
           <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true, class: "form-control" %>
+          <%= f.email_field :email, autofocus: true %>
         </div>
 
         <div class="actions">
           <%= f.submit "Send me reset password instructions", class: "btn btn-danger" %>
         </div>
       <% end %>
+      <br/>
 
       <%= render "devise/shared/links" %>
-  </div>
 </div>

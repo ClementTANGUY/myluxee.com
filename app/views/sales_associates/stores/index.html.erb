@@ -1,70 +1,72 @@
-<h2>Listing Stores</h2>
+<div class="container-fluid padded">
+  <h2>Listing Stores</h2>
 
-<%= render partial: "filter"%>
-<% if sales_associate_signed_in? %>
-    <%= render partial: "sales_associates/notification_area" %>
-<% end %>
-<small><%= link_to t(".new_store"), new_sales_associate_store_path(sales_associate_id: current_sales_associate)%></small>
-<% unless @stores.empty? %>
-    <table class="table ">
-      <thead>
-      <tr>
-        <th>Address</th>
-      </tr>
-      </thead>
-      <tbody>
-      <% @stores.each do |store| %>
-          <tr>
-            <td>
-              <%=  link_to_if current_sales_associate.stores.exists?({id: store.id}),raw(address_format(store)), [current_sales_associate, store] %>
-            </td>
+  <%= render partial: "filter"%>
+  <% if sales_associate_signed_in? %>
+      <%= render partial: "sales_associates/notification_area" %>
+  <% end %>
+  <small><%= link_to t(".new_store"), new_sales_associate_store_path(sales_associate_id: current_sales_associate)%></small>
+  <% unless @stores.empty? %>
+      <table class="table ">
+        <thead>
+        <tr>
+          <th>Address</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @stores.each do |store| %>
+            <tr>
+              <td>
+                <%=  link_to_if current_sales_associate.stores.exists?({id: store.id}),raw(address_format(store)), [current_sales_associate, store] %>
+              </td>
 
-            <td>
-              <% if current_sales_associate.old_stores.exists?(id: store.id) %>
-                  <%= link_to undo_position_sales_associate_store_path(id: store, sales_associate_id: current_sales_associate),
-                              class: "btn btn-default", method: :post do%>
-                    <%= raw t(".undo")%>
-                  <% end %>
-                  <%= link_to destroy_position_sales_associate_store_path(id: store, sales_associate_id: current_sales_associate),
-                              class: "btn btn-danger", method: :delete, data:{ confirm: t(".confirm")} do%>
-                      <%= raw t(".destroy") %>
-                  <% end %>
-            <% elsif current_sales_associate.stores.exists?(id: store.id)%>
-                  <%= link_to edit_position_sales_associate_store_path(id: store, sales_associate_id: current_sales_associate),
-                              class: "btn btn-primary btn-danger", remote: true, data: {target: "modal", toogle: "my-modal"}  do%>
-                    <%= raw t(".deselect")%>
-                  <% end %>
-                  <%= link_to destroy_position_sales_associate_store_path(id: store, sales_associate_id: current_sales_associate),
-                              class: "btn btn-danger", method: :delete, data:{ confirm: t(".confirm")} do%>
-                      <%= raw t(".destroy") %>
-                  <% end %>
-              <% else %>
-                  <%= link_to t(".select"), new_position_sales_associate_store_path(id: store, sales_associate_id: current_sales_associate),
-                              class: "btn btn-primary", remote: true, data: {target: "modal", toogle: "my-modal"}  %>
-              <% end%>
-            </td>
+              <td>
+                <% if current_sales_associate.old_stores.exists?(id: store.id) %>
+                    <%= link_to undo_position_sales_associate_store_path(id: store, sales_associate_id: current_sales_associate),
+                                class: "btn btn-default", method: :post do%>
+                      <%= raw t(".undo")%>
+                    <% end %>
+                    <%= link_to destroy_position_sales_associate_store_path(id: store, sales_associate_id: current_sales_associate),
+                                class: "btn btn-danger", method: :delete, data:{ confirm: t(".confirm")} do%>
+                        <%= raw t(".destroy") %>
+                    <% end %>
+              <% elsif current_sales_associate.stores.exists?(id: store.id)%>
+                    <%= link_to edit_position_sales_associate_store_path(id: store, sales_associate_id: current_sales_associate),
+                                class: "btn btn-primary btn-danger", remote: true, data: {target: "modal", toogle: "my-modal"}  do%>
+                      <%= raw t(".deselect")%>
+                    <% end %>
+                    <%= link_to destroy_position_sales_associate_store_path(id: store, sales_associate_id: current_sales_associate),
+                                class: "btn btn-danger", method: :delete, data:{ confirm: t(".confirm")} do%>
+                        <%= raw t(".destroy") %>
+                    <% end %>
+                <% else %>
+                    <%= link_to t(".select"), new_position_sales_associate_store_path(id: store, sales_associate_id: current_sales_associate),
+                                class: "btn btn-primary", remote: true, data: {target: "modal", toogle: "my-modal"}  %>
+                <% end%>
+              </td>
 
-          </tr>
-      <% end %>
-      </tbody>
-    </table>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
 
-    <div class="modal fade" role="dialog" id="my-modal" title="<%= t(".modal")%>">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
+      <div class="modal fade" role="dialog" id="my-modal" title="<%= t(".modal")%>">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
 
-          <div class="modal-body a-unique-class">
+            <div class="modal-body a-unique-class">
+
+            </div>
 
           </div>
-
         </div>
       </div>
-    </div>
-<% else %>
-    <div class="jumbotron">
-      <div class="container text-center">
-        <h4>No stores were found.</h4> <br/>May be you should <%= link_to t(".new"), new_sales_associate_store_path(sales_associate_id: current_sales_associate)%>
+  <% else %>
+      <div class="jumbotron">
+        <div class="container text-center">
+          <h4>No stores were found.</h4> <br/>May be you should <%= link_to t(".new"), new_sales_associate_store_path(sales_associate_id: current_sales_associate)%>
+        </div>
       </div>
-    </div>
 
-<% end %>
+  <% end %>
+</div>

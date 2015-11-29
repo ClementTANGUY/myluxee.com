@@ -226,6 +226,7 @@ Brand.create! name: "Maison Margiela", speciality: "Fashion & Accessories", webs
 Brand.create! name: "Manolo Blahnik", speciality: "Fashion & Accessories", website: "www.manoloblahnik.com"
 Brand.create! name: "Max Mara", speciality: "Fashion & Accessories", website: "www.maxmara.com"
 Brand.create! name: "Isabelle Marant", speciality: "Fashion & Accessories", website: "www.isabelmarant.com"
+Brand.create! name: "Marni", speciality: "Fashion & Accessories", website: "www.marni.com"
 Brand.create! name: "Maserati", speciality: "Cars dealer", website: "www.maserati.com"
 Brand.create! name: "Maybach", speciality: "Cars dealer", website: "www.daimler.com"
 Brand.create! name: "Mercedes-benz", speciality: "Cars dealer", website: "www.mercedes-benz.com"

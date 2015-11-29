@@ -1,7 +1,8 @@
-<%= link_to 'Back', sales_associate_stores_path(sales_associate_id: current_sales_associate), class: "btn btn-default" %>
+<div class="container-fluid padded">
+	<%= link_to 'Back', sales_associate_stores_path(sales_associate_id: current_sales_associate), class: "btn btn-default" %>
 
-<h1>New Store</h1>
+	<h2>New Store</h2>
 
-<%= render 'form' %>
-
+	<%= render 'form' %>
+</div>
 

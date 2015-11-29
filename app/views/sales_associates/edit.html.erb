@@ -1,5 +1,8 @@
-<div class="container-fluid">
-  <h1>Sales Associate</h1>
+<div class="container-fluid padded">
+	<ol class="breadcrumb">
+	  <li><%= link_to "Back", :back %></li>
+	</ol>
+  	<h2>Salespeople</h2>
 
   <%= render 'form' %>
   <%= render partial: "stores", locals:{ sales_associate: sales_associate } %>

@@ -23,27 +23,28 @@
             <%= render partial: "store_card", locals: {store: store} %>
         <% end %>
       <% else %>
-          <div class="jumbotron text-center">
+          <div class="jumbotron">
+            <div class="container">
             
-            <h3>It seems that there is no store with<br/> the filters you chose.</h3>
-            <h4>Sign up to our newsletter and find out when<br/> new stores are registered</h4>
+            <h3>It seems that there is no store in this area</h3>
+            <h4>Be the first to be warned when we’ll reach this zone</h4>
 
             <form class="form-inline" role="form" action="//myluxee.us11.list-manage.com/subscribe/post?u=b7959a16cabf22b1008be1d01&amp;id=faf2916d4c" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form">
               <input type="email" name="EMAIL" class="form-control" id="mce-EMAIL" placeholder="email address" required>
               <input type="submit" value="Remind me" name="subscribe" id="mc-embedded-subscribe" class="btn btn-primary">
             </form>
-
-            <h5>Or change the city/country of your choice</h5>
             
-            <div class="panel-body">
+            
+              <h4>Try to shop elsewhere</h4>
               <%= form_tag welcome_locate_path, method: :get, class: "form-inline" do %>
                   <div class="form-group">
-                    <%= label_tag :place %>
+                    <%= label_tag :place %><br>
                     <%= text_field_tag :place, @place, class: "form-control" %>
-                  </div>
+                  
                   <%= submit_tag t("welcome.index.find_store"), class: "btn btn-primary"%>
+                  </div>
               <% end %>
-
+            
             </div>
           </div>
       <% end %>
