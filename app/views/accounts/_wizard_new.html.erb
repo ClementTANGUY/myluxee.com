@@ -15,13 +15,16 @@
           <div class=" col-md-6 ">
             <h5>Sign up with your social networks</h5>
             <br>
-            <%= link_to "auth/facebook?resource=account", class: "btn btn-block btn-social btn-facebook" do %>
+          <p>
+            <%= link_to "auth/facebook?resource=account", class: "btn btn-social btn-facebook" do %>
                 <i class="fa fa-facebook"></i> <%= t("sales_associates.wizard_new.sigin_fb")%>
             <% end %> <br/>
-            <%= link_to "auth/linkedin?resource=account", class: "btn btn-block btn-social btn-linkedin" do %>
+          </p>
+          <p>
+            <%= link_to "auth/linkedin?resource=account", class: "btn btn-social btn-linkedin" do %>
                 <i class="fa fa-linkedin"></i> <%= t("sales_associates.wizard_new.sigin_lk")%>
             <% end %> <br/>
-
+          </p>
           </div>
           <div class="col-md-6 ">
             <%= form_for Account.new do |f| %>

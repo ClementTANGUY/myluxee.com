@@ -5,15 +5,15 @@
 </p>
 
 <p>
-	<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-	  <%= link_to "Sign up", new_sales_associate_path, class: "btn btn-primary" %><br />
-	<% end -%>
-</p>
-
-<p>
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
   <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
 <% end -%>
+</p>
+
+<p>
+	<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+	  <%= link_to "Sign up", new_sales_associate_path, class: "btn btn-primary" %><br />
+	<% end -%>
 </p>
 
 <p>
@@ -29,10 +29,12 @@
 </p>
 
 <p>
-<%= link_to "/auth/facebook?resource=#{resource_name}", class: "btn btn-block btn-social btn-facebook" do %>
+<%= link_to "/auth/facebook?resource=#{resource_name}", class: "btn btn-social btn-facebook" do %>
     <i class="fa fa-facebook"></i> <%= t("sales_associates.wizard_new.sigin_fb")%>
-<% end %> <br/>
-<%= link_to "/auth/linkedin?resource=#{resource_name}", class: "btn btn-block btn-social btn-linkedin" do %>
+<% end %>
+</p>
+<p>
+<%= link_to "/auth/linkedin?resource=#{resource_name}", class: "btn btn-social btn-linkedin" do %>
     <i class="fa fa-linkedin"></i> <%= t("sales_associates.wizard_new.sigin_lk")%>
 <% end %> <br/>
 </p>
