@@ -29,7 +29,7 @@ en:
         new: "Register it here."
         destroy: "Never worked here<br/><small>(remove)</small>"
         confirm: "Are you sure you want to remove this store from your profile?"
-        new_store: "Register the store you work for here."
+        new_store: "Register a new store here"
       position_form:
         work_as: "I work as a:"
         start_date: "Start Date"

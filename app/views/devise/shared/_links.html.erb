@@ -1,6 +1,6 @@
 <p>
 	<%- if controller_name != 'sessions' %>
-	  <%= link_to "Log in", new_session_path(resource_name), class: "btn btn-default" %><br/>
+	  <%= link_to "Log in", new_session_path(resource_name), class: "btn btn-info" %><br/>
 	<% end -%>
 </p>
 
@@ -9,6 +9,8 @@
   <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
 <% end -%>
 </p>
+
+<p>&nbsp;</p>
 
 <p>
 	<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
@@ -27,6 +29,11 @@
   <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br />
 <% end -%>
 </p>
+
+<p>&nbsp;</p>
+
+
+<h4>Sign in with your social networks</h4>
 
 <p>
 <%= link_to "/auth/facebook?resource=#{resource_name}", class: "btn btn-social btn-facebook" do %>
