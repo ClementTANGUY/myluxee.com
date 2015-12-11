@@ -7,9 +7,9 @@
   <div class="vertical-spacer"></div>
 
   <div class="container find_search padded">
-    <div class="panel">
+    <div class="panel panel-transparent">
       <div class="panel-heading">
-        The first network of salespeople for personal shopping
+        <h4>The first network of salespeople in retail for personal shopping</h4>
       </div>
       <div class="panel-body">
         <%= form_tag welcome_locate_path, method: :get, class: "row" do %>
@@ -18,7 +18,7 @@
               <%= text_field_tag :place, @place, class: "form-control", placeholder: t(".place") %>
             </div>
             <div class="col-md-2">
-              <%= submit_tag t(".find_store"), class: "btn btn-primary" %>
+              <%= submit_tag t(".find_store"), class: "btn btn-info" %>
             </div>
         <% end %>
       </div>

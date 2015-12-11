@@ -4,7 +4,9 @@
 <% if sales_associate_signed_in? %>
     <%= render partial: "sales_associates/notification_area" %>
 <% end %>
-<br/>
+
+<p>&nbsp;</p>
+
 <% if @store.banner.file? %>
     <%= image_tag @store.banner.url(:big) %>
 <% end %>
@@ -15,6 +17,9 @@
       <%= image_tag @store.logo.url(:medium), class: "media-object"%>
     </a>
   </div>
+</div>
+
+<div class="media">
   <div class="media-body">
     <h3><%= @store.brand.name %><br/>
       <small><%= @store.brand.speciality %></small>
@@ -41,6 +46,8 @@
     <%= raw time_format("sunday",@store.sunday, @store.sunday_start, @store.sunday_end, Time.now.sunday?) %>
 </p>
 
+<br>
+
 <% if !@store.store_news.empty? or current_sales_associate.stores.include?(@store) %>
     <p>
       <h4>Latest News</h4>
@@ -54,6 +61,8 @@
         </div>
     </p>
 <% end %>
+
+<br>
 
 <p>
   <h4>SalesPeople Profiles</h4>

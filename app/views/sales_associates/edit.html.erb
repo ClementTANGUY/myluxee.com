@@ -5,6 +5,8 @@
   	<h2>Salespeople</h2>
 
   <%= render 'form' %>
+  <br>
   <%= render partial: "stores", locals:{ sales_associate: sales_associate } %>
+  <br>
   <%= button_to  t(".destroy"), @sales_associate, method: :delete, data: {confirm: t(".destroy_confirm")}, class: "btn btn-danger btn-sm"%>
 </div>

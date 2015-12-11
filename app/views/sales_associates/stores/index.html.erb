@@ -5,12 +5,16 @@
   <% if sales_associate_signed_in? %>
       <%= render partial: "sales_associates/notification_area" %>
   <% end %>
+
   <h3><%= link_to t(".new_store"), new_sales_associate_store_path(sales_associate_id: current_sales_associate), class:"btn btn-info"%></h3>
+
+  <br>
+  
   <% unless @stores.empty? %>
       <table class="table ">
         <thead>
         <tr>
-          <th>Address</th>
+          <th>Store</th>
         </tr>
         </thead>
         <tbody>

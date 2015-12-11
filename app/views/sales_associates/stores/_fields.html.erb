@@ -1,3 +1,4 @@
+<div class="container-fluid">
 <div class="field ">
   <%= fields.label :brand %>
   <%= fields.select :brand_id, Brand.all.collect { |b| [b.name, b.id] }, {}, class: "form-control" %>
@@ -19,6 +20,9 @@
 
         </div>
     </div>
+
+    <hr/>
+
     <div class="field form-horizontal row">
       <h4 class="col-md-4"><%= t(".my_timetable") %></h4>
 
@@ -122,6 +126,9 @@
   <%= fields.label :banner %>
   <%= fields.file_field :banner %>
 </div>
+
+<br>
+
 <div class="field">
   <%= fields.text_field :address, class: "form-control" %>
   <%= fields.label :address, class: "small", required: true %><br>
@@ -147,13 +154,18 @@
     <%= fields.label :country, class: "small", required: true %>
   </div>
 </div>
+
+<br>
+
 <div class="field form-horizontal">
   <%= fields.label :logo %>
   <%= fields.file_field :logo %>
 </div>
 
+<hr/>
+
 <div class="form-horizontal row">
-  <h3 class="col-md-4">Store Openning Hours</h3>
+  <h4 class="col-md-4">Store Openning Hours</h4>
 
   <div class="col-md-4">
     <div class="field">
@@ -247,4 +259,5 @@
       </div>
     </div>
   </div>
+</div>
 </div>

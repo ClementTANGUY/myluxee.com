@@ -20,16 +20,16 @@ en:
 
     stores:
       index:
-        select: "I work at this store!"
+        select: "Add this store"
         modal: "My Position"
         my_position: "My Position"
         my_position_description: "Choose my position from selected store"
-        deselect: "I don't work here<br/> anymore"
-        undo: "I don't work here anymore<br/> (undo)"
+        deselect: "I don't work there<br/> anymore"
+        undo: "I don't work there anymore<br/> (undo)"
         new: "Register it here."
-        destroy: "Never worked here<br/><small>(remove)</small>"
-        confirm: "Are you sure you want to remove this store from your profile?"
-        new_store: "Register a new store here"
+        destroy: "I never worked there<br/><small>(Remove this store)</small>"
+        confirm: "Are you sure you want to remove this store from your profile ?"
+        new_store: "Register a new store"
       position_form:
         work_as: "I work as a:"
         start_date: "Start Date"
@@ -42,8 +42,8 @@ en:
       destroy: "Store removed from your profile"
       stores: "Manage stores"
       filter:
-        search_address: "Search address..."
-        search_input: "Search a store !"
+        search_address: "Enter address..."
+        search_input: "Search your store"
         filter: "Filter"
       store_news_form:
         submit: "Add News"
@@ -96,14 +96,14 @@ en:
       time_format: "Not a valid time"
   welcome:
     locate:
-      filter: "Filter"
+      filter: "Filters"
       hide: "Hide"
     filter:
-      show: "Change Filter"
-      hide: "Hide Filter"
+      show: "Change Filters"
+      hide: "Hide Filters"
     index:
       find_store: "Find your Store !"
-      place: "Search in a country or a city"
+      place: "Enter your country or city"
     store_card:
       view_sales: "View Salespeople"
   stores:

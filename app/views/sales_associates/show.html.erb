@@ -3,6 +3,7 @@
   <% if current_sales_associate? @sales_associate %>
       <%= link_to 'Edit your profile', edit_sales_associate_path(@sales_associate), class: "btn btn-primary" if current_sales_associate?(@sales_associate) %>
       <%= render partial: "sales_associates/notification_area" %>
+      
   <% elsif account_signed_in? or !sales_associate_signed_in? %>
       <ol class="breadcrumb">
         <li><%= link_to "Find stores", welcome_locate_path%></li>
@@ -10,68 +11,69 @@
         <li class="active"><%= @sales_associate.first_name %> <%=@sales_associate.last_name%></li>
       </ol>
   <% end %>
-
-  <div class="vertical-spacer"></div>
   
-  <div class="media-left">
-    <%= image_tag @sales_associate.avatar.url(:medium), class: "media-object thumbnail", width: 171, height: 180 %>
-  </div>
   <div class="media">
-  <div class="media-body">
-    <h3 class="media-heading"><%= @sales_associate.first_name %> <%= @sales_associate.last_name %></h3>
-    
-    <p>
-      <h4>Position</h4>
-        <br><%= raw format_position(@sales_associate.positions.first) %>
-    </p>
+    <div class="media-left">
+      <%= image_tag @sales_associate.avatar.url(:thumb), class: "media-object img-circle"%>
+    </div>
+  </div>
+  
+  <div class="media">
+    <div class="media-body">
+      <h3 class="media-heading"><%= @sales_associate.first_name %> <%= @sales_associate.last_name %></h3>
+      <br>
+      <p>
+        <h4>Position</h4>
+          <%= raw format_position(@sales_associate.positions.first) %>
+      </p>
 
-    <p>
-      <h4>Languages</h4>
-        <br><%= @sales_associate.languages.map { |language| language.name }.join(", ") %>
-    </p>
+      <p>
+        <h4>Languages</h4>
+          <%= @sales_associate.languages.map { |language| language.name }.join(", ") %>
+      </p>
 
-    <% if @sales_associate.be_contacted %>
-        <% if  account_signed_in? or sales_associate_signed_in?%>
-          <p>
-            <%= mail_to( @sales_associate.email, t(".contact", first_name: @sales_associate.first_name)) %>
-          </p>
-        <% else %>
-          <p>
-            <%= link_to "Contact me", new_account_session_path %>
-          </p>
+      <% if @sales_associate.be_contacted %>
+          <% if  account_signed_in? or sales_associate_signed_in?%>
+            <p>
+              <%= mail_to( @sales_associate.email, t(".contact", first_name: @sales_associate.first_name)) %>
+            </p>
+          <% else %>
+            <p>
+              <%= link_to "Contact me", new_account_session_path, class:"btn btn-primary" %>
+            </p>
+          <% end %>
         <% end %>
+
+      <% if @sales_associate.be_rated? %>
+          <% unless @sales_associate.ratings.empty? %>
+              <%= link_to sales_associate_ratings_path(sales_associate_id: @sales_associate), remote: true do %>
+                  <label>Rating:</label> 
+                  <br><span class="badge"><%= @sales_associate.rating_score %></span>
+              <% end %>
+              <div class="modal fade" id="ratings-modal">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title">Ratings</h4>
+                    </div>
+                    <div class="modal-body">
+
+                    </div>
+                  </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+              </div><!-- /.modal -->
+
+          <% else %>
+            <p>
+              <%= link_to "Rate me", new_account_session_path, class:"btn btn-info" %>
+            </p>
+          <% end %>
+          <% if account_signed_in? and !  @sales_associate.ratings.exists?(account: current_account)  %>
+              <%= link_to t(".rate_link"), new_sales_associate_ratings_path(sales_associate_id: @sales_associate), data: {no_turbolink: true} %>
+          <% end %>
       <% end %>
-
-    <% if @sales_associate.be_rated? %>
-        <% unless @sales_associate.ratings.empty? %>
-            <%= link_to sales_associate_ratings_path(sales_associate_id: @sales_associate), remote: true do %>
-                <label>Rating:</label> 
-                <br><span class="badge"><%= @sales_associate.rating_score %></span>
-            <% end %>
-            <div class="modal fade" id="ratings-modal">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Ratings</h4>
-                  </div>
-                  <div class="modal-body">
-
-                  </div>
-                </div><!-- /.modal-content -->
-              </div><!-- /.modal-dialog -->
-            </div><!-- /.modal -->
-
-        <% else %>
-          <p>
-            <%= link_to "Rate me", new_account_session_path %>
-          </p>
-        <% end %>
-        <% if account_signed_in? and !  @sales_associate.ratings.exists?(account: current_account)  %>
-            <%= link_to t(".rate_link"), new_sales_associate_ratings_path(sales_associate_id: @sales_associate), data: {no_turbolink: true} %>
-        <% end %>
-    <% end %>
     </div>
 </div>
 <% if position = @sales_associate.positions.first%>
@@ -84,12 +86,13 @@
     <%= raw my_time_format("thursday",position.thursday, position.thursday_start, position.thursday_end, Time.now.thursday?) %>
     <%= raw my_time_format("friday",position.friday, position.friday_start, position.friday_end, Time.now.friday?) %>
     <%= raw my_time_format("saturday",position.saturday, position.saturday_start, position.saturday_end, Time.now.saturday?) %>
-    <%= raw my_time_format("sunday",position.sunday, position.sunday_start, position.sunday_end, Time.now.sunday?) %>
-  
+    <%= raw my_time_format("sunday",position.sunday, position.sunday_start, position.sunday_end, Time.now.sunday?) %>  
   </p>
 <% end %>
 
+<br>
+
 <%= render partial: "stores", locals: {sales_associate: @sales_associate} %>
-<hr/>
+<br>
 <%= render partial: "news", locals: {sales_associate: @sales_associate} %>
 </div>

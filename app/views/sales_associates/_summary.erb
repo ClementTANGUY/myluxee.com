@@ -3,7 +3,7 @@
     <div class="media">
       <div class="media-left">
         <%= link_to sales_associate do %>
-          <%= image_tag sales_associate.avatar.url(:thumb), class: "media-object"%>
+          <%= image_tag sales_associate.avatar.url(:thumb), class: "media-object img-circle"%>
         <% end %>
       </div>
       <div class="media-body">
@@ -29,7 +29,7 @@
                      </p>
                    <% else %>
                      <p>
-                       <%= link_to "Contact me", new_account_session_path %>
+                       <%= link_to "Contact me", new_account_session_path, class:"btn btn-primary" %>
                      </p>
                    <% end %>
                  <% end %>

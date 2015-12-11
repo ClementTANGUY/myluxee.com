@@ -16,7 +16,7 @@
           <%= label_tag :speciality %>
           <%= select_tag :speciality, options_for_select(Brand.specialities, @speciality), class: "form-control", include_blank: true %>
         </div>
-        <%= submit_tag t(".search_input"), class: "btn btn-primary btn-sm " %>
+        <%= submit_tag t(".search_input"), class: "btn btn-primary btn-sm" %>
 
     <% end %>
   </div>
