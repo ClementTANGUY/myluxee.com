@@ -1,4 +1,7 @@
 <div class="container-fluid padded">
+
+	<%= link_to 'Edit', edit_account_path(@account), class: "btn btn-primary" %>
+	<br>
 	<p>
 	  <strong>First name:</strong>
 	  <%= @account.first_name %>
@@ -13,6 +16,4 @@
 	  <strong>Email:</strong>
 	  <%= @account.email %>
 	</p>
-
-	<%= link_to 'Edit', edit_account_path(@account), class: "btn btn-primary" %>
 </div>
