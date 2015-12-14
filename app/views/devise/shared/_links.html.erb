@@ -16,7 +16,7 @@
 
 <p>
 	<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-	  <%= link_to "Sign up", new_sales_associate_path, class: "btn btn-primary" %><br />
+	  <%= link_to "Sign up", {controller: "/#{resource_name.to_s.pluralize}", action: :new}, class: "btn btn-primary" %><br />
 	<% end -%>
 </p>
 
