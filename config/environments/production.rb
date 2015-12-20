@@ -96,7 +96,8 @@ Rails.application.configure do
       :s3_credentials => {
           :bucket => ENV['BUCKETEER_BUCKET_NAME'],
           :access_key_id => ENV['BUCKETEER_AWS_ACCESS_KEY_ID'],
-          :secret_access_key => ENV['BUCKETEER_AWS_SECRET_ACCESS_KEY']
+          :secret_access_key => ENV['BUCKETEER_AWS_SECRET_ACCESS_KEY'],
+          :region => ENV['BUCKETEER_AWS_REGION']
       }
   }
 end
