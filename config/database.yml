@@ -9,8 +9,8 @@ default: &default
   encoding: unicode
   pool: 5
   timeout: 5000
-  username: test
-  password: test
+  username: clementtanguy
+  password: df2pbdv
 
 development:
   <<: *default
