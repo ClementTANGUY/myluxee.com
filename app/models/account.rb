@@ -2,7 +2,7 @@ class Account < User
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :ratings, foreign_key: :grader_id
+  has_many :ratings, foreign_key: :grader_id, dependent: :destroy
 
   def self.from_omniauth(auth)
 
