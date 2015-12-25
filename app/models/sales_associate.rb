@@ -33,7 +33,7 @@ class SalesAssociate < User
 
   has_many :all_stores, ->{order("start_date desc")}, through: :all_positions, source: :store
 
-  has_many :ratings, foreign_key: :graded_id
+  has_many :ratings, foreign_key: :graded_id, dependent: :destroy
 
 
   def self.from_omniauth(auth)
