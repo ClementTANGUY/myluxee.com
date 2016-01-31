@@ -1,11 +1,11 @@
 @import "config/variables";
 body {
-    background: linear-gradient( to right, $cararra, white);
+    background: linear-gradient(to right, $cararra, white);
 }
 
 #wrapper {
-	background-image: image-url("photowrapper2.jpg");
-	height: 920px;
+	background-image: linear-gradient(-225deg, rgba(20,20,20,0.2) 30%, rgba(46,46,46,0.2) 80%), url("photowrapper2.jpg");
+	height: 100vh;
 	padding-top: 100px;
 	background-repeat: no-repeat;
 	background-size: cover;
