@@ -1,0 +1,18 @@
+<div id="footer">
+  <div class="container text-center">
+    <p>©<%= Time.now.year %> MyLuxee</p>
+    <ul class="list-inline">
+      <li><%= link_to raw('<i class="fa fa-facebook fa-2x"></i>'), "http://facebook.com/MyLuxee", target: "blank" %></li>
+      <li></li>
+      <li><%= link_to raw('<i class="fa fa-twitter fa-2x"></i>'), "http://twitter.com/MyLuxee", target: "blank" %></li>
+      <li></li>
+      <li><%= link_to raw('<i class="fa fa-linkedin fa-2x"></i>'), "https://www.linkedin.com/company/10235063", target: "blank" %></li>
+      <li></li>
+      <li><%= mail_to "contact@myluxee.com", raw('<i class="fa fa-envelope fa-2x"></i>') %></li>
+    </ul>
+    <ul class="list-inline">
+      <li><small><%= link_to t("layouts.application.privacy"), welcome_privacy_policy_path%></small></li> |
+      <li><small><%= link_to t("layouts.application.terms"), welcome_terms_and_conditions_path%></small></li>
+    </ul>
+  </div>
+</div>

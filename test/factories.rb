@@ -1,4 +1,4 @@
-FactoryGirl.define do  factory :rating do
+FactoryBot.define do  factory :rating do
     score 1
 description "MyText"
   end

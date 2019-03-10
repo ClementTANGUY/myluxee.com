@@ -44,64 +44,20 @@
   src="https://www.facebook.com/tr?id=976323309072993&ev=PageView&noscript=1"
   /></noscript>
   <!-- End Facebook Pixel Code -->
-  
+
 </head>
 
 <body>
 
-  <nav class="navbar navbar-default navbar-fixed-top navbar-wagon" role="navigation">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
+  <%= render "shared/navbar" %>
 
-        <%= link_to root_path, class: "navbar-brand" do %>
-            <%=image_tag "mylogo.png" %>
-          <% end %>
-      </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-            <% if sales_associate_signed_in? %>
-            <%= render partial: 'sales_associates/menu'%>
-            <% elsif account_signed_in? %>
-            <%= render partial: 'accounts/menu'%>
-            <% else %>
-            <%= render 'devise/sessions/new_inline'%>
-            <% end %>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
-
-<div class="container">
-  <%= render 'alert_area' %>
+  <div class="container">
+    <%= render 'alert_area' %>
     <%= yield %>
-</div>
-
-<div id="footer">
-  <div class="container text-center">
-    <p>©<%= Time.now.year %> MyLuxee</p>
-    <ul class="list-inline">
-      <li><%= link_to raw('<i class="fa fa-facebook fa-2x"></i>'), "http://facebook.com/MyLuxee", target: "blank" %></li>
-      <li></li>
-      <li><%= link_to raw('<i class="fa fa-twitter fa-2x"></i>'), "http://twitter.com/MyLuxee", target: "blank" %></li>
-      <li></li>
-      <li><%= link_to raw('<i class="fa fa-linkedin fa-2x"></i>'), "https://www.linkedin.com/company/10235063", target: "blank" %></li>
-      <li></li>
-      <li><%= mail_to "contact@myluxee.com", raw('<i class="fa fa-envelope fa-2x"></i>') %></li>
-    </ul>
-    <ul class="list-inline">
-      <li><small><%= link_to t("layouts.application.privacy"), welcome_privacy_policy_path%></small></li> |
-      <li><small><%= link_to t("layouts.application.terms"), welcome_terms_and_conditions_path%></small></li>
-    </ul>
   </div>
-</div>
+
+  <%= render "shared/footer" %>
+
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

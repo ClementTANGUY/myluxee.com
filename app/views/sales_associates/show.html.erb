@@ -1,9 +1,9 @@
 <div class="container-fluid padded">
-  
+
   <% if current_sales_associate? @sales_associate %>
       <%= link_to 'Edit your profile', edit_sales_associate_path(@sales_associate), class: "btn btn-primary" if current_sales_associate?(@sales_associate) %>
       <%= render partial: "sales_associates/notification_area" %>
-      
+
   <% elsif account_signed_in? or !sales_associate_signed_in? %>
       <ol class="breadcrumb">
         <li><%= link_to "Find stores", welcome_locate_path%></li>
@@ -11,13 +11,13 @@
         <li class="active"><%= @sales_associate.first_name %> <%=@sales_associate.last_name%></li>
       </ol>
   <% end %>
-  
+
   <div class="media">
     <div class="media-left">
       <%= image_tag @sales_associate.avatar.url(:thumb), class: "media-object img-circle"%>
     </div>
   </div>
-  
+
   <div class="media">
     <div class="media-body">
       <h3 class="media-heading"><%= @sales_associate.first_name %> <%= @sales_associate.last_name %></h3>
@@ -47,7 +47,7 @@
       <% if @sales_associate.be_rated? %>
           <% unless @sales_associate.ratings.empty? %>
               <%= link_to sales_associate_ratings_path(sales_associate_id: @sales_associate), remote: true do %>
-                  <label>Rating:</label> 
+                  <label>Rating:</label>
                   <br><span class="badge"><%= @sales_associate.rating_score %></span>
               <% end %>
               <div class="modal fade" id="ratings-modal">
@@ -71,7 +71,7 @@
             </p>
           <% end %>
           <% if account_signed_in? and !  @sales_associate.ratings.exists?(account: current_account)  %>
-              <%= link_to t(".rate_link"), new_sales_associate_ratings_path(sales_associate_id: @sales_associate), data: {no_turbolink: true} %>
+              <%= link_to t(".rate_link"), new_sales_associate_rating_path(sales_associate_id: @sales_associate), data: {no_turbolink: true} %>
           <% end %>
       <% end %>
     </div>
@@ -79,14 +79,14 @@
 <% if position = @sales_associate.positions.first%>
   <p>
     <h4><%= t("sales_associates.summary.availability")%></h4>
-  
+
     <%= raw my_time_format("monday",position.monday, position.monday_start, position.monday_end, Time.now.monday?) %>
     <%= raw my_time_format("tuesday",position.tuesday, position.tuesday_start, position.tuesday_end, Time.now.tuesday?) %>
     <%= raw my_time_format("wednesday",position.wednesday, position.wednesday_start, position.wednesday_end, Time.now.wednesday?) %>
     <%= raw my_time_format("thursday",position.thursday, position.thursday_start, position.thursday_end, Time.now.thursday?) %>
     <%= raw my_time_format("friday",position.friday, position.friday_start, position.friday_end, Time.now.friday?) %>
     <%= raw my_time_format("saturday",position.saturday, position.saturday_start, position.saturday_end, Time.now.saturday?) %>
-    <%= raw my_time_format("sunday",position.sunday, position.sunday_start, position.sunday_end, Time.now.sunday?) %>  
+    <%= raw my_time_format("sunday",position.sunday, position.sunday_start, position.sunday_end, Time.now.sunday?) %>
   </p>
 <% end %>
 

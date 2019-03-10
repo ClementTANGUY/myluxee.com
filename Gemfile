@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.3'
+gem 'rails', '4.2.11'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -46,7 +46,7 @@ gem 'font-awesome-sass', '~> 4.2.0'
 
 gem 'bootstrap-datepicker-rails', '~> 1.4.0'
 
-gem "factory_girl_rails", "~> 4.0"
+gem "factory_bot_rails"
 
 gem "paperclip", "~>4.3.1"
 
@@ -60,7 +60,7 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+
 
 
 end
