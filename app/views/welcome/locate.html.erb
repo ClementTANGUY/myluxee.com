@@ -25,7 +25,7 @@
       <% else %>
           <div class="jumbotron">
             <div class="container">
-            
+
             <h3>It seems that there is no store in this area</h3>
             <h4>Be warned when new Luxees will reach this zone</h4>
 
@@ -33,18 +33,18 @@
               <input type="email" name="EMAIL" class="form-control" id="mce-EMAIL" placeholder="email address" required>
               <input type="submit" value="Remind me" name="subscribe" id="mc-embedded-subscribe" class="btn btn-primary">
             </form>
-            
-            
+
+
               <h4>Try to shop elsewhere</h4>
               <%= form_tag welcome_locate_path, method: :get, class: "form-inline" do %>
                   <div class="form-group">
                     <%= label_tag :place %><br>
                     <%= text_field_tag :place, @place, class: "form-control" %>
-                  
+
                   <%= submit_tag t("welcome.index.find_store"), class: "btn btn-primary"%>
                   </div>
               <% end %>
-            
+
             </div>
           </div>
       <% end %>
@@ -61,7 +61,7 @@
     setStoresToMap(<%= raw @stores.to_json include: [:brand]%>);
 </script>
 <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBC9IaTnQh2ds8DAcLWL4zvU-dYBgrdQss&callback=loadLocateMap"/>
+        src="https://maps.googleapis.com/maps/api/js?v=3&amp;key=AIzaSyB6a1GUw1LFgsytmPJ2yZ3V9fzjGRDCltM&callback=loadLocateMap"/>
 
 <script type="application/javascript">
     $(document).ready(function () {

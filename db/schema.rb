@@ -129,17 +129,17 @@ ActiveRecord::Schema.define(version: 20151108153550) do
     t.string   "saturday_end"
     t.string   "sunday_start"
     t.string   "sunday_end"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.float    "latitude"
     t.float    "longitude"
     t.string   "logo_file_name"
     t.string   "logo_content_type"
-    t.integer  "logo_file_size"
+    t.integer  "logo_file_size",      limit: 8
     t.datetime "logo_updated_at"
     t.string   "banner_file_name"
     t.string   "banner_content_type"
-    t.integer  "banner_file_size"
+    t.integer  "banner_file_size",    limit: 8
     t.datetime "banner_updated_at"
   end
 
@@ -149,14 +149,14 @@ ActiveRecord::Schema.define(version: 20151108153550) do
     t.boolean  "be_contacted"
     t.boolean  "be_rated"
     t.string   "contact_email"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
+    t.string   "email",                            default: "", null: false
+    t.string   "encrypted_password",               default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",                    default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -165,7 +165,7 @@ ActiveRecord::Schema.define(version: 20151108153550) do
     t.string   "uid"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
+    t.integer  "avatar_file_size",       limit: 8
     t.datetime "avatar_updated_at"
     t.string   "type"
   end

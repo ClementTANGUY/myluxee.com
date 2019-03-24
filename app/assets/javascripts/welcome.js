@@ -71,9 +71,9 @@ function loadLocateMap() {
     console.log('loadLocateMap');
     $.get( "http://maps.google.com/maps/api/geocode/json?address="+_place+"&sensor=false", function(location){
         var myLatlng = new google.maps.LatLng(48.8536450,2.3325860);
-        if (location["results"]){
+        if (location["results"].length > 0){
             var geo = location["results"][0];
-            myLatlng = new google.maps.LatLng(geo["geometry"]["location"]["lat"], geo["geometry"]["location"]["lng"])
+            myLatlng = new google.maps.LatLng(geo["geometry"]["location"]["lat"],geo["geometry"]["location"]["lng"])
         }
 
         var myOptions = {

@@ -58,8 +58,8 @@ class Store < ActiveRecord::Base
 
         geo = location["results"].first
 
-        self.latitude = geo["geometry"]["location"]["lat"]
-        self.longitude = geo["geometry"]["location"]["lng"]
+        self.latitude = geo["geometry"]["location"]["lat"].to_f
+        self.longitude = geo["geometry"]["location"]["lng"].to_f
       end
     end
   end

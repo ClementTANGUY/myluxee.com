@@ -46,9 +46,9 @@ gem 'font-awesome-sass', '~> 4.2.0'
 
 gem 'bootstrap-datepicker-rails', '~> 1.4.0'
 
-gem "factory_bot_rails"
+gem "factory_girl_rails"
 
-gem "paperclip", "~>4.3.1"
+gem "paperclip", ">= 5.2.0"
 
 gem 'kaminari'
 
@@ -66,7 +66,7 @@ group :development, :test do
 end
 
 group :production do
-  gem 'pg'
+  gem 'pg', '~> 0.15'
   gem 'rails_12factor'
   gem 'aws-sdk', '< 2.0'
 end

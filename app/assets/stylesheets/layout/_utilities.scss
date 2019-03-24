@@ -37,3 +37,11 @@
 .vertical-spacer {
   height: 4em;
 }
+
+.blinking{
+  font-size: 90px;
+  position: relative;
+  a {
+    color: $cerulean;
+  }
+}

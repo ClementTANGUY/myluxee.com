@@ -3,7 +3,7 @@ require 'test_helper'
 class AccountsControllerTest < ActionController::TestCase
   setup do
     @request.env["devise.mapping"] = Devise.mappings[:account]
-    @account = FactoryBot.create(:peter)
+    @account = FactoryGirl.create(:peter)
     sign_in @account
   end
 
